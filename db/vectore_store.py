@@ -44,6 +44,24 @@ class VectorStore:
     
     def upsert_memory(self, memory: Memory) -> bool:
         """Store or update a memory in Qdrant."""
+        point = PointStruct(
+            id=memory.id,
+            vector=memory.embedding,
+            payload={
+                "content": memory.content,
+                "timestamp": memory.timestamp.isoformat(),
+                "memory_type": memory.memory_type.value,
+                "importance_score": memory.importance_score,
+                "user_id": memory.user_id,
+                "tags": memory.tags
+            }
+        )
+        self.client.upsert(
+            collection_name=self.collection_name,
+            points=[point]
+        )
+        logger.info(f"Memory {memory.id} upserted successfully")
+        return True 
         
         
     
