@@ -67,10 +67,68 @@ class VectorStore:
     
     def search_memories(self, query: MemoryQuery, query_embedding: List[float]) -> List[Memory]:
         """Search for similar memories."""
+        filter_conditions = []
+        
+        if query.memory_types:
+            filter_conditions.append(
+                FieldCondition(
+                    key="memory_type",
+                    match=MatchValue(any=query.memory_types)
+                )
+            )
+        
+        if query.tags:
+            filter_conditions.append(
+                FieldCondition(
+                    key="tags",
+                    match=MatchValue(any=query.tags)
+                )
+            )
+        
+        if query.time_window_days is not None:
+            from datetime import datetime, timedelta
+            time_threshold = (datetime.now() - timedelta(days=query.time_window_days)).isoformat()
+            filter_conditions.append(
+                FieldCondition(
+                    key="timestamp",
+                    range={"gte": time_threshold}
+                )
+            )
+        
+        search_filter = Filter(must=filter_conditions) if filter_conditions else None
+        
+        search_results = self.client.search(
+            collection_name=self.collection_name,
+            query_vector=query_embedding,
+            limit=query.top_k,
+            filter=search_filter
+        )
+        
+        memories = []
+        for result in search_results:
+            payload = result.payload
+            memory = Memory(
+                id=result.id,
+                content=payload["content"],
+                embedding=None,  # Embedding is not returned in search results
+                timestamp=payload["timestamp"],
+                memory_type=payload["memory_type"],
+                importance_score=payload["importance_score"],
+                user_id=payload["user_id"],
+                tags=payload["tags"]
+            )
+            memories.append(memory)
+        
+        logger.info(f"Search returned {len(memories)} memories for query: {query.query_text}")
+        return memories
        
         
     
     def delete_memory(self, memory_id: str) -> bool:
         """Delete a memory by ID."""
-        
-        
+        self.client.delete(
+            collection_name=self.collection_name,
+            points=[memory_id]
+        )
+        logger.info(f"Memory {memory_id} deleted successfully")
+        return True
