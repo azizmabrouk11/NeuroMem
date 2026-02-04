@@ -17,6 +17,8 @@ class Memory(BaseModel):
     importance_score: float = Field(default=0.5, ge=0.0, le=1.0)
     user_id: str
     tags: List[str] = Field(default_factory=list)
+    last_accessed : Optional[datetime] = None
+    
 class MemoryQuery(BaseModel):
     """Query structure for retrieving memories."""
     query_text: str
