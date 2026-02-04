@@ -47,3 +47,31 @@ class MemoryStore:
             stored_memories.append(memory)
         
         return stored_memories
+    
+    def update_memory(
+        self,
+        memory_id: str,
+        content: str = None,
+        importance_score: float = None,
+        tags: List[str] = None
+    ) -> bool:
+        """
+        Update an existing memory.
+        If content changes, re-generate embedding.
+        """
+        existing_memory = self.vector_store.get_memory_by_id(memory_id)
+        if not existing_memory:
+            return False
+        
+        if content and content != existing_memory.content:
+            existing_memory.content = content
+            existing_memory.embedding = self.embedder.embed(content)
+        
+        if importance_score is not None:
+            existing_memory.importance_score = importance_score
+        
+        if tags is not None:
+            existing_memory.tags = tags
+        
+        self.vector_store.upsert_memory(existing_memory)
+        return True

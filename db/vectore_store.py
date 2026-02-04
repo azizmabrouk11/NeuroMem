@@ -1,3 +1,4 @@
+import datetime
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
     Distance, 
@@ -137,3 +138,29 @@ class VectorStore:
         )
         logger.info(f"Memory {memory_id} deleted successfully")
         return True
+    
+    def get_memory_by_id(self, memory_id: str) -> Optional[Memory]:
+        """Retrieve a memory by its ID."""
+        result = self.client.retrieve(
+            collection_name=self.collection_name,
+            ids=[memory_id]
+        )
+        if not result or not result[0].payload:
+            logger.warning(f"Memory {memory_id} not found")
+            return None
+        
+        payload = result[0].payload
+        memory = Memory(
+            id=result[0].id,
+            content=payload["content"],
+            embedding=None,  # Embedding is not returned in retrieve results
+            timestamp=datetime.fromisoformat(payload["timestamp"]),
+            memory_type=payload["memory_type"],
+            importance_score=payload["importance_score"],
+            user_id=payload["user_id"],
+            tags=payload["tags"],
+            last_accessed=datetime.fromisoformat(payload["last_accessed"]),
+            access_count=payload["access_count"]
+        )
+        logger.info(f"Memory {memory_id} retrieved successfully")
+        return memory

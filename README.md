@@ -1,20 +1,21 @@
 # NeuroMem - LLM Memory System 🧠
 
-A sophisticated long-term memory system for AI agents using embeddings, reasoning, and intelligent retrieval mechanisms.
+A sophisticated long-term memory system for AI agents using Google Gemini embeddings, Qdrant vector database, and intelligent retrieval mechanisms.
 
 ## Overview
 
-NeuroMem provides AI agents with the ability to maintain persistent, contextual memory across conversations. By leveraging vector embeddings and semantic search, the system enables agents to recall relevant information, learn from past interactions, and build meaningful, long-term relationships with users.
+NeuroMem provides AI agents with the ability to maintain persistent, contextual memory across conversations. By leveraging Gemini's text-embedding-004 model and Qdrant vector database, the system enables agents to recall relevant information, learn from past interactions, and build meaningful, long-term relationships with users.
 
 ## ✨ Key Features
 
 - **Persistent Memory**: Store and retrieve conversations and user facts
-- **Semantic Search**: Find relevant memories using vector embeddings
+- **Semantic Search**: Find relevant memories using Gemini embeddings (768-dimensional vectors)
+- **Batch Processing**: Efficient batch embedding for multiple memories
 - **Memory Importance Scoring**: Prioritize significant information
 - **Temporal Decay**: Gradually forget outdated information
 - **Context-Aware Retrieval**: Build intelligent context for AI responses
 - **Memory Reasoning**: Analyze and connect related memories
-- **RAG Integration**: Retrieval-Augmented Generation for enhanced responses
+- **Qdrant Integration**: Fast and scalable vector similarity search
 
 ## 🎯 Use Cases
 
@@ -30,12 +31,20 @@ NeuroMem provides AI agents with the ability to maintain persistent, contextual 
 NeuroMem/
 ├── ai/              # AI model integrations and LLM interfaces
 ├── app/             # Application logic and API endpoints
-├── config/          # Configuration files and settings
+├── config/          # Configuration files and settings (Gemini, Qdrant)
+│   └── settings.py  # Centralized configuration management
 ├── core/            # Core memory system logic
-├── db/              # Database connections and schemas
+├── db/              # Database connections and vector store
+│   └── vectore_store.py  # Qdrant vector database operations
 ├── intelligence/    # Reasoning and memory analysis
 ├── memory/          # Memory storage and retrieval
+│   ├── store.py     # High-level memory storage interface
+│   └── encoding/    # Embedding generation
+│       ├── base.py  # Abstract embedder interface
+│       └── gemini.py  # Google Gemini embedding implementation
 ├── models/          # Data models and schemas
+│   ├── memory.py    # Memory data model
+│   └── user.py      # User data model
 ├── tests/           # Unit and integration tests
 └── utils/           # Helper functions and utilities
 ```
@@ -45,8 +54,8 @@ NeuroMem/
 ### Prerequisites
 
 - Python 3.9+
-- Qdrant (Vector Database)
-- OpenAI API key or compatible LLM provider
+- Qdrant (Vector Database) - Running locally or via Qdrant Cloud
+- Google Gemini API key
 
 ### Installation
 
@@ -70,35 +79,66 @@ pip install -r requirements.txt
 4. Configure environment variables:
 ```bash
 cp .env.example .env
-# Edit .env with your API keys and configuration
+# Edit .env with your Gemini API key and Qdrant configuration
+```
+
+Required environment variables:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+EMBEDDING_MODEL=models/text-embedding-004
+EMBEDDING_DIMENSION=768
+LLM_MODEL=gemini-1.5-flash
+
+QDRANT_HOST=localhost
+QDRANT_PORT=6333
+QDRANT_COLLECTION_NAME=ai_brain_memories
 ```
 
 ### Quick Start
 
 ```python
-from neuromem import MemorySystem
+from memory.store import MemoryStore
+from memory.encoding.gemini import GeminiEmbedder
+from db.vectore_store import VectorStore
 
-# Initialize the memory system
-memory = MemorySystem()
+# Initialize components
+embedder = GeminiEmbedder()
+vector_store = VectorStore()
+memory_store = MemoryStore(embedder, vector_store)
 
-# Store a memory
-memory.store("User prefers dark mode interface", importance=0.8)
+# Store a single memory
+memory = memory_store.store_memory(
+    content="User prefers dark mode interface",
+    user_id=123,
+    importance_score=0.8,
+    tags=["preferences", "ui"]
+)
+
+# Store multiple memories efficiently (batch embedding)
+memories_data = [
+    {"content": "Likes Python programming", "user_id": 123},
+    {"content": "Works in AI/ML field", "user_id": 123}
+]
+stored_memories = memory_store.store_memory_batch(memories_data)
 
 # Retrieve relevant memories
-results = memory.retrieve("What are the user's UI preferences?")
-
-# Use in conversation
-context = memory.build_context("Help me choose a theme")
+results = vector_store.search_similar_memories(
+    query_embedding=embedder.embed("What are user preferences?"),
+    top_k=5
+)
 ```
 
 ## 🔧 Core Technologies
 
-- **Vector Embeddings**: Transform text into semantic vectors
-- **Qdrant**: High-performance vector database
-- **LLM Integration**: OpenAI, Anthropic, or custom models
-- **Memory Scoring**: Importance-based ranking algorithm
-- **Temporal Weighting**: Time-decay functions for memory relevance
-- **RAG Pipeline**: Retrieval-Augmented Generation
+- **Google Gemini**: text-embedding-004 model for 768-dimensional semantic vectors
+- **Qdrant**: High-performance vector database for similarity search
+- **FastAPI**: Modern web framework for building APIs
+- **Pydantic**: Data validation and settings management
+- **Memory Architecture**: 
+  - `BaseEmbedder`: Abstract interface for embedding providers
+  - `GeminiEmbedder`: Gemini implementation with batch processing and retry logic
+  - `MemoryStore`: High-level memory management with metadata support
+  - `VectorStore`: Qdrant integration for vector operations
 
 ## 📖 Documentation
 
