@@ -71,7 +71,29 @@ class GeminiEmbedder(BaseEmbedder):
         
         return response["embedding"]
 
-
+    @retry.Retry(predicate=retry.if_transient_error, initial=2, maximum=30, multiplier=1.5)
+    def embed_query(self, text: str) -> List[float]:
+        """
+        Embed a single text string.
+        
+        Returns:
+            List of floats (768-dimensional vector for text-embedding-004)
+        """
+        if not self._configured:
+            genai.configure(api_key=self.api_key)
+        
+        if not text.strip():
+            raise ValueError("Cannot embed empty or whitespace-only text")
+        
+        response = genai.embed_content(
+            model=self.MODEL_NAME,
+            content=text,
+            task_type="RETRIEVAL_DOCUMENT",  # or RETRIEVAL_DOCUMENT depending on use-case
+            title=None,                       # optional – can help quality
+        )
+        
+        return response["embedding"]
+    
     def embed_batch(self, texts: List[str]) -> List[List[float]]:
         """Embed multiple texts sequentially."""
         return [self.embed(text) for text in texts]
