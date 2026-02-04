@@ -53,7 +53,9 @@ class VectorStore:
                 "memory_type": memory.memory_type.value,
                 "importance_score": memory.importance_score,
                 "user_id": memory.user_id,
-                "tags": memory.tags
+                "tags": memory.tags,
+                "last_accessed": memory.last_accessed.isoformat() if memory.last_accessed else None,
+                "access_count": memory.access_count
             }
         )
         self.client.upsert(
@@ -95,6 +97,7 @@ class VectorStore:
                 )
             )
         
+        
         search_filter = Filter(must=filter_conditions) if filter_conditions else None
         
         search_results = self.client.search(
@@ -111,11 +114,13 @@ class VectorStore:
                 id=result.id,
                 content=payload["content"],
                 embedding=None,  # Embedding is not returned in search results
-                timestamp=payload["timestamp"],
+                timestamp=datetime.fromisoformat(payload["timestamp"]),
                 memory_type=payload["memory_type"],
                 importance_score=payload["importance_score"],
                 user_id=payload["user_id"],
-                tags=payload["tags"]
+                tags=payload["tags"],
+                last_accessed=payload["last_accessed"],
+                access_count=payload["access_count"]
             )
             memories.append(memory)
         

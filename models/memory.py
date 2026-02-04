@@ -18,7 +18,7 @@ class Memory(BaseModel):
     user_id: str
     tags: List[str] = Field(default_factory=list)
     last_accessed : Optional[datetime] = None
-    
+    access_count: int = 0
 class MemoryQuery(BaseModel):
     """Query structure for retrieving memories."""
     query_text: str
