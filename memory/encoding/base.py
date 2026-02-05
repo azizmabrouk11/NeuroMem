@@ -3,6 +3,11 @@ from typing import List
 
 class BaseEmbedder(ABC):
     """Abstract base class for all embedding providers."""
+    
+    @abstractmethod
+    def embed_query(self, text: str) -> List[float]:
+        pass     
+
     @abstractmethod
     def embed(self, text: str) -> List[float]:
         pass    

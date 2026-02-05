@@ -12,7 +12,7 @@ from typing import List, Optional
 from loguru import logger
 
 from config.settings import settings
-from models.memory import Memory, MemoryQuery
+from models.memory import Memory, MemoryQuery, MemorySearchResult, MemoryType
 
 class VectorStore:
     def __init__(self):
@@ -68,15 +68,21 @@ class VectorStore:
         
         
     
-    def search_memories(self, query: MemoryQuery, query_embedding: List[float]) -> List[Memory]:
+    def search_memories(self, query: MemoryQuery, query_embedding: List[float]) -> List[MemorySearchResult]:
         """Search for similar memories."""
         filter_conditions = []
         
+        if not query.allow_cross_user:
+            filter_conditions.append(
+                FieldCondition(
+                    key="user_id", 
+                    match=MatchValue(value=query.user_id))
+            )
         if query.memory_types:
             filter_conditions.append(
                 FieldCondition(
                     key="memory_type",
-                    match=MatchValue(any=query.memory_types)
+                    match=MatchValue(any=[mt.value for mt in query.memory_types])
                 )
             )
         
@@ -101,27 +107,31 @@ class VectorStore:
         
         search_filter = Filter(must=filter_conditions) if filter_conditions else None
         
-        search_results = self.client.search(
+        search_results = self.client.query_points(
             collection_name=self.collection_name,
-            query_vector=query_embedding,
+            query=query_embedding,
             limit=query.top_k,
-            filter=search_filter
+            query_filter=search_filter
         )
         
         memories = []
-        for result in search_results:
+        for result in search_results.points:
             payload = result.payload
-            memory = Memory(
-                id=result.id,
-                content=payload["content"],
-                embedding=None,  # Embedding is not returned in search results
-                timestamp=datetime.fromisoformat(payload["timestamp"]),
-                memory_type=payload["memory_type"],
-                importance_score=payload["importance_score"],
-                user_id=payload["user_id"],
-                tags=payload["tags"],
-                last_accessed=payload["last_accessed"],
-                access_count=payload["access_count"]
+            memory = MemorySearchResult(
+                similarity_score=result.score,
+                final_score=result.score,  # Placeholder; apply weighting as needed
+                memory=Memory(
+                    id=result.id,
+                    content=payload["content"],
+                    embedding=None,  # Embedding is not returned in search results
+                    timestamp=datetime.fromisoformat(payload["timestamp"]),
+                    memory_type=MemoryType(payload["memory_type"]),
+                    importance_score=payload["importance_score"],
+                    user_id=payload["user_id"],
+                    tags=payload["tags"],
+                    last_accessed=datetime.fromisoformat(payload["last_accessed"]) if payload["last_accessed"] else None,
+                    access_count=payload["access_count"]    
+                )
             )
             memories.append(memory)
         

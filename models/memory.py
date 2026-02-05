@@ -19,15 +19,19 @@ class Memory(BaseModel):
     tags: List[str] = Field(default_factory=list)
     last_accessed : Optional[datetime] = None
     access_count: int = 0
+
+
 class MemoryQuery(BaseModel):
     """Query structure for retrieving memories."""
     query_text: str
     user_id: str
-    memory_types: Optional[list[MemoryType]] = None
+    memory_types: Optional[List[MemoryType]] = None
     top_k: int = Field(default=5, ge=1, le=50)
     min_similarity: float = Field(default=0.7, ge=0.0, le=1.0)
     time_window_days: Optional[int] = None  # Only memories from last N days
-    tags: Optional[list[str]] = None
+    tags: Optional[List[str]] = None
+    allow_cross_user: bool = False  
+
 
 class MemorySearchResult(BaseModel):
     """Result from memory search with scoring."""

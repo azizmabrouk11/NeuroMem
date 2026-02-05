@@ -65,7 +65,7 @@ class GeminiEmbedder(BaseEmbedder):
         response = genai.embed_content(
             model=self.MODEL_NAME,
             content=text,
-            task_type="RETRIEVAL_QUERY",  # or RETRIEVAL_DOCUMENT depending on use-case
+            task_type="RETRIEVAL_DOCUMENT",  # or RETRIEVAL_DOCUMENT depending on use-case
             title=None,                       # optional – can help quality
         )
         
@@ -88,7 +88,7 @@ class GeminiEmbedder(BaseEmbedder):
         response = genai.embed_content(
             model=self.MODEL_NAME,
             content=text,
-            task_type="RETRIEVAL_DOCUMENT",  # or RETRIEVAL_DOCUMENT depending on use-case
+            task_type="RETRIEVAL_QUERY",  # or RETRIEVAL_DOCUMENT depending on use-case
             title=None,                       # optional – can help quality
         )
         
