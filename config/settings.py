@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     max_working_memory: int = 10
     importance_threshold: float = 0.3
     similarity_threshold: float = 0.7
+    decay_rate: float = 0.01  
     
     class Config:
         env_file = ".env"
