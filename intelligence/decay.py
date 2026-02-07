@@ -51,33 +51,4 @@ class TemporalDecay:
         return decay_factor 
     
 
-    def calculate_access_boost(self,memory : Memory)->float:
-        """
-        Boost frequently accessed memories.
-        
-        Memories that are accessed often should decay slower.
-        
-        Args:
-            memory: Memory object with access_count
-            
-        Returns:
-            Access boost multiplier (1.0 - 2.0)
-        """
-        boost = 1.0 + math.log1p(memory.access_count) * 0.1
-        return min(boost, 2.0)
     
-
-    def apply_decay_with_boost(self,memory : Memory)->float:
-        """
-        Apply decay but boost for frequently accessed memories.
-        
-        Args:
-            memory: Memory object
-            
-        Returns:
-            Final recency score (0.0 - 2.0)
-        """
-        decay = self.calculate_decay(memory)
-        boost = self.calculate_access_boost(memory)
-        
-        return decay * boost
