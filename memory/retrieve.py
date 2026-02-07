@@ -1,10 +1,10 @@
 from db.vectore_store import VectorStore
+from intelligence.ranker import MemoryRanker
 from memory.encoding.base import BaseEmbedder
 from typing import List
 
 from models.memory import Memory, MemoryQuery, MemorySearchResult
-from datetime import datetime, timezone
-
+from loguru import logger
 class MemoryRetriever:
 
     """
@@ -15,6 +15,8 @@ class MemoryRetriever:
     def __init__(self, embedder: BaseEmbedder, vector_store: VectorStore):
         self.embedder = embedder
         self.vector_store = vector_store
+        self.ranker = MemoryRanker()
+        logger.info("MemoryRetriever initialized")
 
     def retrieve_memories(
         self,
@@ -25,9 +27,16 @@ class MemoryRetriever:
         Args:
             query: MemoryQuery object with search parameters
         Returns:
-            List of MemorySearchResult objects
+            List of MemorySearchResult objects sorted by final_score
         """
-        search_embedding = self.embedder.embed_query(query.query_text)
-        raw_memories = self.vector_store.search_memories(query, search_embedding)
-        return raw_memories
-    
+        try:
+            logger.info(f"Retrieving memories for query: '{query.query_text}' with top_k={query.top_k}")
+            search_embedding = self.embedder.embed_query(query.query_text)
+            raw_memories = self.vector_store.search_memories(query, search_embedding)
+            logger.info(f"Vector search returned {len(raw_memories)} memories")
+            ranked_memories = self.ranker.rank_memories(raw_memories)
+            logger.info(f"Returned {len(ranked_memories)} ranked memories for query: '{query.query_text}'")
+            return ranked_memories
+        except Exception as e:
+            logger.error(f"Error retrieving memories: {e}")
+            return []
