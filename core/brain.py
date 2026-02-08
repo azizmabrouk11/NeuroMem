@@ -59,6 +59,8 @@ class Brain:
             The stored Memory object
             
         Example:
+
+        
             memory = brain.remember(
                 "User prefers spicy Indian food",
                 memory_type=MemoryType.SEMANTIC,
@@ -74,7 +76,7 @@ class Brain:
                 user_id = self.user_id,
                 memory_type = memory_type,
                 importance_score = importance_score,
-                tags=tags or []
+                tags = []
             )
             logger.info(f"Stored memory {memory.id[:8]} for user {self.user_id}")
             return memory
