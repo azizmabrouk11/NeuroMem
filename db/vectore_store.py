@@ -1,4 +1,5 @@
 import datetime
+from xmlrpc import client
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
     Distance, 
@@ -174,3 +175,14 @@ class VectorStore:
         )
         logger.info(f"Memory {memory_id} retrieved successfully")
         return memory
+    def update_memory_metadata(self, memory: Memory, new_metadata: dict) -> bool:
+        """Update metadata fields of a memory."""
+        existing_memory = self.get_memory_by_id(memory.id)
+        if not existing_memory:
+            logger.error(f"Memory {memory.id} not found for metadata update")
+            return False
+        client.set_payload(
+            collection_name="NeuroMem",
+            payload=new_metadata,
+            points=[memory.id], # List of IDs to update
+)
