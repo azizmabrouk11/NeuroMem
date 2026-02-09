@@ -1187,7 +1187,7 @@ If you use NeuroMem in your research or project, please cite:
 
 If NeuroMem helped you, consider giving it a star!
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/NeuroMem?style=social)](https://github.com/yourusername/NeuroMem/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/NeuroMem?style=social)](https://github.com/azizmabrouk11/NeuroMem)
 
 ### Made with ❤️ by the NeuroMem Team
 
