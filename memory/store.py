@@ -3,7 +3,7 @@
 
 from db.vectore_store import VectorStore
 from memory.encoding.base import BaseEmbedder
-from types import List
+from typing import List
 
 from models.memory import Memory
 

@@ -3,9 +3,8 @@ Brain - Main orchestrator for the AI memory system.
 Provides high-level interface for storing, retrieving, and managing memories.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Optional
-from bson import utc
 from loguru import logger
 
 from models.memory import Memory, MemoryType, MemoryQuery, MemorySearchResult
@@ -35,7 +34,7 @@ class Brain:
 
         self.embedder = GeminiEmbedder()
         self.vector_store = VectorStore()
-        self.memory_store = MemoryStore()
+        self.memory_store = MemoryStore(self.embedder, self.vector_store)
         self.memory_retriever = MemoryRetriever(self.embedder, self.vector_store)
 
         logger.info(f"Brain initialized for user: {user_id}")
@@ -44,7 +43,8 @@ class Brain:
             self,
             content: str, 
             memory_type: MemoryType = MemoryType.EPISODIC, 
-            importance_score: Optional[float] = None
+            importance_score: Optional[float] = None,
+            tags: Optional[List[str]] = None
             ) -> Memory:
         """
         Store a new memory.
@@ -76,7 +76,7 @@ class Brain:
                 user_id = self.user_id,
                 memory_type = memory_type,
                 importance_score = importance_score,
-                tags = []
+                tags = tags or []
             )
             logger.info(f"Stored memory {memory.id[:8]} for user {self.user_id}")
             return memory
@@ -224,9 +224,9 @@ class Brain:
         """
         for result in results:
             memory = result.memory
-            count =memory.access_count + 1
-            last_accessed = datetime.now(tz=utc)
-            return self.vector_store.update_memory_metadata(memory, {
+            count = memory.access_count + 1
+            last_accessed = datetime.now(timezone.utc)
+            self.vector_store.update_memory_metadata(memory, {
                 "access_count": count,
                 "last_accessed": last_accessed
             })

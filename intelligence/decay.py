@@ -4,11 +4,10 @@ Recent memories have higher weight, old memories decay over time.
 
 """
 
-import datetime
+from datetime import datetime, timezone
 import math
-from time import timezone
-from joblib import Memory
-from config import settings
+from models.memory import Memory
+from config.settings import settings
 
 
 class TemporalDecay:
@@ -40,7 +39,7 @@ class TemporalDecay:
         now = datetime.now(timezone.utc)
         
         memory_time = memory.timestamp
-        if memory.tzinfo is None:
+        if memory_time.tzinfo is None:
             memory_time = memory_time.replace(tzinfo=timezone.utc)
 
         

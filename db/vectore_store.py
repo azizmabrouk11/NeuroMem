@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 from xmlrpc import client
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
@@ -96,7 +96,6 @@ class VectorStore:
             )
         
         if query.time_window_days is not None:
-            from datetime import datetime, timedelta
             time_threshold = (datetime.now() - timedelta(days=query.time_window_days)).isoformat()
             filter_conditions.append(
                 FieldCondition(
@@ -170,7 +169,7 @@ class VectorStore:
             importance_score=payload["importance_score"],
             user_id=payload["user_id"],
             tags=payload["tags"],
-            last_accessed=datetime.fromisoformat(payload["last_accessed"]),
+            last_accessed=datetime.fromisoformat(payload["last_accessed"]) if payload.get("last_accessed") else None,
             access_count=payload["access_count"]
         )
         logger.info(f"Memory {memory_id} retrieved successfully")
@@ -181,8 +180,19 @@ class VectorStore:
         if not existing_memory:
             logger.error(f"Memory {memory.id} not found for metadata update")
             return False
-        client.set_payload(
-            collection_name="NeuroMem",
-            payload=new_metadata,
-            points=[memory.id], # List of IDs to update
-)
+        
+        # Convert datetime objects to ISO format strings
+        processed_metadata = {}
+        for key, value in new_metadata.items():
+            if isinstance(value, datetime):
+                processed_metadata[key] = value.isoformat()
+            else:
+                processed_metadata[key] = value
+        
+        self.client.set_payload(
+            collection_name=self.collection_name,
+            payload=processed_metadata,
+            points=[memory.id]
+        )
+        logger.info(f"Memory {memory.id} metadata updated successfully")
+        return True

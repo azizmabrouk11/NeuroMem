@@ -4,7 +4,7 @@ from typing import Optional
 class Settings(BaseSettings):
     # gemini
     gemini_api_key: str
-    embedding_model: str = "models/text-embedding-004"
+    embedding_model: str = "models/embedding-001"
     embedding_dimension: int = 768
     llm_model: str = "gemini-1.5-flash"  
     

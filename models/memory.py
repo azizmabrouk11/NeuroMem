@@ -12,7 +12,7 @@ class Memory(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid4()))
     content: str
     embedding: Optional[List[float]] = None
-    timestamp: datetime = Field(default_factory=datetime.now(timezone.utc))
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     memory_type: MemoryType
     importance_score: float = Field(default=0.5, ge=0.0, le=1.0)
     user_id: str
