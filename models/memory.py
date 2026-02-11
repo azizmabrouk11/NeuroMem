@@ -38,3 +38,31 @@ class MemorySearchResult(BaseModel):
     memory: Memory
     similarity_score: float  # Raw cosine similarity from Qdrant
     final_score: float  # After applying importance + recency weighting
+
+class MemoryDraft(BaseModel):
+    """
+    Draft memory before being stored.
+    Missing user_id and embedding (added during storage).
+    """
+    content: str
+    memory_type: MemoryType
+    importance_score: float = Field(ge=0.0, le=1.0)
+    tags: List[str] = Field(default_factory=list)
+    
+    def to_memory(self, user_id: str) -> Memory:
+        """Convert draft to full Memory object."""
+        from datetime import datetime, timezone
+        from uuid import uuid4
+        
+        return Memory(
+            id=str(uuid4()),
+            content=self.content,
+            embedding=None,
+            timestamp=datetime.now(timezone.utc),
+            memory_type=self.memory_type,
+            importance_score=self.importance_score,
+            user_id=user_id,
+            tags=self.tags,
+            access_count=0,
+            last_accessed=None
+        )
