@@ -3,7 +3,8 @@ Extract memories from conversations using LLM.
 Identifies facts, preferences, and important information to store.
 """
 from typing import List
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from loguru import logger
 
 from models.memory import MemoryDraft, MemoryType
@@ -18,8 +19,8 @@ class MemoryExtractor:
     def __init__(self, api_key: str = settings.gemini_api_key):
         """Initialize extractor with LLM."""
         self.api_key = api_key or settings.gemini_api_key
-        genai.configure(api_key=self.api_key)
-        self.model = genai.GenerativeModel(settings.llm_model)
+        self.client = genai.Client(api_key=self.api_key)
+        self.model_name = settings.llm_model
         logger.info("MemoryExtractor initialized")
 
     def extract_memories(
@@ -40,7 +41,10 @@ class MemoryExtractor:
         try: 
 
             prompt = self._build_extraction_prompt(user_message, assistant_message)
-            response = self.model.generate_content(prompt)
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=prompt
+            )
             memories = self._parse_response(response.text)
             logger.info(f"Extracted {len(memories)} memories from conversation")
             return memories
@@ -108,7 +112,7 @@ class MemoryExtractor:
                     tags=tags
                 )
                 memories.append(memory)
-                logger.debug(f"Extracted memory: {memory['content'][:50]}...")
+                logger.debug(f"Extracted memory: {memory.content[:50]}...")
             except Exception as e:
                 logger.error(f"Error parsing memory line: {line} - {e}")
         return memories

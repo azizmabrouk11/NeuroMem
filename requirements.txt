@@ -6,6 +6,8 @@ pydantic-settings>=2.6.0
 
 # AI/ML
 numpy>=2.0.0
+google-genai>=1.0.0
+google-api-core>=2.15.0
 
 # Vector DB
 qdrant-client>=1.7.1

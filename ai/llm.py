@@ -4,7 +4,8 @@ Uses Google Gemini API.
 """
 
 from typing import List, Optional
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from loguru import logger
 
 from config.settings import settings
@@ -18,8 +19,7 @@ class LLMClient:
     """
     def __init__(self, model_name: Optional[str] = None):
         self.model_name = model_name or settings.llm_model
-        genai.configure(api_key=settings.gemini_api_key)
-        self.model = genai.GenerativeModel(self.model_name)
+        self.client = genai.Client(api_key=settings.gemini_api_key)
         logger.info(f"Initialized LLM client with model: {self.model_name}")
 
     def generate_response(
@@ -46,24 +46,19 @@ class LLMClient:
         try: 
             full_prompt = self._build_prompt(prompt, context, system_instruction)
             logger.debug(f"Sending prompt to LLM (length: {len(full_prompt)} chars)")
-            generation_config = genai.GenerationConfig(
+            
+            config = types.GenerateContentConfig(
                 temperature=temperature,
-                max_output_tokens=max_tokens
-
+                max_output_tokens=max_tokens,
+                system_instruction=system_instruction if system_instruction else None
             )
-            if system_instruction:
-                model = genai.GenerativeModel(
-                    self.model_name,
-                    system_instruction=system_instruction
-                )
-            else: 
-                model = self.model
         
-            response = model.generate_content(
-                prompt=full_prompt,
-                generation_config=generation_config
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=full_prompt,
+                config=config
             )
-            result =response.text
+            result = response.text
             logger.debug(f"LLM response: {result[:100]}...")
             return result
         except Exception as e:
