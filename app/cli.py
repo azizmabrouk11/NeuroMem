@@ -198,6 +198,52 @@ def stats(user_id: str):
         click.echo(click.style(f"✗ Error: {e}", fg='red', bold=True))
         sys.exit(1)
 
+@cli.command()
+@click.option('--user-id', '-u', default='default_user', help='User ID')
+@click.option('--system', '-s', default=None, help='System instruction')
+def chat(user_id: str, system: str):
+    """
+    Interactive chat with memory.
+    
+    Example:
+        python -m app.cli chat -u aziz
+    """
+    from ai.chat import ChatManager
+    
+    try:
+        # Initialize chat
+        memory_chat = ChatManager(
+            user_id=user_id,
+            system_instruction=system
+        )
+        
+        click.echo(click.style(f"\n💬 Memory Chat (User: {user_id})", fg='cyan', bold=True))
+        click.echo(click.style("Type 'quit' or 'exit' to end the conversation\n", fg='yellow'))
+        
+        # Chat loop
+        while True:
+            # Get user input
+            user_message = click.prompt(click.style("You", fg='green', bold=True), type=str)
+            
+            # Check for exit
+            if user_message.lower() in ['quit', 'exit', 'bye']:
+                click.echo(click.style("\n👋 Goodbye!", fg='cyan', bold=True))
+                break
+            
+            # Get response
+            try:
+                response = memory_chat.chat(user_message)
+                click.echo(click.style("Assistant: ", fg='blue', bold=True) + response)
+                click.echo()
+                
+            except Exception as e:
+                click.echo(click.style(f"Error: {e}", fg='red'))
+                continue
+        
+    except Exception as e:
+        click.echo(click.style(f"✗ Error: {e}", fg='red', bold=True))
+        sys.exit(1)
+
 
 if __name__ == '__main__':
     cli()
