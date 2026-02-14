@@ -1,7 +1,6 @@
 
 
-
-import datetime
+from datetime import datetime, timezone
 from loguru import logger
 from db.vectore_store import VectorStore
 from memory.encoding.base import BaseEmbedder
@@ -185,7 +184,7 @@ class MemoryStore:
                 logger.debug(f"Deleted duplicate: {memory.id[:8]}")
         canonical.access_count = total_access_count + 1
         canonical.tags = list(all_tags)
-        canonical.last_accessed = datetime.now(datetime.timezone.utc)
+        canonical.last_accessed = datetime.now(timezone.utc)
         boost = 0.05 * len(duplicates)  
         canonical.importance_score = min(
             canonical.importance_score + boost,
