@@ -6,7 +6,8 @@ from qdrant_client.models import (
     VectorParams,
     Filter,
     FieldCondition,
-    MatchValue
+    MatchValue,
+    PointIdsList
 )
 from typing import List, Optional
 from loguru import logger
@@ -147,7 +148,9 @@ class VectorStore:
         """Delete a memory by ID."""
         self.client.delete(
             collection_name=self.collection_name,
-            points=[str(memory_id)]
+            points_selector=PointIdsList(
+                points=[str(memory_id)]
+            )
         )
         logger.info(f"Memory {memory_id} deleted successfully")
         return True

@@ -4,9 +4,9 @@ Uses Google Gemini API.
 """
 
 from typing import List, Optional
-from google import genai
-from google.genai import types
+
 from loguru import logger
+from openai import OpenAI
 
 from config.settings import settings
 
@@ -18,47 +18,40 @@ class LLMClient:
         model_name: Gemini model to use (default from settings)
     """
     def __init__(self, model_name: Optional[str] = None):
-        self.model_name = model_name or settings.llm_model
-        self.client = genai.Client(api_key=settings.gemini_api_key)
-        logger.info(f"Initialized LLM client with model: {self.model_name}")
-
-    def generate_response(
-            self,
-            prompt: str,
-            context: Optional[str] = None,
-            system_instruction: Optional[str] = None,
-            temperature: float = 0.7,
-            max_tokens: int = 1000
-        )-> str:
-        """
-        Generate a response from the LLM.
+        """Initialize Ollama (OpenAI-compatible)."""
         
-        Args:
-            prompt: User's message
-            context: Memory context to include
-            system_instruction: System-level instructions
-            temperature: Creativity (0.0-1.0)
-            max_tokens: Max response length
-            
-        Returns:
-            Generated text response
-        """
+        self.client = OpenAI(
+            base_url=settings.ollama_base_url,
+            api_key="ollama"  # Dummy key
+        )
+        self.model_name = settings.ollama_model
+        self.client_type = "openai"
+    def generate_response(
+        self,
+        prompt: str,
+        context: Optional[str] = None,
+        system_instruction: Optional[str] = None,
+        temperature: float = 0.7,
+        max_tokens: int = 1000
+    ) -> str:
+        """Generate a response from Ollama."""
         try: 
             full_prompt = self._build_prompt(prompt, context, system_instruction)
             logger.debug(f"Sending prompt to LLM (length: {len(full_prompt)} chars)")
             
-            config = types.GenerateContentConfig(
-                temperature=temperature,
-                max_output_tokens=max_tokens,
-                system_instruction=system_instruction if system_instruction else None
-            )
-        
-            response = self.client.models.generate_content(
+            messages = []
+            if system_instruction:
+                messages.append({"role": "system", "content": system_instruction})
+            messages.append({"role": "user", "content": full_prompt})
+            
+            response = self.client.chat.completions.create(
                 model=self.model_name,
-                contents=full_prompt,
-                config=config
+                messages=messages,
+                temperature=temperature,
+                max_tokens=max_tokens
             )
-            result = response.text
+            
+            result = response.choices[0].message.content
             logger.debug(f"LLM response: {result[:100]}...")
             return result
         except Exception as e:

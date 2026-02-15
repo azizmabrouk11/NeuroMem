@@ -13,6 +13,11 @@ class Settings(BaseSettings):
     qdrant_port: int = 6333
     qdrant_api_key: Optional[str] = None
     qdrant_collection_name: str = "ai_brain_memories"
+
+    # Ollama
+    llm_provider: str = "ollama"  # or "gemini"
+    ollama_base_url: str = "http://localhost:11434/v1"
+    ollama_model: str = "llama3.2"
     
     # Memory settings
     max_working_memory: int = 10

@@ -23,3 +23,5 @@ pytest-asyncio==0.23.3
 # CLI
 click==8.1.7
 
+# For Ollama (OpenAI-compatible)
+openai==1.12.0

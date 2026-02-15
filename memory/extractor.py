@@ -3,9 +3,9 @@ Extract memories from conversations using LLM.
 Identifies facts, preferences, and important information to store.
 """
 from typing import List
-from google import genai
-from google.genai import types
+
 from loguru import logger
+from openai import OpenAI
 
 from models.memory import MemoryDraft, MemoryType
 from config.settings import settings
@@ -16,18 +16,21 @@ class MemoryExtractor:
     Uses LLM to identify facts, preferences, and important details.
     """
 
-    def __init__(self, api_key: str = settings.gemini_api_key):
-        """Initialize extractor with LLM."""
-        self.api_key = api_key or settings.gemini_api_key
-        self.client = genai.Client(api_key=self.api_key)
-        self.model_name = settings.llm_model
-        logger.info("MemoryExtractor initialized")
+    def __init__(self):
+        """Initialize extractor with Ollama LLM."""
+        self.client = OpenAI(
+            base_url=settings.ollama_base_url,
+            api_key="ollama"  # Dummy key for Ollama compatibility
+        )
+        self.model_name = settings.ollama_model
+        self.client_type = "openai"
+        logger.info(f"MemoryExtractor initialized with Ollama model: {self.model_name}")
 
     def extract_memories(
             self,
             user_message: str,
             assistant_message: str
-            ) -> List[dict]:
+            ) -> List[MemoryDraft]:
         """
         Extract memories from a conversation turn.
         
@@ -36,16 +39,18 @@ class MemoryExtractor:
             assistant_message: What the assistant responded
             
         Returns:
-            List of memory dicts with keys: content, memory_type, importance, tags
+            List of MemoryDraft objects with content, memory_type, importance_score, and tags
         """
         try: 
 
             prompt = self._build_extraction_prompt(user_message, assistant_message)
-            response = self.client.models.generate_content(
+            response = self.client.chat.completions.create(
                 model=self.model_name,
-                contents=prompt
+                messages=[
+                    {"role": "user", "content": prompt}
+                ]
             )
-            memories = self._parse_response(response.text)
+            memories = self._parse_response(response.choices[0].message.content)
             logger.info(f"Extracted {len(memories)} memories from conversation")
             return memories
         except Exception as e:
@@ -54,39 +59,45 @@ class MemoryExtractor:
     
     def _build_extraction_prompt(self, user_message: str, assistant_message: str) -> str:
         """Construct a prompt to extract memories from the conversation."""
-
-
         return f"""You are a memory extraction system. Analyze this conversation and extract important facts, preferences, or information about the user.
 
+Conversation:
+USER: {user_message}
+ASSISTANT: {assistant_message}
 
+Extract memories in this EXACT format (one per line, with actual values):
 
-            Conversation:
-            USER: {user_message}
-            ASSISTANT: {assistant_message}
+Examples:
+SEMANTIC|0.8|food,preference|User loves spicy Indian food
+EPISODIC|0.6|conversation,work|User asked about Python programming on Feb 15
+SEMANTIC|0.9|health,allergy|User is allergic to peanuts
 
-            Extract memories in this EXACT format (one per line):
-            SEMANTIC|importance_score|tags|content
-            EPISODIC|importance_score|tags|content
+Format: TYPE|SCORE|TAGS|CONTENT
+- TYPE: SEMANTIC (facts/preferences) or EPISODIC (events/interactions)
+- SCORE: Number between 0.0 and 1.0 (importance)
+- TAGS: Comma-separated words (no spaces after commas)
+- CONTENT: The actual memory text
 
-            Rules:
-            - SEMANTIC: Facts, preferences, long-term information (e.g., "User is allergic to peanuts")
-            - EPISODIC: Events, specific interactions (e.g., "User asked about Python on 2024-02-10")
-            - importance_score: 0.0 to 1.0 (how important is this information?)
-            - tags: comma-separated (e.g., "food,allergy" or "coding,python")
-            - content: The actual memory text
+Only extract truly important information that's worth remembering long-term.
+If there's nothing important worth remembering, respond ONLY with: NONE
 
-            Only extract truly important information. If nothing important, respond with "NONE".
-
-            Extracted memories:"""
+Output your extracted memories (or NONE):"""
     def _parse_response(self, response_text: str) -> List[MemoryDraft]:
         """
         Parse LLM's extraction response into memory dicts.
         """
+        logger.info(f"Attempting to parse response: {response_text[:100]}...")
         memories = []
         lines = response_text.strip().split("\n")
         for line in lines:
-            if not line or line == "NONE":
+            line = line.strip()
+            if not line or line.upper() == "NONE":
                 continue
+            
+            # Skip template/example lines
+            if "importance_score" in line.lower() or "TYPE|SCORE|TAGS|CONTENT" in line:
+                continue
+                
             try:
                 parts = line.split("|", 3)
                 if len(parts) != 4:
@@ -113,6 +124,8 @@ class MemoryExtractor:
                 )
                 memories.append(memory)
                 logger.debug(f"Extracted memory: {memory.content[:50]}...")
+            except ValueError as e:
+                logger.warning(f"Skipping invalid memory line (value error): {line}")
             except Exception as e:
                 logger.error(f"Error parsing memory line: {line} - {e}")
         return memories
