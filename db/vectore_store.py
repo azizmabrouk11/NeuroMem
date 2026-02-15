@@ -3,8 +3,7 @@ from xmlrpc import client
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
     Distance, 
-    VectorParams, 
-    PointStruct,
+    VectorParams,
     Filter,
     FieldCondition,
     MatchValue
@@ -46,10 +45,10 @@ class VectorStore:
     
     def upsert_memory(self, memory: Memory) -> bool:
         """Store or update a memory in Qdrant."""
-        point = PointStruct(
-            id=memory.id,
-            vector=memory.embedding,
-            payload={
+        point = {
+            "id": str(memory.id),
+            "vector": memory.embedding,
+            "payload": {
                 "content": memory.content,
                 "timestamp": memory.timestamp.isoformat(),
                 "memory_type": memory.memory_type.value,
@@ -59,7 +58,7 @@ class VectorStore:
                 "last_accessed": memory.last_accessed.isoformat() if memory.last_accessed else None,
                 "access_count": memory.access_count
             }
-        )
+        }
         self.client.upsert(
             collection_name=self.collection_name,
             points=[point]
@@ -116,6 +115,10 @@ class VectorStore:
         
         memories = []
         for result in search_results.points:
+            # Filter by minimum similarity threshold
+            if result.score < query.min_similarity:
+                continue
+                
             payload = result.payload
             memory = MemorySearchResult(
                 similarity_score=result.score,
@@ -144,7 +147,7 @@ class VectorStore:
         """Delete a memory by ID."""
         self.client.delete(
             collection_name=self.collection_name,
-            points=[memory_id]
+            points=[str(memory_id)]
         )
         logger.info(f"Memory {memory_id} deleted successfully")
         return True
@@ -153,7 +156,7 @@ class VectorStore:
         """Retrieve a memory by its ID."""
         result = self.client.retrieve(
             collection_name=self.collection_name,
-            ids=[memory_id]
+            ids=[str(memory_id)]
         )
         if not result or not result[0].payload:
             logger.warning(f"Memory {memory_id} not found")
@@ -192,7 +195,7 @@ class VectorStore:
         self.client.set_payload(
             collection_name=self.collection_name,
             payload=processed_metadata,
-            points=[memory.id]
+            points=[str(memory.id)]
         )
         logger.info(f"Memory {memory.id} metadata updated successfully")
         return True

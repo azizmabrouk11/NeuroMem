@@ -43,8 +43,10 @@ class MemoryStore:
             Memory object (either newly created or existing boosted one)
         """
         try:
-            
+            logger.info(f"Storing memory for user: {metadata.get('user_id')}")
             embedding = self.embedder.embed(content)
+            logger.debug(f"Embedding generated, length: {len(embedding)}")
+            
             similar_memories = self._find_duplicates( 
                 content=content,
                 embedding=embedding,
@@ -52,7 +54,9 @@ class MemoryStore:
                 memory_type=metadata.get("memory_type"),
                 threshold=deduplication_threshold
                 )
+            
             if similar_memories:
+                logger.info(f"Found {len(similar_memories)} similar memories, merging...")
                 canonical = self._merge_duplicates(
                     duplicates=similar_memories,
                     new_content=content,
@@ -61,8 +65,12 @@ class MemoryStore:
 
                 )
                 return canonical
+            
+            logger.info(f"No duplicates found, creating new memory")
             memory = Memory(content=content, embedding=embedding, **metadata)
+            logger.debug(f"Memory object created with id: {memory.id}")
             self.vector_store.upsert_memory(memory)
+            logger.info(f"Memory stored successfully: {memory.id}")
             return memory
         except Exception as e:
             logger.error(f"Error storing memory: {e}")
@@ -140,9 +148,9 @@ class MemoryStore:
             results = self.vector_store.search_memories(query, query_embedding=embedding)
             if results:
                 duplicates = [r.memory for r in results]
-                logger.debug(
+                logger.info(
                     f"Found {len(duplicates)} similar memories "
-                    f"(threshold={threshold})"
+                    f"(threshold={threshold}), similarities: {[f'{r.similarity_score:.3f}' for r in results]}"
                 )
                 return duplicates
             return []
@@ -190,6 +198,12 @@ class MemoryStore:
             canonical.importance_score + boost,
             1.0
         )
-        self.vector_store.upsert_memory(canonical)
+        # Use update_memory_metadata since canonical doesn't have embedding
+        self.vector_store.update_memory_metadata(canonical, {
+            "access_count": canonical.access_count,
+            "tags": canonical.tags,
+            "last_accessed": canonical.last_accessed,
+            "importance_score": canonical.importance_score
+        })
         logger.info(f"Merged {len(duplicates)} duplicates into canonical memory {canonical.id[:8]}")
         return canonical
