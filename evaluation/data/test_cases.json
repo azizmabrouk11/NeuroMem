@@ -1,0 +1,3302 @@
+[
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "2": 2,
+          "4": 1,
+          "0": 0,
+          "1": 0,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_experience",
+    "memories": [
+      "User is learning Python",
+      "User had a job interview last week",
+      "User is interested in data science"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "job_q1",
+        "query": "What job did the user have last week?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User was born in New York",
+      "User has a sibling",
+      "User is 25 years old"
+    ],
+    "queries": [
+      {
+        "query_id": "age_q1",
+        "query": "How old is the user?",
+        "relevance": {
+          "2": 2,
+          "0": 1,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "birthplace_q1",
+        "query": "Where was the user born?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User is allergic to peanuts",
+      "User had a cold last week",
+      "User takes medication for high blood pressure"
+    ],
+    "queries": [
+      {
+        "query_id": "allergy_q1",
+        "query": "What is the user allergic to?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "medication_q1",
+        "query": "What medication does the user take?",
+        "relevance": {
+          "2": 2,
+          "0": 1,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves reading books",
+      "User is interested in photography"
+    ],
+    "queries": [
+      {
+        "query_id": "interest_q1",
+        "query": "What hobby or interest does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "hobby_q1",
+        "query": "Does the user enjoy reading books?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "1": 2,
+          "4": 2,
+          "3": 0,
+          "0": 0,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User is working on a project",
+      "User had a meeting yesterday",
+      "User is good at public speaking"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 2,
+          "2": 1,
+          "3": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "skill_q2",
+        "query": "What skill does the user use for work?",
+        "relevance": {
+          "1": 2,
+          "4": 2,
+          "3": 0,
+          "2": 0,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User has a birthday next month",
+      "User lives in New York City",
+      "User is married"
+    ],
+    "queries": [
+      {
+        "query_id": "fact_q1",
+        "query": "What is the user's location?",
+        "relevance": {
+          "0": 2,
+          "3": 2,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "fact_q2",
+        "query": "What is the user's marital status?",
+        "relevance": {
+          "1": 2,
+          "3": 2,
+          "2": 0,
+          "0": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has high blood pressure",
+      "User is taking medication"
+    ],
+    "queries": [
+      {
+        "query_id": "health_q1",
+        "query": "What health issue does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "health_q2",
+        "query": "What medication is the user taking?",
+        "relevance": {
+          "1": 2,
+          "2": 2,
+          "3": 0,
+          "0": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User is a good cook"
+    ],
+    "queries": [
+      {
+        "query_id": "interest_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "interest_q2",
+        "query": "What skill does the user have?",
+        "relevance": {
+          "1": 2,
+          "2": 2,
+          "3": 0,
+          "0": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "Does the user have a food allergy?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User is working on a project",
+      "User had a meeting yesterday",
+      "User loves coding"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Is the user working on a project?",
+        "relevance": {
+          "2": 2,
+          "1": 1,
+          "0": 0,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User is married",
+      "User has two kids",
+      "User lives in New York",
+      "User loves reading"
+    ],
+    "queries": [
+      {
+        "query_id": "family_q1",
+        "query": "Is the user married?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "location_q1",
+        "query": "Where does the user live?",
+        "relevance": {
+          "3": 2,
+          "2": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has high blood pressure",
+      "User is taking medication",
+      "User had a doctor's appointment"
+    ],
+    "queries": [
+      {
+        "query_id": "health_q1",
+        "query": "Does the user have high blood pressure?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "medication_q1",
+        "query": "Is the user taking medication?",
+        "relevance": {
+          "2": 2,
+          "1": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User is learning photography",
+      "User had a concert last night"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user love?",
+        "relevance": {
+          "0": 2,
+          "2": 1,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "photography_q1",
+        "query": "Is the user learning photography?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms",
+      "User enjoys sushi"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User has experience with Java",
+      "User works as a software engineer",
+      "User is interested in data science"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What programming language does the user know?",
+        "relevance": {
+          "0": 2,
+          "2": 1,
+          "3": 0,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "skill_q2",
+        "query": "What field of study is the user interested in?",
+        "relevance": {
+          "4": 2,
+          "1": 1,
+          "3": 0,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is in June",
+      "User has a pet dog named Max",
+      "User lives in New York City"
+    ],
+    "queries": [
+      {
+        "query_id": "fact_q1",
+        "query": "What month does the user live in?",
+        "relevance": {
+          "2": 2,
+          "0": 1,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "fact_q2",
+        "query": "Does the user have a pet?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has diabetes",
+      "User takes medication for high blood pressure"
+    ],
+    "queries": [
+      {
+        "query_id": "health_q1",
+        "query": "What health condition does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "health_q2",
+        "query": "Does the user take medication for high blood pressure?",
+        "relevance": {
+          "3": 2,
+          "1": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User enjoys hiking",
+      "User loves playing guitar"
+    ],
+    "queries": [
+      {
+        "query_id": "interest_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "3": 1
+        }
+      },
+      {
+        "query_id": "interest_q2",
+        "query": "Does the user play a musical instrument?",
+        "relevance": {
+          "4": 2,
+          "3": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "4": 2,
+          "1": 1,
+          "3": 0,
+          "0": 0,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User has been working as a software engineer for 5 years",
+      "User attended a coding bootcamp last year"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What programming language is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "experience_q1",
+        "query": "How many years of experience does the user have in software engineering?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is on March 12th",
+      "User's favorite color is blue"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What day of the week is the user's birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "color_q1",
+        "query": "What color does the user like?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User is taking medication for diabetes",
+      "User has high blood pressure"
+    ],
+    "queries": [
+      {
+        "query_id": "medication_q1",
+        "query": "What health condition does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "pressure_q1",
+        "query": "Is the user taking medication for high blood pressure?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User enjoys hiking and camping",
+      "User is learning to play the guitar"
+    ],
+    "queries": [
+      {
+        "query_id": "activity_q1",
+        "query": "What outdoor activity does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "instrument_q1",
+        "query": "What instrument is the user learning to play?",
+        "relevance": {
+          "2": 2,
+          "0": 1,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user avoid?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User has been working as a software engineer for 5 years",
+      "User wants to switch to data science"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What programming language is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "career_q1",
+        "query": "What career path does the user want to pursue?",
+        "relevance": {
+          "2": 2,
+          "1": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is on March 12th",
+      "User has a sibling named John"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What is the user's birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "sibling_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has high blood pressure",
+      "User takes medication for diabetes"
+    ],
+    "queries": [
+      {
+        "query_id": "blood_pressure_q1",
+        "query": "What health condition does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "medication_q1",
+        "query": "What health issue is the user taking medication for?",
+        "relevance": {
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User enjoys hiking in the mountains"
+    ],
+    "queries": [
+      {
+        "query_id": "guitar_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "hiking_q1",
+        "query": "What outdoor activity does the user like?",
+        "relevance": {
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "1": 2,
+          "4": 1,
+          "0": 0,
+          "3": 0,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User has been working on a project for months",
+      "User got promoted at work",
+      "User is trying to learn new skills"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "career_q1",
+        "query": "What career path is the user on?",
+        "relevance": {
+          "2": 2,
+          "1": 1,
+          "0": 0,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is in June",
+      "User has a sibling",
+      "User moved to a new city last year"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What month does the user's birthday fall in?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "family_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has high blood pressure",
+      "User is trying to lose weight"
+    ],
+    "queries": [
+      {
+        "query_id": "health_q1",
+        "query": "What health condition does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "diet_q1",
+        "query": "Is the user trying to lose weight?",
+        "relevance": {
+          "1": 2,
+          "0": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User has a pet dog"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "pet_q1",
+        "query": "Does the user have a pet?",
+        "relevance": {
+          "1": 2,
+          "0": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "4": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User is working on a project",
+      "User had a meeting with colleagues"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Where is the user working on a project?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_fact",
+    "memories": [
+      "User's birthday is in June",
+      "User has a pet dog"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What month does the user's birthday fall in?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "pet_q1",
+        "query": "Does the user have a pet?",
+        "relevance": {
+          "1": 2,
+          "0": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_info",
+    "memories": [
+      "User has high blood pressure",
+      "User is taking medication"
+    ],
+    "queries": [
+      {
+        "query_id": "medication_q1",
+        "query": "What type of medication is the user taking?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "blood_pressure_q1",
+        "query": "Does the user have high blood pressure?",
+        "relevance": {
+          "1": 2,
+          "0": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobby_interests",
+    "memories": [
+      "User enjoys hiking",
+      "User is learning photography"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "photography_q1",
+        "query": "Is the user learning photography?",
+        "relevance": {
+          "1": 2,
+          "0": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user avoid?",
+        "relevance": {
+          "1": 2,
+          "4": 1,
+          "3": 0,
+          "0": 0,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User had a meeting at work yesterday",
+      "User loves solving math problems",
+      "User has been working on a project for months"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Where does the user work?",
+        "relevance": {
+          "3": 1,
+          "2": 1,
+          "1": 0,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User is turning 30 this year",
+      "User has a sibling named Sarah",
+      "User loves playing basketball"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "How old will the user be?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "sibling_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User had a cold last week",
+      "User is taking medication for high blood pressure"
+    ],
+    "queries": [
+      {
+        "query_id": "illness_q1",
+        "query": "What illness did the user have recently?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "medication_q1",
+        "query": "What medication is the user taking?",
+        "relevance": {
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves reading science fiction books",
+      "User has a pet dog named Max"
+    ],
+    "queries": [
+      {
+        "query_id": "book_q1",
+        "query": "What genre of book does the user like?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "pet_q1",
+        "query": "Does the user have a pet?",
+        "relevance": {
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "Is the user allergic to any food?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User is working on a project",
+      "User had a meeting with colleagues",
+      "User attended a conference"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Is the user working on a project?",
+        "relevance": {
+          "2": 2,
+          "1": 1,
+          "0": 0,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is on March 12th",
+      "User's favorite color is blue",
+      "User has a pet dog"
+    ],
+    "queries": [
+      {
+        "query_id": "birth_q1",
+        "query": "What is the user's birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "color_q1",
+        "query": "What is the user's favorite color?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has high blood pressure",
+      "User is taking medication for diabetes"
+    ],
+    "queries": [
+      {
+        "query_id": "blood_q1",
+        "query": "Does the user have high blood pressure?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "medication_q1",
+        "query": "Is the user taking medication for diabetes?",
+        "relevance": {
+          "1": 2,
+          "0": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User enjoys hiking",
+      "User is learning photography"
+    ],
+    "queries": [
+      {
+        "query_id": "guitar_q1",
+        "query": "What hobby does the user love?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "hike_q1",
+        "query": "Does the user enjoy hiking?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "Does the user have a food allergy?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User has been working at Google for 5 years",
+      "User loves data science"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What programming language is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Where has the user been working?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is on March 12th",
+      "User has a sibling named Emma"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What is the user's birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "sibling_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has high blood pressure",
+      "User is taking medication for diabetes"
+    ],
+    "queries": [
+      {
+        "query_id": "blood_pressure_q1",
+        "query": "Does the user have high blood pressure?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "medication_q1",
+        "query": "Is the user taking medication for diabetes?",
+        "relevance": {
+          "2": 2,
+          "1": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User enjoys hiking"
+    ],
+    "queries": [
+      {
+        "query_id": "guitar_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "hiking_q1",
+        "query": "Does the user like to hike?",
+        "relevance": {
+          "2": 2,
+          "1": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "3": 2,
+          "4": 1,
+          "1": 0,
+          "2": 0,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_experience",
+    "memories": [
+      "User is learning Python",
+      "User worked as a software engineer for 5 years",
+      "User attended coding bootcamp"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What programming language is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "How many years of work experience does the user have?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "0": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User is 30 years old",
+      "User has a sibling"
+    ],
+    "queries": [
+      {
+        "query_id": "age_q1",
+        "query": "How old is the user?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "family_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "1": 2,
+          "0": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_info",
+    "memories": [
+      "User is allergic to peanuts",
+      "User has a cold"
+    ],
+    "queries": [
+      {
+        "query_id": "allergy_q1",
+        "query": "What is the user's allergy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "illness_q1",
+        "query": "Does the user have a cold?",
+        "relevance": {
+          "1": 2,
+          "0": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User enjoys hiking",
+      "User is learning guitar"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "skill_q2",
+        "query": "What skill is the user learning?",
+        "relevance": {
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "Pizza was the user's favorite dinner last night",
+      "The user had a great time at an Indian restaurant over the weekend",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "Is the user allergic to any food?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "2": 0,
+          "0": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "The user is learning Python for work",
+      "The user's favorite programming language is Java",
+      "User has been working on a project with a team for months",
+      "The user had to present their project at a conference last year",
+      "User is currently taking online courses to improve their skills"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What programming language does the user know?",
+        "relevance": {
+          "0": 2,
+          "4": 1,
+          "3": 0,
+          "1": 0,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "skill_q2",
+        "query": "Is the user working on a project?",
+        "relevance": {
+          "2": 2,
+          "4": 1,
+          "3": 0,
+          "0": 0,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "The user's birthday is in June",
+      "The user has a pet dog named Max",
+      "User's favorite color is blue",
+      "The user was born and raised in the city",
+      "User loves to read books"
+    ],
+    "queries": [
+      {
+        "query_id": "fact_q1",
+        "query": "What is the user's birthday month?",
+        "relevance": {
+          "0": 2,
+          "4": 1,
+          "3": 0,
+          "1": 0,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "fact_q2",
+        "query": "Does the user have a pet?",
+        "relevance": {
+          "2": 2,
+          "4": 1,
+          "3": 0,
+          "0": 0,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "The user had a cold last week",
+      "User is taking medication for high blood pressure",
+      "The user's doctor recommended regular check-ups",
+      "User has been feeling tired lately",
+      "User's favorite exercise is yoga"
+    ],
+    "queries": [
+      {
+        "query_id": "health_q1",
+        "query": "What health issue does the user have?",
+        "relevance": {
+          "2": 2,
+          "4": 1,
+          "3": 0,
+          "1": 0,
+          "0": 0
+        }
+      },
+      {
+        "query_id": "health_q2",
+        "query": "Does the user exercise regularly?",
+        "relevance": {
+          "5": 2,
+          "4": 1,
+          "3": 0,
+          "0": 0,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "The user loves playing guitar",
+      "User is an avid reader of science fiction novels",
+      "The user's favorite hobby is hiking",
+      "User has been learning to play the piano",
+      "User loves watching movies"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What is the user's favorite hobby?",
+        "relevance": {
+          "0": 2,
+          "4": 1,
+          "3": 0,
+          "1": 0,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "hobby_q2",
+        "query": "Is the user a reader?",
+        "relevance": {
+          "2": 2,
+          "4": 1,
+          "3": 0,
+          "0": 0,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "0": 0,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User had a meeting with colleagues",
+      "User is working on a project"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "project_q1",
+        "query": "Is the user working on a project?",
+        "relevance": {
+          "0": 1,
+          "1": 2,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is in June",
+      "User has a sibling"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What month does the user's birthday fall in?",
+        "relevance": {
+          "0": 2,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "sibling_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "0": 1,
+          "1": 2,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_info",
+    "memories": [
+      "User is taking medication for diabetes"
+    ],
+    "queries": [
+      {
+        "query_id": "medication_q1",
+        "query": "Is the user taking any medication?",
+        "relevance": {
+          "0": 2,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "diabetes_q1",
+        "query": "Does the user have diabetes?",
+        "relevance": {
+          "0": 1,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User enjoys hiking",
+      "User likes reading"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "interest_q1",
+        "query": "Is there an interest the user likes?",
+        "relevance": {
+          "0": 1,
+          "1": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "0": 0,
+          "3": 1,
+          "1": 2,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User is working on a project at work",
+      "User enjoys attending coding meetups"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Where is the user working?",
+        "relevance": {
+          "0": 0,
+          "1": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is on March 12th",
+      "User has a sibling named Emma"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What is the user's birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "sibling_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "0": 1,
+          "1": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User had a flu shot last week"
+    ],
+    "queries": [
+      {
+        "query_id": "vaccine_q1",
+        "query": "Has the user received a flu shot recently?",
+        "relevance": {
+          "0": 2,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "symptom_q1",
+        "query": "What is the user experiencing as a symptom of their illness?",
+        "relevance": {
+          "0": 0,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User enjoys hiking and camping",
+      "User is learning guitar"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "instrument_q1",
+        "query": "What instrument is the user learning to play?",
+        "relevance": {
+          "0": 0,
+          "1": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "Does the user have a food allergy?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User has a job in marketing",
+      "User attended a coding conference"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "job_q1",
+        "query": "What type of job does the user have?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User is from New York",
+      "User has a sibling",
+      "User loves reading books"
+    ],
+    "queries": [
+      {
+        "query_id": "location_q1",
+        "query": "What city does the user live in?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "family_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has high blood pressure",
+      "User is taking medication for diabetes"
+    ],
+    "queries": [
+      {
+        "query_id": "condition_q1",
+        "query": "What health condition does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "medication_q1",
+        "query": "Is the user taking any medication?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User enjoys hiking",
+      "User is learning photography"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "interest_q1",
+        "query": "Is there a specific interest the user has?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food is the user allergic to?",
+        "relevance": {
+          "1": 2,
+          "3": 0,
+          "0": 1,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User is working on a project",
+      "User had a meeting with colleagues"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "project_q1",
+        "query": "What project is the user working on?",
+        "relevance": {
+          "2": 2,
+          "0": 1,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is in June",
+      "User has a sibling",
+      "User lives in New York"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What month does the user's birthday fall in?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "sibling_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "2": 2,
+          "0": 1,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_info",
+    "memories": [
+      "User has high blood pressure",
+      "User is taking medication",
+      "User had a doctor's appointment"
+    ],
+    "queries": [
+      {
+        "query_id": "medication_q1",
+        "query": "What medication is the user taking?",
+        "relevance": {
+          "2": 2,
+          "0": 1,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "appointment_q1",
+        "query": "Did the user have a doctor's appointment?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User is learning photography",
+      "User had a book reading session"
+    ],
+    "queries": [
+      {
+        "query_id": "guitar_q1",
+        "query": "What hobby does the user love?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "photography_q1",
+        "query": "Is photography one of the user's interests?",
+        "relevance": {
+          "2": 2,
+          "0": 1,
+          "1": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms",
+      "User enjoys eating sushi"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 2,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User works as a software engineer",
+      "User has been working at the same company for 5 years",
+      "User is good at problem-solving"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Where does the user work?",
+        "relevance": {
+          "0": 0,
+          "1": 2,
+          "2": 0,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is on March 12th",
+      "User has a pet cat named Luna",
+      "User lives in New York City"
+    ],
+    "queries": [
+      {
+        "query_id": "fact_q1",
+        "query": "When was the user's birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 0,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "location_q1",
+        "query": "Where does the user live?",
+        "relevance": {
+          "0": 0,
+          "1": 0,
+          "2": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User is taking medication for high blood pressure",
+      "User has a cold and needs to rest more"
+    ],
+    "queries": [
+      {
+        "query_id": "medication_q1",
+        "query": "What health issue does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "symptom_q1",
+        "query": "Why is the user feeling unwell?",
+        "relevance": {
+          "0": 0,
+          "1": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User enjoys playing guitar",
+      "User loves reading science fiction books"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "interest_q1",
+        "query": "What interest does the user have?",
+        "relevance": {
+          "0": 0,
+          "1": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "0": 0,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User is working on a project",
+      "User had a meeting with colleagues",
+      "User attended a conference"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user currently learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Where is the user working on a project?",
+        "relevance": {
+          "0": 0,
+          "1": 0,
+          "2": 2,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User has a birthday next week",
+      "User's favorite color is blue",
+      "User lives in New York"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "When does the user have their birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "color_q1",
+        "query": "What is the user's favorite color?",
+        "relevance": {
+          "0": 0,
+          "1": 2,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User had a flu shot last month",
+      "User is taking medication for diabetes"
+    ],
+    "queries": [
+      {
+        "query_id": "medication_q1",
+        "query": "What type of medication is the user taking?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "flu_q1",
+        "query": "When did the user get their flu shot?",
+        "relevance": {
+          "0": 0,
+          "1": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User enjoys hiking",
+      "User is learning photography"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "photography_q1",
+        "query": "What is the user learning in photography?",
+        "relevance": {
+          "0": 0,
+          "1": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "Does the user have a peanut allergy?",
+        "relevance": {
+          "1": 2,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User has been working as a software engineer for 5 years"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What programming language is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "experience_q1",
+        "query": "How many years has the user been working as a software engineer?",
+        "relevance": {
+          "1": 2,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is on March 12th",
+      "User has a sibling named Emily"
+    ],
+    "queries": [
+      {
+        "query_id": "birth_date_q1",
+        "query": "What is the user's birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 0
+        }
+      },
+      {
+        "query_id": "sibling_name_q1",
+        "query": "What is the name of the user's sibling?",
+        "relevance": {
+          "1": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User has high blood pressure",
+      "User takes medication for diabetes"
+    ],
+    "queries": [
+      {
+        "query_id": "blood_pressure_q1",
+        "query": "Does the user have high blood pressure?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "medication_type_q1",
+        "query": "What type of medication does the user take for diabetes?",
+        "relevance": {
+          "1": 0,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User enjoys hiking in the mountains"
+    ],
+    "queries": [
+      {
+        "query_id": "guitar_hobby_q1",
+        "query": "What is the user's favorite hobby?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "hiking_location_q1",
+        "query": "Where does the user like to go hiking?",
+        "relevance": {
+          "1": 1,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "0": 1,
+          "3": 2,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User had a meeting at work yesterday",
+      "User's boss is from China",
+      "User has been working for 5 years"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill is the user learning?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "work_q1",
+        "query": "Where does the user work?",
+        "relevance": {
+          "0": 1,
+          "1": 2,
+          "2": 0,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User's birthday is in June",
+      "User has a pet dog named Max",
+      "User lives in New York City"
+    ],
+    "queries": [
+      {
+        "query_id": "birthday_q1",
+        "query": "What month does the user's birthday fall in?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "pet_q1",
+        "query": "Does the user have a pet?",
+        "relevance": {
+          "0": 1,
+          "1": 2,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User is taking medication for diabetes",
+      "User had a flu shot last year",
+      "User has high blood pressure"
+    ],
+    "queries": [
+      {
+        "query_id": "medication_q1",
+        "query": "What health condition does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "vaccination_q1",
+        "query": "Has the user had a flu shot recently?",
+        "relevance": {
+          "0": 1,
+          "1": 2,
+          "2": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User enjoys playing guitar",
+      "User has a favorite book by J.K. Rowling"
+    ],
+    "queries": [
+      {
+        "query_id": "guitar_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "book_q1",
+        "query": "Who is the author of the user's favorite book?",
+        "relevance": {
+          "0": 1,
+          "1": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "Is the user allergic to anything?",
+        "relevance": {
+          "1": 2,
+          "3": 1,
+          "0": 0,
+          "2": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_experience",
+    "memories": [
+      "User has been working as a software engineer for 5 years",
+      "User is learning Python",
+      "User had a meeting with their manager yesterday"
+    ],
+    "queries": [
+      {
+        "query_id": "exp_q1",
+        "query": "How long has the user been working?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "exp_q2",
+        "query": "What language is the user learning?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_info",
+    "memories": [
+      "User's birthday is on March 12th",
+      "User has a cat named Whiskers"
+    ],
+    "queries": [
+      {
+        "query_id": "info_q1",
+        "query": "What is the user's birthday?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "info_q2",
+        "query": "Does the user have a pet?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_info",
+    "memories": [
+      "User has high blood pressure",
+      "User is taking medication for diabetes"
+    ],
+    "queries": [
+      {
+        "query_id": "health_q1",
+        "query": "What health condition does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "health_q2",
+        "query": "Is the user taking any medication?",
+        "relevance": {
+          "1": 2,
+          "2": 1,
+          "0": 0,
+          "3": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies",
+    "memories": [
+      "User loves playing guitar",
+      "User enjoys hiking in the mountains"
+    ],
+    "queries": [
+      {
+        "query_id": "hobby_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "hobby_q2",
+        "query": "Does the user enjoy outdoor activities?",
+        "relevance": {
+          "1": 2,
+          "0": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "food_preferences",
+    "memories": [
+      "User loves spicy Indian food",
+      "User is allergic to peanuts",
+      "User had pizza yesterday",
+      "User hates mushrooms"
+    ],
+    "queries": [
+      {
+        "query_id": "food_q1",
+        "query": "What food does the user like?",
+        "relevance": {
+          "0": 2,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 0
+        }
+      },
+      {
+        "query_id": "food_q2",
+        "query": "What food does the user dislike?",
+        "relevance": {
+          "0": 0,
+          "3": 1,
+          "1": 0,
+          "2": 0,
+          "4": 2
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "work_skills",
+    "memories": [
+      "User is learning Python",
+      "User has a job in marketing",
+      "User is good at public speaking",
+      "User loves reading books"
+    ],
+    "queries": [
+      {
+        "query_id": "skill_q1",
+        "query": "What skill does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0
+        }
+      },
+      {
+        "query_id": "job_q1",
+        "query": "What job does the user have?",
+        "relevance": {
+          "0": 0,
+          "1": 2,
+          "2": 1,
+          "3": 0
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "personal_facts",
+    "memories": [
+      "User is from California",
+      "User has a sibling",
+      "User loves playing basketball"
+    ],
+    "queries": [
+      {
+        "query_id": "fact_q1",
+        "query": "Where does the user live?",
+        "relevance": {
+          "0": 2,
+          "1": 1,
+          "2": 0
+        }
+      },
+      {
+        "query_id": "brother_q1",
+        "query": "Does the user have a sibling?",
+        "relevance": {
+          "0": 0,
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "health_information",
+    "memories": [
+      "User is taking medication for diabetes",
+      "User had a flu last year"
+    ],
+    "queries": [
+      {
+        "query_id": "medication_q1",
+        "query": "What health issue does the user have?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "illness_q1",
+        "query": "Did the user have a flu last year?",
+        "relevance": {
+          "0": 0,
+          "1": 2,
+          "2": 1
+        }
+      }
+    ]
+  },
+  {
+    "scenario": "hobbies_interests",
+    "memories": [
+      "User loves playing guitar",
+      "User enjoys hiking in nature"
+    ],
+    "queries": [
+      {
+        "query_id": "guitar_q1",
+        "query": "What hobby does the user enjoy?",
+        "relevance": {
+          "0": 2,
+          "1": 1
+        }
+      },
+      {
+        "query_id": "hiking_q1",
+        "query": "Does the user like hiking?",
+        "relevance": {
+          "0": 0,
+          "1": 1,
+          "2": 2
+        }
+      }
+    ]
+  }
+]
