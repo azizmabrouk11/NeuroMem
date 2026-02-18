@@ -13,21 +13,19 @@
         "query": "What food does the user like?",
         "relevance": {
           "0": 2,
-          "3": 1,
           "1": 0,
           "2": 0,
-          "4": 0
+          "3": 1
         }
       },
       {
         "query_id": "food_q2",
         "query": "What food does the user dislike?",
         "relevance": {
-          "2": 2,
-          "4": 1,
           "0": 0,
           "1": 0,
-          "3": 0
+          "2": 0,
+          "3": 2
         }
       }
     ]

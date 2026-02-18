@@ -202,3 +202,23 @@ class VectorStore:
         )
         logger.info(f"Memory {memory.id} metadata updated successfully")
         return True
+    
+    def count_memories_for_user(self, user_id: str) -> int:
+        """Count total number of memories for a user."""
+        result = self.client.scroll(
+            collection_name=self.collection_name,
+            scroll_filter=Filter(
+                must=[
+                    FieldCondition(
+                        key="user_id",
+                        match=MatchValue(value=user_id)
+                    )
+                ]
+            ),
+            limit=10000,  # High limit to get all
+            with_payload=False,
+            with_vectors=False
+        )
+        count = len(result[0]) if result else 0
+        logger.info(f"User {user_id} has {count} memories")
+        return count

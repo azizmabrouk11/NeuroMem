@@ -11,8 +11,21 @@ from models.memory import Memory, MemoryType, MemoryQuery, MemorySearchResult
 from memory.store import MemoryStore
 from memory.retrieve import MemoryRetriever
 from memory.encoding.gemini import GeminiEmbedder
+from memory.encoding.ollama import OllamaEmbedder
 from db.vectore_store import VectorStore
 from config.settings import settings
+
+
+def get_embedder():
+    """Factory function to get the configured embedder."""
+    if settings.embedding_provider == "ollama":
+        return OllamaEmbedder()
+    elif settings.embedding_provider == "gemini":
+        return GeminiEmbedder()
+    else:
+        raise ValueError(f"Unknown embedding provider: {settings.embedding_provider}")
+
+
 class Brain:
     """
     Main controller for the AI memory system.
@@ -32,7 +45,7 @@ class Brain:
         self.user_id = user_id
 
 
-        self.embedder = GeminiEmbedder()
+        self.embedder = get_embedder()
         self.vector_store = VectorStore()
         self.memory_store = MemoryStore(self.embedder, self.vector_store)
         self.memory_retriever = MemoryRetriever(self.embedder, self.vector_store)
@@ -230,3 +243,12 @@ class Brain:
                 "access_count": count,
                 "last_accessed": last_accessed
             })
+    
+    def count_memories(self) -> int:
+        """
+        Count total number of memories for this user.
+        
+        Returns:
+            Total count of memories
+        """
+        return self.vector_store.count_memories_for_user(self.user_id)

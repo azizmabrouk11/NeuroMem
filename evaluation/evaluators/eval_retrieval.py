@@ -40,7 +40,7 @@ class RetrievalEvaluator:
                     memory_ids[int(idx)]: score
                     for idx, score in query["relevance"].items()
                 }
-                results = brain.retrieve(query["query"], top_k=10)
+                results = brain.recall(query["query"], top_k=10)
 
                 run_dict[query_id] = {
                     

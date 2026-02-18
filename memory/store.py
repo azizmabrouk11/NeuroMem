@@ -21,7 +21,7 @@ class MemoryStore:
     def store_memory(
             self, 
             content: str, 
-            deduplication_threshold: float = 0.85,
+            deduplication_threshold: float = 0.70,
             **metadata,
             ) -> Memory:
         """
@@ -37,7 +37,7 @@ class MemoryStore:
             memory_type: EPISODIC or SEMANTIC
             importance_score: 0.0-1.0
             tags: Optional tags
-            deduplication_threshold: Similarity threshold for duplicates (default 0.85)
+            deduplication_threshold: Similarity threshold for duplicates (default 0.70)
             
         Returns:
             Memory object (either newly created or existing boosted one)
