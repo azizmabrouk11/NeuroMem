@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     
     # Embedding provider
     embedding_provider: str = "ollama"  # "ollama" or "gemini"
-    ollama_embedding_model: str = "nomic-embed-text"
+    ollama_embedding_model: str = "embeddinggemma"
     
     # Memory settings
     max_working_memory: int = 10
