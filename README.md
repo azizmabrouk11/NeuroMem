@@ -8,6 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Qdrant](https://img.shields.io/badge/Vector_DB-Qdrant-red.svg)](https://qdrant.tech/)
 [![Gemini](https://img.shields.io/badge/AI-Google_Gemini-4285F4.svg)](https://ai.google.dev/)
+[![Ollama](https://img.shields.io/badge/AI-Ollama-000000.svg)](https://ollama.ai/)
 
 *Give your AI agents persistent memory, contextual awareness, and intelligent recall*
 
@@ -21,6 +22,18 @@
 
 **NeuroMem** is a production-ready memory system for AI agents that mimics human memory. It enables your AI to remember conversations, learn preferences, and build long-term relationships with users.
 
+### 🔌 Choose Your AI Backend
+
+NeuroMem supports both cloud and self-hosted AI providers:
+
+| Provider | Cost | Privacy | Speed | Best For |
+|----------|------|---------|-------|----------|
+| **🌩️ Gemini** | ~$1-2/month | Cloud | ⚡⚡⚡ Fast | Production, high-quality embeddings |
+| **🏠 Ollama** | $0 (free) | 100% Local | ⚡⚡ Good | Privacy-first, cost-sensitive, development |
+| **🔀 Hybrid** | ~$1/month | Mixed | ⚡⚡⚡ Best | Gemini embeddings + Ollama LLM |
+
+**Recommendation:** Start with Ollama (free, private) for development, upgrade to Gemini for production if needed.
+
 ### ✨ Key Highlights
 
 ```python
@@ -32,13 +45,15 @@ memories = brain.recall("What does Alice like to eat?")
 
 | Feature | Description |
 |---------|-------------|
-| 🎯 **Semantic Search** | Find relevant memories by meaning, not keywords (3072-dim embeddings) |
+| 🎯 **Semantic Search** | Find relevant memories by meaning, not keywords (768-3072 dim embeddings) |
 | 🧠 **Smart Ranking** | Multi-signal scoring: similarity + importance + recency + frequency |
 | ⚡ **Fast & Scalable** | Sub-second queries with 50K-100K memories |
 | 🔄 **Natural Forgetting** | Temporal decay - memories fade like human memory |
 | 💬 **Chat Integration** | Built-in conversational AI with auto-memory extraction |
 | 📦 **Batch Processing** | 10-50× faster operations with bulk API calls |
 | 🎭 **Memory Types** | Episodic (events) vs Semantic (facts) classification |
+| 🤖 **Dual LLM Support** | Choose between Google Gemini (cloud) or Ollama (self-hosted) |
+| 🧪 **Evaluation Suite** | Comprehensive testing framework for retrieval, dedup & performance |
 | 🛠️ **Production Ready** | Retry logic, error handling, comprehensive logging |
 
 ---
@@ -49,9 +64,43 @@ memories = brain.recall("What does Alice like to eat?")
 
 - Python 3.9+
 - [Qdrant](https://qdrant.tech/) (local or cloud)
-- [Google Gemini API key](https://makersuite.google.com/app/apikey)
+- **Choose your AI provider:**
+  - [Google Gemini API key](https://makersuite.google.com/app/apikey) (cloud, free tier available)
+  - **OR** [Ollama](https://ollama.ai/) (self-hosted, fully free & private)
 
 ### Installation (5 minutes)
+
+#### Option 1: Docker Compose (Recommended)
+
+```bash
+# 1. Clone repository
+git clone https://github.com/azizmabrouk11/NeuroMem.git
+cd NeuroMem
+
+# 2. Start services (Ollama + Qdrant)
+docker-compose up -d
+
+# 3. Pull embedding model
+docker exec -it ollama ollama pull nomic-embed-text
+docker exec -it ollama ollama pull llama3.2
+
+# 4. Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# 5. Install dependencies
+pip install -r requirements.txt
+
+# 6. Configure environment (Ollama default)
+cp .env.example .env
+# Edit .env if using Gemini
+
+# 7. Test it!
+python -m app.cli remember "I love Python" -u demo
+python -m app.cli recall "programming" -u demo
+```
+
+#### Option 2: Manual Setup
 
 ```bash
 # 1. Clone repository
@@ -65,30 +114,85 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Configure environment
-cp .env.example .env
-# Edit .env with your GEMINI_API_KEY
-
-# 5. Start Qdrant
+# 4. Start Qdrant
 docker run -p 6333:6333 qdrant/qdrant
 
-# 6. Test it!
+# 5. For Ollama (self-hosted):
+# Install from https://ollama.ai/ then:
+ollama pull nomic-embed-text
+ollama pull llama3.2
+
+# OR for Gemini (cloud):
+# Get API key from https://makersuite.google.com/app/apikey
+
+# 6. Configure .env
+cp .env.example .env
+# Edit with your settings
+
+# 7. Test it!
 python -m app.cli remember "I love Python" -u demo
 python -m app.cli recall "programming" -u demo
 ```
 
 ### Environment Setup
 
+#### For Ollama (Self-Hosted - Default)
+
 ```env
 # .env file
-GEMINI_API_KEY="your-api-key-here"
-EMBEDDING_MODEL="models/gemini-embedding-001"
-EMBEDDING_DIMENSION=3072
-LLM_MODEL="gemini-2.5-flash"
+# LLM Provider
+llm_provider=ollama
+ollama_base_url=http://localhost:11434/v1
+ollama_model=llama3.2
 
-QDRANT_HOST=localhost
-QDRANT_PORT=6333
-QDRANT_COLLECTION_NAME=ai_brain_memories
+# Embedding Provider
+embedding_provider=ollama
+ollama_embedding_model=nomic-embed-text  # 768-dim, recommended
+
+# Qdrant
+qdrant_host=localhost
+qdrant_port=6333
+qdrant_collection_name=ai_brain_memories
+
+# Memory Settings
+decay_rate=0.01
+similarity_threshold=0.7
+```
+
+#### For Gemini (Cloud)
+
+```env
+# .env file
+# Gemini API
+gemini_api_key=your-api-key-here
+embedding_model=models/gemini-embedding-001
+llm_model=gemini-2.5-flash
+
+# Provider Selection
+llm_provider=gemini
+embedding_provider=gemini
+
+# Qdrant
+qdrant_host=localhost
+qdrant_port=6333
+qdrant_collection_name=ai_brain_memories
+
+# Memory Settings
+decay_rate=0.01
+similarity_threshold=0.7
+```
+
+#### For Hybrid (Gemini Embeddings + Ollama LLM)
+
+```env
+# Best of both: Gemini's powerful embeddings + local LLM
+embedding_provider=gemini
+gemini_api_key=your-api-key-here
+embedding_model=models/gemini-embedding-001
+
+llm_provider=ollama
+ollama_base_url=http://localhost:11434/v1
+ollama_model=llama3.2
 ```
 
 ---
@@ -177,7 +281,8 @@ NeuroMem/
 │   ├── extractor.py          # Auto-extract from conversations
 │   └── encoding/
 │       ├── base.py           # Embedder interface
-│       └── gemini.py         # Gemini implementation (3072-dim)
+│       ├── gemini.py         # Gemini implementation (3072-dim)
+│       └── ollama.py         # Ollama implementation (768/1024/384-dim)
 │
 ├── 🎯 intelligence/
 │   ├── scorer.py             # Importance scoring
@@ -186,7 +291,7 @@ NeuroMem/
 │
 ├── 🤖 ai/
 │   ├── chat.py               # Conversational chat manager
-│   └── llm.py                # LLM client (Gemini)
+│   └── llm.py                # LLM client (Ollama/Gemini)
 │
 ├── 🗄️ db/
 │   └── vectore_store.py      # Qdrant operations
@@ -194,6 +299,18 @@ NeuroMem/
 ├── 📊 models/
 │   ├── memory.py             # Memory data models
 │   └── user.py               # User models
+│
+├── 🧪 evaluation/
+│   ├── run_eval.py           # Run all evaluations
+│   ├── evaluators/
+│   │   ├── eval_retrieval.py # Retrieval quality metrics
+│   │   ├── eval_dedup.py     # Deduplication testing
+│   │   └── eval_performance.py # Latency benchmarks
+│   ├── reports/
+│   │   └── report_generator.py # Generate evaluation reports
+│   └── data/
+│       ├── test_cases.json   # Test scenarios
+│       └── results/          # Evaluation results
 │
 ├── ⚙️ config/
 │   └── settings.py           # Configuration (Pydantic)
@@ -375,20 +492,98 @@ python -m app.cli stats -u alice
 
 ---
 
+## 🛠️ Utility Scripts
+
+NeuroMem includes helpful utility scripts for common tasks:
+
+### Reset Collection
+
+When changing embedding models or dimensions, reset the Qdrant collection:
+
+```bash
+python utils/reset_collection.py
+```
+
+This deletes the existing collection and allows it to be recreated with the correct dimensions on next use.
+
+### Test Embeddings
+
+Verify your embedding provider is working correctly:
+
+```bash
+# Test Ollama embeddings
+python utils/test_ollama_embed.py
+
+# Test Gemini embeddings (legacy)
+python utils/check_dim.py
+```
+
+### Debug Utilities
+
+```bash
+# Test deduplication in isolation
+python utils/test_dedup_only.py
+
+# Debug deduplication evaluation
+python utils/debug_dedup_eval.py
+
+# Manual deduplication testing
+python utils/dedup_test_manually.py
+```
+
+### Common Tasks
+
+```bash
+# Switch from Gemini to Ollama
+# 1. Update .env
+echo "embedding_provider=ollama" >> .env
+echo "ollama_embedding_model=nomic-embed-text" >> .env
+
+# 2. Reset collection (dimensions changed: 3072 → 768)
+python utils/reset_collection.py
+
+# 3. Test
+python -m app.cli remember "test" -u alice
+python -m app.cli recall "test" -u alice
+```
+
+---
+
 ## ⚙️ Configuration
 
 ### Environment Variables
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| `GEMINI_API_KEY` | Google Gemini API key | - | ✅ |
-| `EMBEDDING_MODEL` | Embedding model | `models/gemini-embedding-001` | No |
-| `EMBEDDING_DIMENSION` | Vector dimensions | `3072` | No |
-| `LLM_MODEL` | LLM model | `gemini-2.5-flash` | No |
-| `QDRANT_HOST` | Qdrant host | `localhost` | No |
-| `QDRANT_PORT` | Qdrant port | `6333` | No |
-| `QDRANT_API_KEY` | Qdrant Cloud key | `None` | No |
-| `DECAY_RATE` | Memory decay rate | `0.01` | No |
+| `embedding_provider` | Embedding provider (`ollama` or `gemini`) | `ollama` | Yes |
+| `llm_provider` | LLM provider (`ollama` or `gemini`) | `ollama` | Yes |
+| **Gemini Settings** | | | |
+| `gemini_api_key` | Google Gemini API key | - | If using Gemini |
+| `embedding_model` | Gemini embedding model | `models/gemini-embedding-001` | No |
+| `llm_model` | Gemini LLM model | `gemini-2.5-flash` | No |
+| **Ollama Settings** | | | |
+| `ollama_base_url` | Ollama API base URL | `http://localhost:11434/v1` | No |
+| `ollama_model` | Ollama LLM model | `llama3.2` | No |
+| `ollama_embedding_model` | Ollama embedding model | `nomic-embed-text` | No |
+| **Qdrant Settings** | | | |
+| `qdrant_host` | Qdrant host | `localhost` | No |
+| `qdrant_port` | Qdrant port | `6333` | No |
+| `qdrant_api_key` | Qdrant Cloud key | `None` | No |
+| `qdrant_collection_name` | Collection name | `ai_brain_memories` | No |
+| **Memory Settings** | | | |
+| `decay_rate` | Memory decay rate | `0.01` | No |
+| `similarity_threshold` | Min similarity score | `0.7` | No |
+| `importance_threshold` | Min importance score | `0.3` | No |
+| `max_working_memory` | Max memories in context | `10` | No |
+
+#### Popular Ollama Embedding Models
+
+| Model | Dimensions | Speed | Quality | Use Case |
+|-------|------------|-------|---------|----------|
+| `nomic-embed-text` | 768 | ⚡⚡⚡ Fast | ⭐⭐⭐ Good | **Recommended** for most use cases |
+| `mxbai-embed-large` | 1024 | ⚡⚡ Medium | ⭐⭐⭐⭐ Excellent | High-quality retrieval |
+| `all-minilm` | 384 | ⚡⚡⚡⚡ Very Fast | ⭐⭐ Fair | Simple tasks, low resources |
+| `llama3.1` | Variable | ⚡ Slower | ⭐⭐⭐⭐⭐ Best | Research, highest quality |
 
 ### Custom Configuration
 
@@ -577,11 +772,35 @@ Error: expected dim: 768, got 3072
 ```
 **Solution:**
 ```env
-EMBEDDING_MODEL="models/gemini-embedding-001"
-EMBEDDING_DIMENSION=3072
+# Make sure embedding dimensions match your model
+# For Ollama with nomic-embed-text (768):
+embedding_provider=ollama
+ollama_embedding_model=nomic-embed-text
+
+# For Gemini (3072):
+embedding_provider=gemini
+embedding_model=models/gemini-embedding-001
 ```
 ```bash
-python reset_collection.py
+# Reset collection when changing embedding models
+python utils/reset_collection.py
+```
+
+### Ollama Connection Error
+```bash
+Error: Connection refused to localhost:11434
+```
+**Solution:**
+```bash
+# Check if Ollama is running
+curl http://localhost:11434/api/tags
+
+# If not, start Ollama service or:
+docker-compose up -d ollama
+
+# Pull required models
+ollama pull nomic-embed-text
+ollama pull llama3.2
 ```
 
 ### Model Not Found (404)
@@ -590,13 +809,19 @@ Error: models/gemini-1.5-pro is not found
 ```
 **Solution:**
 ```env
-LLM_MODEL="gemini-2.5-flash"
+llm_model=gemini-2.5-flash
 ```
 
 ### Qdrant Connection Refused
 ```bash
 # Check if Qdrant is running
 docker ps | grep qdrant
+
+# Start if not running
+docker-compose up -d qdrant
+# OR
+docker run -p 6333:6333 qdrant/qdrant
+```
 
 # Start if not running
 docker run -p 6333:6333 qdrant/qdrant
@@ -629,15 +854,23 @@ brain = Brain(user_id="test")
 # Test all components
 from db.vectore_store import VectorStore
 from memory.encoding.gemini import GeminiEmbedder
+from memory.encoding.ollama import OllamaEmbedder
+from config.settings import settings
 
 # Test Qdrant
 vs = VectorStore()
 print("✓ Qdrant connected")
 
-# Test Gemini
-embedder = GeminiEmbedder()
+# Test Embedder (based on your config)
+if settings.embedding_provider == "ollama":
+    embedder = OllamaEmbedder()
+    print("✓ Using Ollama embeddings")
+else:
+    embedder = GeminiEmbedder()
+    print("✓ Using Gemini embeddings")
+
 vec = embedder.embed("test")
-print(f"✓ Gemini working ({len(vec)} dimensions)")
+print(f"✓ Embedder working ({len(vec)} dimensions)")
 ```
 
 </details>
@@ -672,21 +905,299 @@ tests/
 
 ---
 
+## 📊 Evaluation Framework
+
+NeuroMem includes a comprehensive evaluation suite to measure and track system performance.
+
+### Running Evaluations
+
+```bash
+# Run complete evaluation suite
+python -m evaluation.run_eval
+
+# This will test:
+# - Retrieval quality (precision, recall, nDCG)
+# - Deduplication effectiveness
+# - Performance benchmarks (latency, throughput)
+```
+
+### Evaluation Components
+
+#### 1. Retrieval Quality (`eval_retrieval.py`)
+
+Measures how accurately the system retrieves relevant memories using information retrieval metrics.
+
+**Metrics:**
+- **Precision@K**: Accuracy of top-K results
+- **Recall@K**: Coverage of relevant memories
+- **nDCG**: Normalized Discounted Cumulative Gain
+- **MAP**: Mean Average Precision
+- **MRR**: Mean Reciprocal Rank
+
+**Test Scenarios**: (from `test_cases.json`)
+- Food preferences
+- Work history
+- Medical information
+- Travel experiences
+- Learning activities
+- ...and more (3300+ test queries)
+
+```bash
+# Example output
+Retrieval Metrics:
+  nDCG@10: 0.847
+  Precision@5: 0.823
+  MAP: 0.791
+  MRR: 0.895
+```
+
+#### 2. Deduplication Testing (`eval_dedup.py`)
+
+Tests the system's ability to detect and merge similar/duplicate memories.
+
+**Test Cases:**
+- Near-identical memories (should merge)
+- Semantically similar memories (should merge)
+- Distinct memories (should NOT merge)
+
+```python
+# Example test case
+memories = [
+    "User loves spicy Indian food",
+    "User really enjoys spicy Indian cuisine",  # Similar → merge
+    "User likes pizza"                           # Different → keep
+]
+# Expected: 2 memories (1 Indian food + 1 pizza)
+```
+
+#### 3. Performance Benchmarks (`eval_performance.py`)
+
+Measures system latency and throughput under load.
+
+**Metrics:**
+- Store operation latency (p50, p95, p99)
+- Search operation latency (p50, p95, p99)
+- Batch operation speedup
+- Throughput (ops/second)
+
+```bash
+# Example output
+Performance Benchmarks (n=50):
+  Store Latency:
+    p50: 245ms
+    p95: 312ms
+  Search Latency:
+    p50: 98ms
+    p95: 156ms
+```
+
+### Evaluation Results
+
+Results are automatically saved to `evaluation/data/results/` with timestamps:
+
+```
+evaluation/data/results/
+├── eval_20260218_171151.json
+├── eval_20260219_064006.json
+└── eval_20260219_070526.json
+```
+
+### Custom Test Cases
+
+Add your own test cases to `evaluation/data/test_cases.json`:
+
+```json
+{
+  "scenario": "my_custom_test",
+  "memories": [
+    "First memory to store",
+    "Second memory to store"
+  ],
+  "queries": [
+    {
+      "query_id": "test_q1",
+      "query": "What should I retrieve?",
+      "relevance": {
+        "0": 2,  // First memory: highly relevant
+        "1": 0   // Second memory: not relevant
+      }
+    }
+  ]
+}
+```
+
+### Continuous Evaluation
+
+Recommended workflow for production systems:
+
+```bash
+# 1. Baseline evaluation before changes
+python -m evaluation.run_eval
+
+# 2. Make your changes (tuning, new features, etc.)
+
+# 3. Re-evaluate
+python -m evaluation.run_eval
+
+# 4. Compare results
+python -m evaluation.reports.compare_results \
+  eval_20260218_171151.json \
+  eval_20260219_064006.json
+```
+
+---
+
 ## 💰 Cost Estimation
 
-### API Costs (100K memories/month)
+### Option 1: Fully Self-Hosted (Ollama + Local Qdrant)
+
+| Service | Usage | Cost |
+|---------|-------|------|
+| **Ollama** | Unlimited | **$0** (self-hosted) |
+| **Qdrant** | Local deployment | **$0** (self-hosted) |
+| **Hardware** | GPU/CPU | Your existing infrastructure |
+| **Total** | 100K memories/month | **$0** |
+
+**Requirements:**
+- 8GB RAM minimum (16GB recommended)
+- GPU optional but recommended for faster embeddings
+- ~10GB disk space for models
+
+### Option 2: Gemini + Local Qdrant
+
+| Service | Usage | Cost |
+|---------|-------|------|
+| **Gemini Embeddings** | 100K embeds | ~$1 |
+| **Gemini LLM** | ~1K calls | ~$0.50 |
+| **Qdrant** | Local deployment | **$0** |
+| **Total** | 100K memories/month | **~$1.50/month** |
+
+### Option 3: Fully Cloud (Gemini + Qdrant Cloud)
 
 | Service | Usage | Cost |
 |---------|-------|------|
 | **Gemini Embeddings** | 100K embeds | ~$1 |
 | **Gemini LLM** | ~1K calls | ~$0.50 |
 | **Qdrant Cloud** | 100K vectors | $25-50 |
-| **Total** | - | **~$26-52/month** |
+| **Total** | 100K memories/month | **~$26-52/month** |
+
+### Option 4: Hybrid (Gemini Embeddings + Ollama LLM)
+
+| Service | Usage | Cost |
+|---------|-------|------|
+| **Gemini Embeddings** | 100K embeds | ~$1 |
+| **Ollama LLM** | Unlimited | **$0** (self-hosted) |
+| **Qdrant** | Local deployment | **$0** |
+| **Total** | 100K memories/month | **~$1/month** |
 
 ### Free Tier Options
-- Gemini: 15 requests/min (sufficient for POC)
-- Qdrant: Local deployment (unlimited, free)
-- **Total Development Cost: $0**
+
+- **Gemini**: 15 requests/min free tier (sufficient for POC/development)
+- **Ollama**: Completely free, unlimited (self-hosted)
+- **Qdrant**: Local deployment unlimited & free
+- **Development Cost: $0** (using Ollama + local Qdrant)
+
+---
+
+## ❓ FAQ
+
+### Which embedding provider should I use?
+
+**For Development/Testing:**
+- Use **Ollama** (free, fast setup, no API keys)
+
+**For Production:**
+- **Privacy-critical**: Ollama (100% local, no data leaves your infrastructure)
+- **Best quality**: Gemini (state-of-the-art embeddings, 3072 dimensions)
+- **Best value**: Hybrid (Gemini embeddings + Ollama LLM)
+
+### Can I switch providers later?
+
+Yes, but you must reset the collection when changing embedding providers:
+
+```bash
+# 1. Update .env with new provider
+# 2. Reset collection
+python utils/reset_collection.py
+# 3. Re-index your memories
+```
+
+**Note:** Switching only the LLM provider (not embeddings) requires no reset.
+
+### What are the embedding dimensions?
+
+| Provider | Model | Dimensions | Quality |
+|----------|-------|------------|---------|
+| Gemini | gemini-embedding-001 | 3072 | ⭐⭐⭐⭐⭐ Excellent |
+| Ollama | nomic-embed-text | 768 | ⭐⭐⭐⭐ Very Good |
+| Ollama | mxbai-embed-large | 1024 | ⭐⭐⭐⭐ Very Good |
+| Ollama | all-minilm | 384 | ⭐⭐⭐ Good |
+
+### Can I use different models?
+
+Yes! Configure in `.env`:
+
+```env
+# Ollama: Use any model from https://ollama.ai/library
+ollama_embedding_model=nomic-embed-text
+ollama_model=llama3.2  # or llama3.1, mistral, phi3, etc.
+
+# Gemini: Use any Gemini model
+llm_model=gemini-2.5-flash  # or gemini-1.5-pro, etc.
+```
+
+### How do I run completely offline?
+
+```env
+# .env - 100% local, zero internet required
+embedding_provider=ollama
+llm_provider=ollama
+qdrant_host=localhost
+```
+
+Make sure Ollama and Qdrant are running locally.
+
+### What hardware do I need for Ollama?
+
+**Minimum:**
+- 8GB RAM
+- 4 CPU cores
+- 10GB disk space
+
+**Recommended:**
+- 16GB RAM
+- 8+ CPU cores
+- NVIDIA GPU (optional, 3-5× faster embeddings)
+- 20GB disk space
+
+### How do I use a GPU with Ollama?
+
+The included `docker-compose.yml` already configures GPU support:
+
+```bash
+docker-compose up -d
+```
+
+For manual setup:
+```bash
+# Install NVIDIA Container Toolkit first
+# Then run Ollama with GPU
+docker run -d --gpus=all -p 11434:11434 ollama/ollama
+```
+
+### Is my data private with Ollama?
+
+**Yes!** When using Ollama:
+- All embeddings generated locally
+- All LLM inference local
+- No data sent to external APIs
+- No telemetry or tracking
+
+Perfect for:
+- Healthcare (HIPAA compliance)
+- Financial services
+- Personal journaling
+- Any privacy-sensitive application
 
 ---
 
@@ -694,9 +1205,9 @@ tests/
 
 | Version | Status | Key Features |
 |---------|--------|--------------|
-| **v1.0** | ✅ Live | Core memory, Gemini, Qdrant, Batch ops, Chat |
-| **v1.1** | 🚧 Q1 2026 | Memory consolidation, Auto-linking, Analytics |
-| **v1.2** | 📋 Q2 2026 | FastAPI, LangChain, Web UI, AutoGPT plugin |
+| **v1.0** | ✅ Live | Core memory, Gemini + Ollama support, Qdrant, Batch ops, Chat, Evaluation suite |
+| **v1.1** | 🚧 Q1 2026 | Memory consolidation, Auto-linking, Analytics dashboard |
+| **v1.2** | 📋 Q2 2026 | FastAPI REST API, LangChain integration, Web UI |
 | **v1.3** | 📋 Q3 2026 | Multi-modal, Encryption, Multi-language |
 | **v2.0** | 🔮 Q4 2026 | Enterprise features, RBAC, Advanced scaling |
 
@@ -765,16 +1276,36 @@ We love contributions! Here's how:
 
 Before deploying to production:
 
+### Security & Privacy
 - [ ] 🔐 Implement authentication (API keys/OAuth2)
 - [ ] 🔒 Encrypt sensitive memory content
+- [ ] 🏠 For privacy: Use Ollama (fully local) instead of cloud APIs
+- [ ] 🌍 For cloud: Ensure GDPR/compliance with data processing agreements
+- [ ] 🔑 Rotate API keys regularly (if using cloud services)
+
+### Infrastructure
 - [ ] 📊 Add monitoring (Prometheus/Grafana)
-- [ ] 💾 Set up automated backups
-- [ ] 🌍 Use Qdrant Cloud for scaling
-- [ ] ⚖️ Ensure GDPR compliance
+- [ ] 💾 Set up automated backups (Qdrant snapshots)
+- [ ] 🌍 Use Qdrant Cloud for scaling (or self-host with redundancy)
 - [ ] 🔄 Implement rate limiting
-- [ ] 📝 Set up structured logging
 - [ ] 🚨 Configure alerting
-- [ ] 🧪 Load testing
+
+### Operations
+- [ ] 📝 Set up structured logging
+- [ ] 🧪 Load testing (target scale)
+- [ ] 📈 Run evaluation suite baseline
+- [ ] 🔄 Set up CI/CD pipeline
+- [ ] 📚 Document runbooks for common issues
+
+### Privacy-First Deployment (Recommended)
+
+For maximum privacy and cost savings:
+```env
+# 100% local - no data leaves your infrastructure
+embedding_provider=ollama
+llm_provider=ollama
+qdrant_host=localhost  # or your private network
+```
 
 ---
 
@@ -800,10 +1331,12 @@ in the Software without restriction...
 - Vector database innovations
 
 **Built With:**
-- [Google Gemini](https://ai.google.dev/) - Embeddings & LLM
+- [Google Gemini](https://ai.google.dev/) - Cloud embeddings & LLM
+- [Ollama](https://ollama.ai/) - Self-hosted LLM & embeddings
 - [Qdrant](https://qdrant.tech/) - Vector database
 - [Pydantic](https://docs.pydantic.dev/) - Data validation
 - [Click](https://click.palletsprojects.com/) - CLI framework
+- [ranx](https://amenra.github.io/ranx/) - Information retrieval evaluation
 
 **Special Thanks:**
 - The AI/ML open-source community

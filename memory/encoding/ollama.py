@@ -34,7 +34,7 @@ class OllamaEmbedder(BaseEmbedder):
             model: Embedding model name (default from settings)
         """
         self.base_url = (base_url or settings.ollama_base_url).rstrip("/v1").rstrip("/")
-        self.model = model or settings.ollama_embedding_model
+        self.model =  settings.ollama_embedding_model
         self._dimension = None
     
     def embed(self, text: str) -> List[float]:
