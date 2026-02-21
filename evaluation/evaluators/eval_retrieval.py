@@ -43,16 +43,14 @@ class RetrievalEvaluator:
                 results = brain.recall(query["query"], top_k=10)
 
                 run_dict[query_id] = {
-                    
                     r.memory.id: r.final_score
                     for r in results
-                    } 
-                
-                qrels = Qrels(qrels_dict)
-                run = Run(run_dict, name="ai_brain")
-                return evaluate(
-                    
-                qrels, run,
-                metrics=["precision@3", "recall@5", "ndcg@3", "mrr", "map"]
-
-                )
+                }
+        
+        # Evaluate after processing all scenarios and queries
+        qrels = Qrels(qrels_dict)
+        run = Run(run_dict, name="ai_brain")
+        return evaluate(
+            qrels, run,
+            metrics=["precision@3", "recall@5", "ndcg@3", "mrr", "map"]
+        )

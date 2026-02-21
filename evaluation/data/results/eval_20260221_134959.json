@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-02-21T13:49:32.760024",
+  "retrieval": {
+    "precision@3": 0.3333333333333333,
+    "recall@5": 0.5,
+    "ndcg@3": 0.7601875334318685,
+    "mrr": 1.0,
+    "map": 0.5
+  },
+  "deduplication": {
+    "accuracy": 1.0,
+    "total_cases": 2,
+    "correct": 2
+  },
+  "performance": {
+    "store_latency_p50": 117.93730000499636,
+    "store_latency_p95": 144.4295100402087,
+    "search_latency_p50": 108.52965002413839,
+    "search_latency_p95": 163.8519900036044,
+    "n_operations": 50
+  }
+}

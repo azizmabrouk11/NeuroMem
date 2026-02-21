@@ -12,7 +12,7 @@ from config.settings import settings
 
 class TemporalDecay:
     
-    def __init__(self, decay_rate: float = 0.1):
+    def __init__(self, decay_rate: float = 0.01):
         """
         Applies time-based decay to memory scores.
         
