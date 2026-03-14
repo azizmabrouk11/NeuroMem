@@ -3,10 +3,12 @@ LLM client for generating responses.
 Uses Google Gemini API.
 """
 
+import os
 from typing import List, Optional
 
 from loguru import logger
-from openai import OpenAI
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage, SystemMessage
 
 from config.settings import settings
 
@@ -18,14 +20,24 @@ class LLMClient:
         model_name: Gemini model to use (default from settings)
     """
     def __init__(self, model_name: Optional[str] = None):
-        """Initialize Ollama (OpenAI-compatible)."""
+        """Initialize Ollama (OpenAI-compatible) with LangChain for LangSmith tracing."""
         
-        self.client = OpenAI(
+        # Configure LangSmith tracing if enabled
+        if settings.langsmith_tracing and settings.langsmith_api_key:
+            os.environ["LANGSMITH_TRACING_V2"] = "true"
+            os.environ["LANGSMITH_ENDPOINT"] = settings.langsmith_endpoint
+            os.environ["LANGSMITH_API_KEY"] = settings.langsmith_api_key
+            os.environ["LANGSMITH_PROJECT"] = settings.langsmith_project
+            logger.info(f"LangSmith tracing enabled for project: {settings.langsmith_project}")
+        
+        self.client = ChatOpenAI(
             base_url=settings.ollama_base_url,
-            api_key="ollama"  # Dummy key
+            api_key="ollama",  # Dummy key
+            model=settings.ollama_model,
+            temperature=0.7
         )
         self.model_name = settings.ollama_model
-        self.client_type = "openai"
+        self.client_type = "langchain"
     def generate_response(
         self,
         prompt: str,
@@ -34,24 +46,24 @@ class LLMClient:
         temperature: float = 0.7,
         max_tokens: int = 1000
     ) -> str:
-        """Generate a response from Ollama."""
+        """Generate a response from Ollama using LangChain."""
         try: 
             full_prompt = self._build_prompt(prompt, context, system_instruction)
             logger.debug(f"Sending prompt to LLM (length: {len(full_prompt)} chars)")
             
             messages = []
             if system_instruction:
-                messages.append({"role": "system", "content": system_instruction})
-            messages.append({"role": "user", "content": full_prompt})
+                messages.append(SystemMessage(content=system_instruction))
+            messages.append(HumanMessage(content=full_prompt))
             
-            response = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=messages,
+            # Use LangChain's invoke method (automatically traced by LangSmith)
+            response = self.client.invoke(
+                messages,
                 temperature=temperature,
                 max_tokens=max_tokens
             )
             
-            result = response.choices[0].message.content
+            result = response.content
             logger.debug(f"LLM response: {result[:100]}...")
             return result
         except Exception as e:

@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-03-14T17:25:09.927312",
+  "retrieval": {
+    "precision@3": 0.3216374269005848,
+    "recall@5": 0.7105263157894737,
+    "ndcg@3": 0.6564124297452013,
+    "mrr": 0.7415204678362572,
+    "map": 0.5845238095238096
+  },
+  "deduplication": {
+    "accuracy": 1.0,
+    "total_cases": 2,
+    "correct": 2
+  },
+  "performance": {
+    "store_latency_p50": 118.66385000757873,
+    "store_latency_p95": 149.8353250150103,
+    "search_latency_p50": 112.0245999773033,
+    "search_latency_p95": 162.60491501889192,
+    "n_operations": 50
+  }
+}

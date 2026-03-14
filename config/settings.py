@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     # Ollama
     llm_provider: str = "ollama"  # or "gemini"
     ollama_base_url: str = "http://localhost:11434/v1"
-    ollama_model: str = "llama3.2"
+    ollama_model: str = "qwen2.5:3b-instruct"
     
     # Embedding provider
     embedding_provider: str = "ollama"  # "ollama" or "gemini"
@@ -27,6 +27,12 @@ class Settings(BaseSettings):
     importance_threshold: float = 0.3
     similarity_threshold: float = 0.7
     decay_rate: float = 0.01  
+    
+    # LangSmith settings
+    langsmith_tracing: bool = False
+    langsmith_endpoint: str = "https://api.smith.langchain.com"
+    langsmith_api_key: Optional[str] = None
+    langsmith_project: str = "neuroMem"
     
     class Config:
         env_file = ".env"

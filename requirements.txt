@@ -27,5 +27,10 @@ click==8.1.7
 # For Ollama (OpenAI-compatible)
 openai>=1.30.0
 
+# For tracing
+langchain>=0.3.0
+langchain-openai>=0.2.0
+langsmith>=0.1.0
+
 # For evaluation
 ranx>=0.3.16

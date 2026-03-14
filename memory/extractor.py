@@ -59,29 +59,54 @@ class MemoryExtractor:
     
     def _build_extraction_prompt(self, user_message: str, assistant_message: str) -> str:
         """Construct a prompt to extract memories from the conversation."""
-        return f"""You are a memory extraction system. Analyze this conversation and extract important facts, preferences, or information about the user.
+        return f"""You are a memory extraction system for a personal AI assistant.
+
+Analyze this conversation and extract ONLY facts worth remembering long-term.
 
 Conversation:
 USER: {user_message}
 ASSISTANT: {assistant_message}
 
-Extract memories in this EXACT format (one per line, with actual values):
+EXTRACTION RULES:
+
+WHAT TO EXTRACT (as SEMANTIC memories):
+✓ Personal preferences (food, hobbies, work style)
+✓ Important facts (allergies, location, job, family)
+✓ Long-term goals or interests
+✓ Skills, expertise, or learning areas
+✓ Dislikes or boundaries
+
+WHAT TO EXTRACT (as EPISODIC memories):
+✓ Significant events or milestones
+✓ Important decisions made
+✓ Problems or challenges mentioned
+
+WHAT TO SKIP:
+✗ Generic greetings or small talk
+✗ Obvious facts already implied (e.g., if user speaks English, don't extract "user speaks English")
+✗ Temporary states (e.g., "user is tired today")
+✗ Questions without answers
+✗ Information already extracted in previous turns
+
+IMPORTANCE SCORING:
+- 0.9-1.0: Critical information (allergies, core identity, strong preferences)
+- 0.7-0.8: Important facts (job, location, regular preferences)
+- 0.5-0.6: Useful context (interests, minor preferences)
+- Below 0.5: Don't extract (not worth storing)
+
+OUTPUT FORMAT (one per line):
+TYPE|SCORE|TAGS|CONTENT
 
 Examples:
-SEMANTIC|0.8|food,preference|User loves spicy Indian food
-EPISODIC|0.6|conversation,work|User asked about Python programming on Feb 15
 SEMANTIC|0.9|health,allergy|User is allergic to peanuts
+SEMANTIC|0.8|food,preference|User prefers spicy Indian cuisine
+SEMANTIC|0.7|work,skill|User is a software engineer specializing in NLP
+EPISODIC|0.6|project,work|User started building a RAG system in February 2025
+SEMANTIC|0.8|location|User lives in Tunisia
 
-Format: TYPE|SCORE|TAGS|CONTENT
-- TYPE: SEMANTIC (facts/preferences) or EPISODIC (events/interactions)
-- SCORE: Number between 0.0 and 1.0 (importance)
-- TAGS: Comma-separated words (no spaces after commas)
-- CONTENT: The actual memory text
+If NOTHING is worth extracting, respond with: NONE
 
-Only extract truly important information that's worth remembering long-term.
-If there's nothing important worth remembering, respond ONLY with: NONE
-
-Output your extracted memories (or NONE):"""
+Extracted memories:"""
     def _parse_response(self, response_text: str) -> List[MemoryDraft]:
         """
         Parse LLM's extraction response into memory dicts.
