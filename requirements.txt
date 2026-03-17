@@ -34,3 +34,10 @@ langsmith>=0.1.0
 
 # For evaluation
 ranx>=0.3.16
+
+# For datasets
+datasets>=3.0.0
+
+# For labeling
+label-studio>=1.12.0; python_version < "3.13"
+label-studio-sdk>=1.0.8; python_version >= "3.13"

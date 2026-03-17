@@ -24,6 +24,16 @@ services:
       - qdrant_data:/qdrant/storage
     restart: unless-stopped
 
+  label-studio:
+    image: heartexlabs/label-studio:latest
+    container_name: label-studio
+    ports:
+      - "8080:8080"
+    volumes:
+      - labelstudio_data:/label-studio/data
+    restart: unless-stopped
+
 volumes:
   ollama_data:
   qdrant_data:
+  labelstudio_data:
