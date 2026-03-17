@@ -1,0 +1,235 @@
+{
+  "timestamp": "2026-03-17T03:08:57.013057",
+  "retrieval": {
+    "precision@3": 0.38333333333333325,
+    "recall@5": 0.9249999999999998,
+    "ndcg@3": 0.9499732990861718,
+    "mrr": 1.0,
+    "map": 0.9224537037037036,
+    "worst_cases": [
+      {
+        "scenario": "technology_gadgets",
+        "query_id": "technology_gadgets_8_phone_q1",
+        "query": "What phone does the user have?",
+        "ndcg@5": 0.6387878864795979,
+        "reciprocal_rank": 1.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "2ea83b54-d555-4d5b-bead-827e3c1ec533",
+            "content": "User uses iPhone 15",
+            "relevance": 2
+          },
+          {
+            "memory_id": "32318ea9-5265-446f-b8dd-728f2a639205",
+            "content": "User prefers dark mode",
+            "relevance": 1
+          },
+          {
+            "memory_id": "b2d4e849-e6d8-4f00-8c8f-84b47f6e10a5",
+            "content": "User games on weekends",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "2ea83b54-d555-4d5b-bead-827e3c1ec533",
+            "content": "User uses iPhone 15",
+            "importance_score": 0.7949999999999999,
+            "similarity_score": 0.75686336,
+            "final_score": 0.7252043505074537,
+            "expected_relevance": 2
+          },
+          {
+            "rank": 2,
+            "memory_id": "3cf83c96-ae3f-44d7-a662-ff125b49b189",
+            "content": "User's favorite color is blue",
+            "importance_score": 0.845,
+            "similarity_score": 0.6360549,
+            "final_score": 0.6549679679421068,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "8a6de8f2-0129-40c8-aa1f-6350cfbac6c8",
+            "content": "User is married",
+            "importance_score": 0.825,
+            "similarity_score": 0.5896307,
+            "final_score": 0.6186729564982038,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 4,
+            "memory_id": "faa805ee-2666-4aa2-a0fc-df0f80797ec0",
+            "content": "User speaks fluent Spanish",
+            "importance_score": 0.83,
+            "similarity_score": 0.5644965,
+            "final_score": 0.6037063313934923,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 5,
+            "memory_id": "fbfdad7e-d4d1-48d8-9ce4-c7fb0ff08dc5",
+            "content": "User wakes up at 6 AM",
+            "importance_score": 0.8049999999999999,
+            "similarity_score": 0.56624424,
+            "final_score": 0.5999024306402877,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "technology_gadgets",
+        "query_id": "technology_gadgets_8_gaming_q1",
+        "query": "Does the user play video games?",
+        "ndcg@5": 0.7601875334318685,
+        "reciprocal_rank": 1.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "b2d4e849-e6d8-4f00-8c8f-84b47f6e10a5",
+            "content": "User games on weekends",
+            "relevance": 2
+          },
+          {
+            "memory_id": "2ea83b54-d555-4d5b-bead-827e3c1ec533",
+            "content": "User uses iPhone 15",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "b2d4e849-e6d8-4f00-8c8f-84b47f6e10a5",
+            "content": "User games on weekends",
+            "importance_score": 0.8099999999999999,
+            "similarity_score": 0.72407246,
+            "final_score": 0.704050719928559,
+            "expected_relevance": 2
+          },
+          {
+            "rank": 2,
+            "memory_id": "3877b2da-56ca-4daa-b1b6-6664c8e9d822",
+            "content": "User works as a software engineer",
+            "importance_score": 0.965,
+            "similarity_score": 0.5919211,
+            "final_score": 0.628207685939129,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "32318ea9-5265-446f-b8dd-728f2a639205",
+            "content": "User prefers dark mode",
+            "importance_score": 0.8099999999999999,
+            "similarity_score": 0.6020131,
+            "final_score": 0.6220749032123252,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 4,
+            "memory_id": "3cf83c96-ae3f-44d7-a662-ff125b49b189",
+            "content": "User's favorite color is blue",
+            "importance_score": 0.845,
+            "similarity_score": 0.58210903,
+            "final_score": 0.6178735142070528,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 5,
+            "memory_id": "babaf5fc-ade3-42ab-9b16-e4db182f1fd9",
+            "content": "User reads sci-fi books",
+            "importance_score": 0.815,
+            "similarity_score": 0.5773537,
+            "final_score": 0.6054133158727022,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "health_fitness",
+        "query_id": "health_fitness_3_diet_q1",
+        "query": "What is the user's diet?",
+        "ndcg@5": 0.8403030283801005,
+        "reciprocal_rank": 1.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "40f45c9b-f59a-4dd0-adf6-0a2d8e535144",
+            "content": "User is vegetarian",
+            "relevance": 2
+          },
+          {
+            "memory_id": "1691f7ec-db55-416b-b8ff-f68ee1d11489",
+            "content": "User runs 5km every morning",
+            "relevance": 1
+          },
+          {
+            "memory_id": "59d81369-de1e-44f1-b017-b82faebe1d1b",
+            "content": "User prefers coffee over tea",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "40f45c9b-f59a-4dd0-adf6-0a2d8e535144",
+            "content": "User is vegetarian",
+            "importance_score": 0.7899999999999999,
+            "similarity_score": 0.7040441,
+            "final_score": 0.687630869480434,
+            "expected_relevance": 2
+          },
+          {
+            "rank": 2,
+            "memory_id": "59d81369-de1e-44f1-b017-b82faebe1d1b",
+            "content": "User prefers coffee over tea",
+            "importance_score": 0.84,
+            "similarity_score": 0.57187915,
+            "final_score": 0.600315404223316,
+            "expected_relevance": 1
+          },
+          {
+            "rank": 3,
+            "memory_id": "aa13b7bf-456b-4311-adf8-4e3c93394e90",
+            "content": "User loves spicy Thai food",
+            "importance_score": 0.83,
+            "similarity_score": 0.5439174,
+            "final_score": 0.5858352318355521,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 4,
+            "memory_id": "0f8d95a3-d39b-4ebd-b652-2b24ce36e722",
+            "content": "User ate pizza last night",
+            "importance_score": 0.825,
+            "similarity_score": 0.5433619,
+            "final_score": 0.584846382066148,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 5,
+            "memory_id": "2154d1ba-47d1-45c4-9227-daa13eab4b3a",
+            "content": "User is allergic to peanuts",
+            "importance_score": 0.835,
+            "similarity_score": 0.5487221,
+            "final_score": 0.5841054669524017,
+            "expected_relevance": 0
+          }
+        ]
+      }
+    ]
+  },
+  "deduplication": {
+    "accuracy": 1.0,
+    "total_cases": 2,
+    "correct": 2
+  },
+  "performance": {
+    "store_latency_p50": 78.80065008066595,
+    "store_latency_p95": 133.49012511316684,
+    "search_latency_p50": 77.630800078623,
+    "search_latency_p95": 135.5229099513962,
+    "n_operations": 50
+  }
+}

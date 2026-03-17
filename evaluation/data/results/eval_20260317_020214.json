@@ -1,0 +1,180 @@
+{
+  "timestamp": "2026-03-17T02:01:46.055079",
+  "retrieval": {
+    "precision@3": 0.33333333333333326,
+    "recall@5": 0.9,
+    "ndcg@3": 0.8594534063413131,
+    "mrr": 0.9375,
+    "map": 0.81875,
+    "worst_cases": [
+      {
+        "scenario": "technology_gadgets",
+        "query_id": "technology_gadgets_8_gaming_q1",
+        "query": "Does the user play video games?",
+        "ndcg@5": 0.3273949503887395,
+        "reciprocal_rank": 0.25,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "3f23e31c-ab85-4abf-b89e-922ae2017a34",
+            "content": "User games on weekends",
+            "relevance": 2
+          },
+          {
+            "memory_id": "459a935e-4931-4193-9bbd-879f02a2b3ac",
+            "content": "User uses iPhone 15",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "5f920334-6e7c-47a7-9211-78ff8e465383",
+            "content": "User studied computer science",
+            "importance_score": 0.845,
+            "similarity_score": 0.5761068,
+            "final_score": 0.774852684450436,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 2,
+            "memory_id": "32149770-4d72-489b-b886-673acccf6f42",
+            "content": "User's favorite color is blue",
+            "importance_score": 0.845,
+            "similarity_score": 0.5714143,
+            "final_score": 0.7669901084300035,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "112e2ba6-d998-48b9-adfe-71395faac934",
+            "content": "User is learning guitar",
+            "importance_score": 0.815,
+            "similarity_score": 0.5588491,
+            "final_score": 0.7632010048775429,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 4,
+            "memory_id": "3f23e31c-ab85-4abf-b89e-922ae2017a34",
+            "content": "User games on weekends",
+            "importance_score": 0.8099999999999999,
+            "similarity_score": 0.5941545,
+            "final_score": 0.7522926960582408,
+            "expected_relevance": 2
+          },
+          {
+            "rank": 5,
+            "memory_id": "2938bea9-7dcd-4bfa-9ea8-f2afa4c3a10a",
+            "content": "User has season tickets to soccer",
+            "importance_score": 0.865,
+            "similarity_score": 0.55210423,
+            "final_score": 0.7477417044168057,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "health_fitness",
+        "query_id": "health_fitness_3_exercise_q1",
+        "query": "What exercise does the user do?",
+        "ndcg@5": 0.6309297535714575,
+        "reciprocal_rank": 0.5,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "f463c5dc-5be8-48d3-b131-98a54b205b6e",
+            "content": "User runs 5km every morning",
+            "relevance": 2
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "112e2ba6-d998-48b9-adfe-71395faac934",
+            "content": "User is learning guitar",
+            "importance_score": 0.815,
+            "similarity_score": 0.5615221,
+            "final_score": 0.7544076469890131,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 2,
+            "memory_id": "f463c5dc-5be8-48d3-b131-98a54b205b6e",
+            "content": "User runs 5km every morning",
+            "importance_score": 0.835,
+            "similarity_score": 0.52916217,
+            "final_score": 0.7174972958408914,
+            "expected_relevance": 2
+          }
+        ]
+      },
+      {
+        "scenario": "health_fitness",
+        "query_id": "health_fitness_3_diet_q1",
+        "query": "What is the user's diet?",
+        "ndcg@5": 0.6387878864795979,
+        "reciprocal_rank": 1.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "f962d433-820e-4eb1-b759-caa6a6308652",
+            "content": "User is vegetarian",
+            "relevance": 2
+          },
+          {
+            "memory_id": "f463c5dc-5be8-48d3-b131-98a54b205b6e",
+            "content": "User runs 5km every morning",
+            "relevance": 1
+          },
+          {
+            "memory_id": "6193e7dd-a545-4aab-a2a7-a6c49a6ca761",
+            "content": "User prefers coffee over tea",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "f962d433-820e-4eb1-b759-caa6a6308652",
+            "content": "User is vegetarian",
+            "importance_score": 0.7899999999999999,
+            "similarity_score": 0.6702299,
+            "final_score": 0.7943379387527431,
+            "expected_relevance": 2
+          },
+          {
+            "rank": 2,
+            "memory_id": "f530a143-dda6-43b0-9624-a02ccc80a6f8",
+            "content": "User ate pizza last night",
+            "importance_score": 0.825,
+            "similarity_score": 0.5715852,
+            "final_score": 0.7655926610813417,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "e579609c-f1ae-4541-a969-c50cb66b4f41",
+            "content": "User is allergic to peanuts",
+            "importance_score": 0.835,
+            "similarity_score": 0.5765536,
+            "final_score": 0.7459321501912505,
+            "expected_relevance": 0
+          }
+        ]
+      }
+    ]
+  },
+  "deduplication": {
+    "accuracy": 1.0,
+    "total_cases": 2,
+    "correct": 2
+  },
+  "performance": {
+    "store_latency_p50": 119.10569993779063,
+    "store_latency_p95": 152.8339249663986,
+    "search_latency_p50": 109.93749997578561,
+    "search_latency_p95": 148.42730509117243,
+    "n_operations": 50
+  }
+}

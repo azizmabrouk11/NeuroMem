@@ -1,0 +1,147 @@
+{
+  "timestamp": "2026-03-17T01:16:01.933855",
+  "retrieval": {
+    "precision@3": 0.33913043478260874,
+    "recall@5": 0.6985507246376811,
+    "ndcg@3": 0.6823962616888124,
+    "mrr": 0.7959161490683229,
+    "map": 0.5928010697032435,
+    "worst_cases": [
+      {
+        "scenario": "personal_facts",
+        "query_id": "personal_facts_7_fact_q1",
+        "query": "What is the user's location?",
+        "ndcg@5": 0.0,
+        "reciprocal_rank": 0.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "328a5f26-51be-4396-8c3c-d803403e41b6",
+            "content": "User has a birthday next month",
+            "relevance": 2
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "a9741fa0-eab2-4c97-ae5c-b04cf74ab286",
+            "content": "User was born in New York",
+            "importance_score": 0.875,
+            "similarity_score": 0.55702174,
+            "final_score": 0.7506921915107575,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "personal_facts",
+        "query_id": "personal_facts_7_fact_q2",
+        "query": "What is the user's marital status?",
+        "ndcg@5": 0.0,
+        "reciprocal_rank": 0.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "a9741fa0-eab2-4c97-ae5c-b04cf74ab286",
+            "content": "User was born in New York",
+            "relevance": 2
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "4141eb4b-72ba-400f-a1c1-636f41ca428e",
+            "content": "User is married",
+            "importance_score": 0.7749999999999999,
+            "similarity_score": 0.76802623,
+            "final_score": 0.8503157360809143,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 2,
+            "memory_id": "328a5f26-51be-4396-8c3c-d803403e41b6",
+            "content": "User has a birthday next month",
+            "importance_score": 0.85,
+            "similarity_score": 0.5180584,
+            "final_score": 0.7108350358514468,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "hobbies_interests",
+        "query_id": "hobbies_interests_64_hobby_q2",
+        "query": "Is the user a reader?",
+        "ndcg@5": 0.0,
+        "reciprocal_rank": 0.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "a429ef99-58bb-44db-9f25-7adae8af23b5",
+            "content": "User enjoys hiking",
+            "relevance": 2
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "8e612f4b-5b63-45a3-97e1-39c473cee149",
+            "content": "User loves reading books",
+            "importance_score": 1.0,
+            "similarity_score": 0.62790304,
+            "final_score": 0.8395860735798422,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 2,
+            "memory_id": "1830c9e0-66cf-4598-9fa3-e1386a06afee",
+            "content": "User is learning Python",
+            "importance_score": 1.0,
+            "similarity_score": 0.52004284,
+            "final_score": 0.7739321296267118,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "328a5f26-51be-4396-8c3c-d803403e41b6",
+            "content": "User has a birthday next month",
+            "importance_score": 1.0,
+            "similarity_score": 0.50873935,
+            "final_score": 0.7605762515068922,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 4,
+            "memory_id": "1d5a8932-551f-4e87-a142-58f9d4720f73",
+            "content": "User works as a software engineer",
+            "importance_score": 1.0,
+            "similarity_score": 0.5080233,
+            "final_score": 0.755322937595034,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 5,
+            "memory_id": "b8afdf67-e57d-432d-a390-48da069b9561",
+            "content": "User has a sibling",
+            "importance_score": 1.0,
+            "similarity_score": 0.50615185,
+            "final_score": 0.7507229404634825,
+            "expected_relevance": 0
+          }
+        ]
+      }
+    ]
+  },
+  "deduplication": {
+    "accuracy": 1.0,
+    "total_cases": 2,
+    "correct": 2
+  },
+  "performance": {
+    "store_latency_p50": 137.8856000956148,
+    "store_latency_p95": 182.06055000191552,
+    "search_latency_p50": 115.71104999165982,
+    "search_latency_p95": 157.50858503160998,
+    "n_operations": 50
+  }
+}

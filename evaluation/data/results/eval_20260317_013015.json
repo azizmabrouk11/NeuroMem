@@ -1,0 +1,138 @@
+{
+  "timestamp": "2026-03-17T01:28:23.243081",
+  "retrieval": {
+    "precision@3": 0.3521739130434783,
+    "recall@5": 0.7057971014492754,
+    "ndcg@3": 0.6824262436404276,
+    "mrr": 0.8011335403726708,
+    "map": 0.5893348861283644,
+    "worst_cases": [
+      {
+        "scenario": "personal_facts",
+        "query_id": "personal_facts_7_fact_q1",
+        "query": "What is the user's location?",
+        "ndcg@5": 0.0,
+        "reciprocal_rank": 0.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "69d835c5-92ae-4ad7-a7f6-9807489f85f7",
+            "content": "User has a birthday next month",
+            "relevance": 2
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "2a5e563b-2232-4b38-9f71-c53e3da37338",
+            "content": "User was born in New York",
+            "importance_score": 0.875,
+            "similarity_score": 0.55702174,
+            "final_score": 0.7506921904864409,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "personal_facts",
+        "query_id": "personal_facts_7_fact_q2",
+        "query": "What is the user's marital status?",
+        "ndcg@5": 0.0,
+        "reciprocal_rank": 0.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "2a5e563b-2232-4b38-9f71-c53e3da37338",
+            "content": "User was born in New York",
+            "relevance": 2
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "76355260-8ef0-4aab-ba16-fd5abc0b379e",
+            "content": "User is married",
+            "importance_score": 0.7749999999999999,
+            "similarity_score": 0.76802623,
+            "final_score": 0.8503157360081944,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 2,
+            "memory_id": "69d835c5-92ae-4ad7-a7f6-9807489f85f7",
+            "content": "User has a birthday next month",
+            "importance_score": 0.85,
+            "similarity_score": 0.5180584,
+            "final_score": 0.710835035901875,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "hobbies_interests",
+        "query_id": "hobbies_interests_19_interest_q2",
+        "query": "Does the user play a musical instrument?",
+        "ndcg@5": 0.0,
+        "reciprocal_rank": 0.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "5a638472-273b-421e-b1cc-fb6d476713ee",
+            "content": "User loves reading books",
+            "relevance": 2
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "8ad8afa6-695b-4db3-9518-245f427b9db6",
+            "content": "User is learning Python",
+            "importance_score": 0.965,
+            "similarity_score": 0.5277051,
+            "final_score": 0.761558901170148,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 2,
+            "memory_id": "69d835c5-92ae-4ad7-a7f6-9807489f85f7",
+            "content": "User has a birthday next month",
+            "importance_score": 0.9,
+            "similarity_score": 0.5148679,
+            "final_score": 0.7418790072122823,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "2aeea5de-fe8a-4be5-9dae-68b9b8bff054",
+            "content": "User has experience with Java",
+            "importance_score": 0.845,
+            "similarity_score": 0.5184288,
+            "final_score": 0.7318516668437469,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 4,
+            "memory_id": "0e1a7458-8a33-4b9d-8056-eed7f2eddc52",
+            "content": "User had a concert last night",
+            "importance_score": 0.845,
+            "similarity_score": 0.5358143,
+            "final_score": 0.7214885329804624,
+            "expected_relevance": 0
+          }
+        ]
+      }
+    ]
+  },
+  "deduplication": {
+    "accuracy": 1.0,
+    "total_cases": 2,
+    "correct": 2
+  },
+  "performance": {
+    "store_latency_p50": 114.37090008985251,
+    "store_latency_p95": 156.8290450493805,
+    "search_latency_p50": 105.40564998518676,
+    "search_latency_p95": 151.181609951891,
+    "n_operations": 50
+  }
+}

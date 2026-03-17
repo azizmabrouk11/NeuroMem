@@ -24,10 +24,10 @@ class MemoryRanker:
     """
     def __init__(
             self,
-            similarity_weight: float = 0.6,
-            importance_weight: float = 0.15,
-            recency_weight: float = 0.1,
-            access_weight: float = 0.15
+            similarity_weight: float = 0.7,
+            importance_weight: float = 0.1,
+            recency_weight: float = 0.05,
+            access_weight: float = 0.05
             ):
         """
         Args:

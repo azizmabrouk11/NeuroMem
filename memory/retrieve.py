@@ -40,3 +40,24 @@ class MemoryRetriever:
         except Exception as e:
             logger.error(f"Error retrieving memories: {e}")
             return []
+        
+    def retrieve_memories_without_ranking(
+        self,
+        query:MemoryQuery,
+    ) -> List[MemorySearchResult]:
+        """
+        Retrieve relevant memories based on the query without ranking.
+        Args:
+            query: MemoryQuery object with search parameters
+        Returns:
+            List of MemorySearchResult objects in the order returned by vector search
+        """
+        try:
+            logger.info(f"Retrieving memories without ranking for query: '{query.query_text}' with top_k={query.top_k}")
+            search_embedding = self.embedder.embed_query(query.query_text)
+            raw_memories = self.vector_store.search_memories(query, search_embedding)
+            logger.info(f"Vector search returned {len(raw_memories)} memories")
+            return raw_memories
+        except Exception as e:
+            logger.error(f"Error retrieving memories without ranking: {e}")
+            return []
