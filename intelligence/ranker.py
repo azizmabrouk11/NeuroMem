@@ -25,7 +25,7 @@ class MemoryRanker:
     def __init__(
             self,
             similarity_weight: float = 0.7,
-            importance_weight: float = 0.1,
+            importance_weight: float = 0.2,
             recency_weight: float = 0.05,
             access_weight: float = 0.05
             ):

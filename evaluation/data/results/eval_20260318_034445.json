@@ -1,0 +1,185 @@
+{
+  "timestamp": "2026-03-18T03:44:23.108627",
+  "retrieval": {
+    "precision@3": 0.5964912280701753,
+    "recall@5": 0.8991228070175438,
+    "ndcg@3": 0.8663657671158862,
+    "mrr": 0.9122807017543859,
+    "map": 0.7894736842105263,
+    "worst_cases": [
+      {
+        "scenario": "travel_and_location",
+        "query_id": "travel_and_location_5_travel_and_location_q2",
+        "query": "How can we help the user arrange transportation and accomodations for their Antarctic trip?",
+        "ndcg@5": 0.5,
+        "reciprocal_rank": 0.3333333333333333,
+        "best_expected_relevance": 1,
+        "expected_memories": [
+          {
+            "memory_id": "7db5fe4e-511b-4d20-9a61-54a859a43c11",
+            "content": "User frequently travels for work and prefers flying in economy class",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "98b80858-eb29-4014-80d2-e2decf2bc57a",
+            "content": "User's dream is to visit Antarctica but has never been there",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.71382785,
+            "final_score": 0.7051725532982133,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 2,
+            "memory_id": "36b5b901-8346-4dc8-a484-e17300bff080",
+            "content": "User loves hiking in nature and has multiple outdoor gear items like tent, backpacking boots, and water filter",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.59259105,
+            "final_score": 0.6217451973684359,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "7db5fe4e-511b-4d20-9a61-54a859a43c11",
+            "content": "User frequently travels for work and prefers flying in economy class",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.5507199,
+            "final_score": 0.5909969866644288,
+            "expected_relevance": 1
+          }
+        ]
+      },
+      {
+        "scenario": "hobbies_and_interests",
+        "query_id": "hobbies_and_interests_4_hobbies_and_interests_q2",
+        "query": "How can you help the user with their current hobby, such as setting up a home studio?",
+        "ndcg@5": 0.5962977923413559,
+        "reciprocal_rank": 1.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "470435d3-13a8-4d13-87aa-d947e5ed747e",
+            "content": "User enjoys playing guitar, composing music, and performing at local venues weekly",
+            "relevance": 2
+          },
+          {
+            "memory_id": "d69ded78-945b-497f-8c95-9a442beeb7c2",
+            "content": "User takes photos of flowers and landscapes for their online portfolio",
+            "relevance": 2
+          },
+          {
+            "memory_id": "36b5b901-8346-4dc8-a484-e17300bff080",
+            "content": "User loves hiking in nature and has multiple outdoor gear items like tent, backpacking boots, and water filter",
+            "relevance": 1
+          },
+          {
+            "memory_id": "1295fe35-9457-4644-b2df-14f4509703a4",
+            "content": "User is an avid knitter and enjoys crafting sweaters and scarves",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "470435d3-13a8-4d13-87aa-d947e5ed747e",
+            "content": "User enjoys playing guitar, composing music, and performing at local venues weekly",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.62082005,
+            "final_score": 0.6380397687668276,
+            "expected_relevance": 2
+          },
+          {
+            "rank": 2,
+            "memory_id": "bff154f3-6f08-4129-bf76-126e2d5748a7",
+            "content": "User is interested in upgrading to a quantum computing system in the near future",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.56931293,
+            "final_score": 0.6040121051508874,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "1295fe35-9457-4644-b2df-14f4509703a4",
+            "content": "User is an avid knitter and enjoys crafting sweaters and scarves",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.52497613,
+            "final_score": 0.5674832881520255,
+            "expected_relevance": 1
+          },
+          {
+            "rank": 4,
+            "memory_id": "fa52ba92-ad0a-4f74-a1b2-d050a12f7532",
+            "content": "User recently started teaching coding workshops to local high school students",
+            "importance_score": 0.95,
+            "similarity_score": 0.5132354,
+            "final_score": 0.5673119517789909,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 5,
+            "memory_id": "7c72bed0-3b9a-4d6b-ac97-7bc45c4b82c6",
+            "content": "User is a fan of board games like Settlers of Catan and has built several gaming tables",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.5042594,
+            "final_score": 0.5529815785330904,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "technology_and_gadgets",
+        "query_id": "technology_and_gadgets_3_technology_and_gadgets_q0",
+        "query": "What type of smartphone or tablet do you need to purchase for the user?",
+        "ndcg@5": 0.6131471927654584,
+        "reciprocal_rank": 1.0,
+        "best_expected_relevance": 1,
+        "expected_memories": [
+          {
+            "memory_id": "0f0357e4-4ad8-41f3-8bbf-6ca42484e709",
+            "content": "User has an iPhone and uses it daily for work and personal use",
+            "relevance": 1
+          },
+          {
+            "memory_id": "bff154f3-6f08-4129-bf76-126e2d5748a7",
+            "content": "User is interested in upgrading to a quantum computing system in the near future",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "0f0357e4-4ad8-41f3-8bbf-6ca42484e709",
+            "content": "User has an iPhone and uses it daily for work and personal use",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.6336987,
+            "final_score": 0.6435890881996122,
+            "expected_relevance": 1
+          },
+          {
+            "rank": 2,
+            "memory_id": "a4707c2a-ec7b-4059-9af5-333d64e965d5",
+            "content": "User frequently takes notes using their Evernote account and appreciates the sync feature across different devices",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.5124272,
+            "final_score": 0.5586990390604051,
+            "expected_relevance": 0
+          }
+        ]
+      }
+    ]
+  },
+  "deduplication": {
+    "accuracy": 1.0,
+    "total_cases": 2,
+    "correct": 2
+  },
+  "performance": {
+    "store_latency_p50": 59.460700023919344,
+    "store_latency_p95": 131.08463004464278,
+    "search_latency_p50": 67.57020007353276,
+    "search_latency_p95": 102.06964495591814,
+    "n_operations": 50
+  }
+}

@@ -1,0 +1,1351 @@
+[
+  {
+    "scenario": "food_preferences_and_allergies",
+    "memories": [
+      "User has a mild allergy to dairy products",
+      "User enjoys eating sweet potato fries with homemade aioli sauce",
+      "User is following the ketogenic diet for health reasons",
+      "User prefers non-processed foods and raw vegetables",
+      "User loves trying new international cuisines"
+    ],
+    "queries": [
+      "What types of food should I prepare to avoid triggering user's allergies?",
+      "Can you recommend any restaurants in the area that cater to User\u2019s dietary preferences?",
+      "What are some popular snacks or meals the user enjoys?"
+    ]
+  },
+  {
+    "scenario": "work_and_careers",
+    "memories": [
+      "User is a software developer working at an AI startup company",
+      "User has been programming in Swift for over 5 years and is proficient in React.js and GraphQL",
+      "User recently started teaching coding workshops to local high school students",
+      "User is interested in blockchain technology and is currently learning about decentralized finance (DeFi)",
+      "User mentors junior developers and enjoys guiding them through their projects"
+    ],
+    "queries": [
+      "What technologies does the user use for web development?",
+      "Where does User work, and what are they working on right now?",
+      "How can I assist with mentoring or teaching the user related to programming?"
+    ]
+  },
+  {
+    "scenario": "health_and_fitness",
+    "memories": [
+      "User has been practicing yoga for over a decade and enjoys meditation in addition to that practice",
+      "User prefers eating whole foods like fruits, vegetables, and grains, avoiding processed junk food",
+      "User is currently working on increasing their daily water intake to 3 liters per day",
+      "User has tried several new fitness classes including Zumba and pilates but does not prefer them",
+      "User aims to lose weight by reducing calorie consumption while maintaining protein and carbs"
+    ],
+    "queries": [
+      "What healthy diet choices can you make for the user based on their needs?",
+      "Which type of exercise routine would best suit User\u2019s fitness goals according to their preferences?",
+      "Are there any health supplements or vitamins recommended for the user?"
+    ]
+  },
+  {
+    "scenario": "technology_and_gadgets",
+    "memories": [
+      "User has an iPhone and uses it daily for work and personal use",
+      "User owns a high-end gaming laptop with the latest NVIDIA graphics card",
+      "User is interested in upgrading to a quantum computing system in the near future",
+      "User frequently takes notes using their Evernote account and appreciates the sync feature across different devices",
+      "User prefers not to share their personal information on most social media platforms"
+    ],
+    "queries": [
+      "What type of smartphone or tablet do you need to purchase for the user?",
+      "How can we accommodate User\u2019s gaming needs with this new device?",
+      "What are some key features should a high-end laptop have that will benefit the user?"
+    ]
+  },
+  {
+    "scenario": "hobbies_and_interests",
+    "memories": [
+      "User loves hiking in nature and has multiple outdoor gear items like tent, backpacking boots, and water filter",
+      "User is an avid knitter and enjoys crafting sweaters and scarves",
+      "User enjoys playing guitar, composing music, and performing at local venues weekly",
+      "User takes photos of flowers and landscapes for their online portfolio",
+      "User is a fan of board games like Settlers of Catan and has built several gaming tables"
+    ],
+    "queries": [
+      "What outdoor gear do you think would be best suited for User\u2019s hiking trips?",
+      "Which musical instrument might interest the user if we introduce them to different genres?",
+      "How can you help the user with their current hobby, such as setting up a home studio?"
+    ]
+  },
+  {
+    "scenario": "travel_and_location",
+    "memories": [
+      "User frequently travels for work and prefers flying in economy class",
+      "User is passionate about visiting new places every year and enjoys cultural experiences",
+      "User has traveled to Japan, Italy, and several European countries over the past few years",
+      "User's dream is to visit Antarctica but has never been there",
+      "User avoids shopping malls and instead prefers purchasing souvenirs from local markets"
+    ],
+    "queries": [
+      "What type of travel accommodations would be best for User on a budget?",
+      "Where do you think User will want to visit next based on their preference for cultural experiences?",
+      "How can we help the user arrange transportation and accomodations for their Antarctic trip?"
+    ]
+  },
+  {
+    "scenario": "family_and_relationships",
+    "memories": [
+      "User has a partner who enjoys cooking gourmet meals at home",
+      "User is very close to their twin sister who also likes watching movies together",
+      "User's parents live nearby and frequently visit, including taking the user with them on trips for holidays",
+      "User believes in keeping their personal life separate from work but prefers discussing family matters online",
+      "User enjoys playing video games with their younger brother during weekends"
+    ],
+    "queries": [
+      "What are some ways to celebrate a birthday for User's twin sister?",
+      "How can we accommodate the user\u2019s need to keep boundaries between work and personal life when it comes to family gatherings?",
+      "What type of activities would you suggest to bring joy to the entire family during holiday season?"
+    ]
+  },
+  {
+    "scenario": "education_and_learning",
+    "memories": [
+      "User is currently working on a PhD in neuroscience, focusing on neuroplasticity and learning disorders",
+      "User has taken several online courses recently such as photography and web development",
+      "User likes to teach their favorite programming languages like Java and Python to students outside of work",
+      "User reads books from local libraries and also enjoys watching educational YouTube channels",
+      "User is curious about pursuing a certification in machine learning for personal growth"
+    ],
+    "queries": [
+      "What type of online courses might be beneficial for User\u2019s current academic/professional goals?",
+      "How many hours per week does the user prefer to dedicate towards self-learning?",
+      "Can you recommend books or resources that may help the user with their ongoing research in neuroscience?"
+    ]
+  },
+  {
+    "scenario": "daily_habits_and_routines",
+    "memories": [
+      "User wakes up early every morning at 5 AM for a daily jog and meditation session",
+      "User prepares their meals using organic ingredients every night before bed to avoid grabbing fast food during lunchtime",
+      "User tracks their daily water intake on their smartphone app to ensure they stay hydrated throughout the day",
+      "User goes over emails multiple times per day, spending considerable time checking for new updates and managing their inbox",
+      "User has created a strict bedtime routine that includes reading books before falling asleep"
+    ],
+    "queries": [
+      "What types of healthy habits do you think would be best suited for the user based on their daily schedule?",
+      "How can we help User streamline their email management to save time and improve productivity?",
+      "Can you suggest a plan to incorporate more physical activity into their day?"
+    ]
+  },
+  {
+    "scenario": "entertainment",
+    "memories": [
+      "User enjoys watching classic movie remasters on streaming services like Netflix",
+      "User recently started learning how to play the piano and attends weekly lessons in a local music school",
+      "User's favorite book series is Harry Potter, and they keep their collection organized by genre",
+      "User goes through various video game genres such as puzzle games, strategy games, adventure games, fighting games, and sports games",
+      "User has several subscriptions to different streaming services including Amazon Prime Video, Disney+, Apple TV+"
+    ],
+    "queries": [
+      "What type of movies does the user prefer based on their favorite genre?",
+      "How can we improve User\u2019s subscription management for a more enjoyable experience with multiple platforms?",
+      "Can you suggest some books or music albums that could be interesting to the user?"
+    ]
+  },
+  {
+    "scenario": "food_preferences_and_allergies",
+    "memories": [
+      "User is allergic to shellfish but doesn't avoid seafood entirely.",
+      "User enjoys cooking exotic Asian recipes not typically found in local restaurants.",
+      "User recently started a gluten-free diet following their health specialist's recommendation.",
+      "User drinks one cup of green tea every morning as part of their daily routine.",
+      "User has developed an intolerance to bananas and avoids them when possible."
+    ],
+    "queries": [
+      "What foods should I not include in our next meal prep?",
+      "Which cuisines are you interested in trying out again soon?",
+      "Do you have any favorite recipes you enjoy cooking?"
+    ]
+  },
+  {
+    "scenario": "work_experience_and_technology",
+    "memories": [
+      "User is a software engineer at a startup that focuses on AI solutions.",
+      "User has been working with Java and Python for over 10 years, recently adding Rust to their arsenal.",
+      "User mentors interns in programming best practices when not actively coding.",
+      "User frequently attends tech conferences related to machine learning and cybersecurity.",
+      "User holds patents on several software inventions they have contributed to."
+    ],
+    "queries": [
+      "Which languages are you most proficient with?",
+      "Where do you spend the most time working, at home or in an office?",
+      "What project(s) would be interesting for me to assist you with?"
+    ]
+  },
+  {
+    "scenario": "health_and_fitness_interests",
+    "memories": [
+      "User follows a strict vegan diet due to ethical reasons.",
+      "User is currently trying out Zumba classes as part of their personal fitness routine.",
+      "User has been practicing yoga for 5 years, focusing on meditation techniques and poses that help with sleep issues.",
+      "User likes hiking in natural settings after work to clear their mind.",
+      "User tries new superfoods like quinoa every few months to add variety to their meals."
+    ],
+    "queries": [
+      "How can I best support your health goals?",
+      "What types of physical activities do you enjoy or recommend?",
+      "Do you have any favorite recipes with healthy ingredients?"
+    ]
+  },
+  {
+    "scenario": "hobbies_and_interests",
+    "memories": [
+      "User is deeply passionate about vintage car restoration and collects classic American cars.",
+      "User enjoys taking long walks in national parks for photography and reflection.",
+      "User spends weekends volunteering at a local animal shelter fostering dogs waiting to be adopted.",
+      "User recently learned how to knit and often creates custom scarves for friends and family.",
+      "User takes up chess every year when their birthday rolls around."
+    ],
+    "queries": [
+      "What hobbies do you enjoy doing in your free time?",
+      "Is there a specific kind of event or activity where you thrive the most?",
+      "Do you have any favorite resources or places to get started with new interests?"
+    ]
+  },
+  {
+    "scenario": "travel_and_looking_outside",
+    "memories": [
+      "User has visited every continent and is a skilled navigator in foreign countries.",
+      "User spent 3 months working as a volunteer in Japan, learning tea ceremony skills.",
+      "User enjoys reading travel guides by the seaside during their weekends.",
+      "User has learned to cook authentic local dishes from various cultures they've traveled to.",
+      "User plans trips using an app that sends alerts for deals and events happening worldwide."
+    ],
+    "queries": [
+      "What is your preferred way of exploring new places?",
+      "Which cultural traditions would you enjoy learning about during a trip?",
+      "Have you any specific travel tips or hacks to share?"
+    ]
+  },
+  {
+    "scenario": "family_and_relationships",
+    "memories": [
+      "User has four siblings and is the middle child, often taking on tasks to help alleviate their parents' workload.",
+      "User recently went through a long-distance relationship which challenged them in unexpected ways.",
+      "User helped organize an annual family reunion with multiple generations of relatives gathered together.",
+      "User prefers spending their free time alone for personal reflection and growth.",
+      "User likes cooking elaborate holiday meals to show appreciation for their extended family."
+    ],
+    "queries": [
+      "How do you balance the needs of your immediate family life with work commitments?",
+      "Do you have any favorite traditions or holidays that are particularly meaningful?",
+      "What is something unique about the way you communicate support within your family?"
+    ]
+  },
+  {
+    "scenario": "education_and_learning_interests",
+    "memories": [
+      "User has a Master's degree in psychology and still continues to attend relevant workshops.",
+      "User enjoys reading self-help books for personal development and finding new skills online.",
+      "User is enrolled in an online course about leadership principles this quarter.",
+      "User helps their children with homework related to subjects they are studying themselves, like coding or biology.",
+      "User has a collection of academic journals from major conferences related to their research interests."
+    ],
+    "queries": [
+      "What educational resources or experts do you trust and recommend?",
+      "How often do you personally engage in learning new skills or knowledge?",
+      "Do you have any favorite techniques for staying motivated during studies?"
+    ]
+  },
+  {
+    "scenario": "daily_habits_and_routines",
+    "memories": [
+      "User wakes up early, typically around 6 AM to prepare breakfast and exercise before work.",
+      "User has a strict skincare regimen that includes daily moisturizing and weekly facials.",
+      "User listens to audiobooks or podcasts while they commute to save time on mundane activities.",
+      "User enjoys a morning cup of matcha tea as caffeine to keep them alert during the day.",
+      "User keeps a journal in which they note down their accomplishments each week."
+    ],
+    "queries": [
+      "What are some ways you try to incorporate more positive habits into your daily routine?",
+      "Do you have any favorite items or tools that help streamline your daily tasks?",
+      "How do you track and remember smaller goals for the day?"
+    ]
+  },
+  {
+    "scenario": "entertainment_favorites",
+    "memories": [
+      "User reads multiple books each month from different genres, including novels and non-fiction.",
+      "User listens to podcasts or binge-watches TV shows related to their current interests like technology or history.",
+      "User is a casual gamer who plays online multiplayer games occasionally but not regularly.",
+      "User enjoys listening to music and creating playlists for various moods throughout the day.",
+      "User has been involved with writing short stories over the past year as an outlet for creativity."
+    ],
+    "queries": [
+      "What kind of content do you enjoy consuming most?",
+      "Which types of media formats (books, podcasts, TV shows) are you more likely to consume in your leisure time?",
+      "Do you have any current playlists or favorite artists that I might appreciate?"
+    ]
+  },
+  {
+    "scenario": "health_maintenance_and_supplements",
+    "memories": [
+      "User takes daily supplements like vitamin D and magnesium as part of their maintenance routine.",
+      "User occasionally incorporates herbal remedies into their health regimen, such as using turmeric for inflammation reduction.",
+      "User avoids eating certain foods that trigger allergies or make them feel unwell, like gluten.",
+      "User has used a variety of apps to track their daily nutrient intake and overall wellness goals.",
+      "User is wary of consuming processed foods and prefers whole ingredients for cooking."
+    ],
+    "queries": [
+      "Are there any supplements you find particularly helpful in your health maintenance routine?",
+      "Do you have any favorite natural remedies or herbs that you've found beneficial to include in meals?",
+      "How do you ensure you\u2019re getting all the necessary nutrients daily?"
+    ]
+  },
+  {
+    "scenario": "food_preferences_and_allergies",
+    "memories": [
+      "User avoids all dairy products due to lactose intolerance",
+      "User prefers Japanese food with a focus on miso soup and sushi rolls",
+      "User enjoys hiking during weekends and is an adventurous eater",
+      "User drinks herbal tea daily as it helps with digestion",
+      "User has a severe peanut allergy"
+    ],
+    "queries": [
+      "What foods do I need to avoid serving the user?",
+      "Are there any Japanese dishes that might trigger your allergies?",
+      "Do you have any routine meal times or snacks?"
+    ]
+  },
+  {
+    "scenario": "work_and_technical_skills",
+    "memories": [
+      "User works as a data scientist at an AI start-up in San Francisco",
+      "User is fluent in Java, C++, and JavaScript",
+      "User mentors junior engineers on best programming practices",
+      "User recently started learning React for frontend development",
+      "User has 5 years of experience in machine learning"
+    ],
+    "queries": [
+      "What do you specialize in?",
+      "Where are you working currently?",
+      "Can you tell me about your mentorship experiences?"
+    ]
+  },
+  {
+    "scenario": "health_and_fitness_routine",
+    "memories": [
+      "User follows a vegetarian diet to maintain their health",
+      "User practices daily meditation sessions for stress relief",
+      "User enjoys taking long walks in the park weekly as a hobby",
+      "User has an iron deficiency and takes supplements daily",
+      "User meditates twice a day before starting work"
+    ],
+    "queries": [
+      "What are your go-to healthy meals?",
+      "Do you have any specific exercises or routines you enjoy doing?",
+      "On a typical week, how do you manage your meditation practice?"
+    ]
+  },
+  {
+    "scenario": "technological_interests",
+    "memories": [
+      "User is an avid fan of gaming and owns multiple consoles",
+      "User regularly updates their knowledge on cybersecurity news",
+      "User enjoys creating custom video games from templates",
+      "User maintains a blog about tech gadgets and gizmos",
+      "User has developed several mobile apps in React Native"
+    ],
+    "queries": [
+      "What types of games do you like to play?",
+      "Can you suggest any cybersecurity resources for beginners?",
+      "How have your app development skills helped with your hobbies?"
+    ]
+  },
+  {
+    "scenario": "hobbies_and_interests",
+    "memories": [
+      "User enjoys rock climbing and has completed several routes",
+      "User is an avid reader of mystery novels",
+      "User loves collecting rare vinyl records on their music player",
+      "User takes photography lessons for improving photo quality",
+      "User spends weekends crafting miniature dioramas"
+    ],
+    "queries": [
+      "What hobbies do you enjoy doing in your free time?",
+      "Do you have any favorite authors or genres of books?",
+      "How often do you practice photography and what are some tips?"
+    ]
+  },
+  {
+    "scenario": "travel_preferences",
+    "memories": [
+      "User enjoys traveling to countries where they can speak the language directly after arriving",
+      "User prefers beach vacations over city trips due to preference in nature",
+      "User actively searches for volunteer opportunities while traveling",
+      "User maintains an extensive travel journal documenting each trip",
+      "User has visited 40+ countries and is always planning their next adventure"
+    ],
+    "queries": [
+      "What types of destinations do you prefer?",
+      "Do you have a favorite travel destination or would you like to explore something new?",
+      "On your travels, what kind of volunteer work are you interested in?"
+    ]
+  },
+  {
+    "scenario": "family_and_relationships",
+    "memories": [
+      "User is the only child and parents live in another country due to work commitments",
+      "User loves spending time with their younger brother on weekends",
+      "User enjoys baking desserts for family gatherings every year",
+      "User has recently started taking cooking classes to improve skills",
+      "User often talks about their grandparents and childhood memories"
+    ],
+    "queries": [
+      "What are your favorite traditions you have with your family?",
+      "Do you prefer spending time alone or with the whole family, and why?",
+      "Who are some important people in your life that you like to talk to?"
+    ]
+  },
+  {
+    "scenario": "education_learning_path",
+    "memories": [
+      "User is currently studying for a master's degree in computer science",
+      "User completed their undergraduate studies in engineering at the top of their class",
+      "User has been taking online courses on AI and machine learning recently",
+      "User likes to learn from YouTube tutorials when stuck with programming problems",
+      "User used to be an avid reader but now listens to audio books for study sessions"
+    ],
+    "queries": [
+      "What educational pursuits are you currently pursuing?",
+      "Where do you usually find resources or information for your studies?",
+      "Do you have any go-to methods or tools when learning a new skill?"
+    ]
+  },
+  {
+    "scenario": "daily_routines_and_habits",
+    "memories": [
+      "User wakes up at 6 AM every morning and practices meditation before exercising",
+      "User likes to start their workday with some light yoga stretches",
+      "User has a strict routine of drinking water upon waking and before bedtime",
+      "User listens to podcasts while commuting and during their lunch breaks",
+      "User prefers having breakfast as the first meal of the day"
+    ],
+    "queries": [
+      "What are your morning routines like?",
+      "How do you usually spend your commute times?",
+      "Do you have any preferred ways to stay hydrated throughout the day?"
+    ]
+  },
+  {
+    "scenario": "entertainment_media",
+    "memories": [
+      "User is a fan of classic movies and loves watching black & white films",
+      "User actively follows various music genres and listens to playlists religiously",
+      "User reads several books each month, ranging from novels to self-help guides",
+      "User enjoys playing video games during their free time",
+      "User often attends live theater performances and sees new musicals"
+    ],
+    "queries": [
+      "What types of movies or films are you into?",
+      "Do you have any favorite music groups or artists that inspire you?",
+      "How do books play a role in your life, if at all?"
+    ]
+  },
+  {
+    "scenario": "food_preferences_and_habits",
+    "memories": [
+      "User eats a vegetarian diet every day",
+      "User enjoys eating spicy dishes from different cuisines",
+      "User tries to reduce sodium intake in their meals",
+      "User drinks a cup of herbal tea before bed each night",
+      "User prefers light and healthy snacks like fruits and nuts"
+    ],
+    "queries": [
+      "What are some common foods I can serve without worrying about cross-contamination?",
+      "How much salt is recommended for this user daily?",
+      "What types of spices do you think would be suitable for their cuisine preferences?"
+    ]
+  },
+  {
+    "scenario": "work_and_career_skills",
+    "memories": [
+      "User works as a software developer focusing on web development",
+      "User has experience with React and Angular frameworks",
+      "User is currently enrolled in a data science course to expand skills",
+      "User mentors new developers and assists with code reviews",
+      "User contributes to open-source projects, specifically JavaScript libraries"
+    ],
+    "queries": [
+      "What are the user's current coding languages of interest?",
+      "What project management tools does the user use?",
+      "Can you provide an overview of the data science course the user is currently pursuing?"
+    ]
+  },
+  {
+    "scenario": "health_and_fitness_routine",
+    "memories": [
+      "User exercises for at least 30 minutes every day in the gym",
+      "User focuses on cardio and strength training",
+      "User maintains a gluten-free diet to manage celiac disease symptoms",
+      "User monitors their daily water intake closely to stay hydrated",
+      "User attends weekly yoga classes as part of stress management routine"
+    ],
+    "queries": [
+      "How does the user's fitness regimen affect their eating habits?",
+      "Do you know any specific recipes for gluten-free meals the user might enjoy?",
+      "What is a good substitute protein source they can use during workouts?"
+    ]
+  },
+  {
+    "scenario": "technological_aspirations_and_learning",
+    "memories": [
+      "User aims to become proficient in quantum computing by next year",
+      "User has recently started exploring augmented reality development techniques",
+      "User uses a smartwatch for fitness tracking and health monitoring",
+      "User is learning Python as part of their professional growth journey",
+      "User occasionally reads tech blogs and attend webinars on emerging technologies"
+    ],
+    "queries": [
+      "What are the user's current technological goals?",
+      "How does the user stay updated with the latest technology trends?",
+      "Do you know any books or podcasts users might find helpful in their learning journey?"
+    ]
+  },
+  {
+    "scenario": "hobby_and_interests",
+    "memories": [
+      "User is an avid collector of vintage cameras and photography equipment",
+      "User enjoys amateur astronomy, observing the night sky",
+      "User participates in local trivia competitions as a hobbyist",
+      "User has started taking up chess over the past year",
+      "User reads books on philosophy and history for leisure"
+    ],
+    "queries": [
+      "What kind of photography equipment is most important to user?",
+      "Do you think these hobbies could have any impact on the user's overall learning approach?",
+      "What types of literature do you believe are commonly read alongside their love for chess?"
+    ]
+  },
+  {
+    "scenario": "travel_preferences_and_lost_items",
+    "memories": [
+      "User frequently travels internationally to attend tech conferences",
+      "User prefers city breaks over rural stays",
+      "User often loses travel documents and needs a copy of all ID\u2019s available",
+      "User usually books flights and hotels through a trusted platform",
+      "User plans out extensive itineraries for each trip"
+    ],
+    "queries": [
+      "What types of travel destinations does the user like?",
+      "How do they keep track of important personal documents when traveling?",
+      "Can you recommend an easy-to-use itinerary planner application?"
+    ]
+  },
+  {
+    "scenario": "family_and_relationships",
+    "memories": [
+      "User has a close relationship with their eldest son and reads him bedtime stories each night",
+      "User enjoys spending time outdoors with family during the summer",
+      "User frequently discusses financial planning with their parents",
+      "User attends monthly meetings for extended family members to catch up on recent events",
+      "User occasionally plans surprise birthday parties for siblings"
+    ],
+    "queries": [
+      "How does the user's relationship with their eldest son affect parenting style?",
+      "What specific activities do you think are common during summer outings?",
+      "Do you know of any apps that can help users manage family schedules more efficiently?"
+    ]
+  },
+  {
+    "scenario": "educational_interests_and_courses",
+    "memories": [
+      "User takes online courses in digital marketing to improve their skills",
+      "User enjoys learning about the history of music through podcasts and documentaries",
+      "User is currently enrolled in a course on machine learning for work enhancement",
+      "User has recently started an English language course",
+      "User frequently reviews articles related to personal finance management"
+    ],
+    "queries": [
+      "What are some educational resources that suit this user's interests?",
+      "Do you know of any courses the user might consider taking in the future?",
+      "How do they stay engaged with current events and news relevant to their studies?"
+    ]
+  },
+  {
+    "scenario": "daily_habits_and_routines",
+    "memories": [
+      "User wakes up early, around 6:00 AM every day for meditation practice",
+      "User exercises twice a week at the park near home",
+      "User drinks two cups of tea daily, one in the morning and another before bedtime",
+      "User tries to maintain consistency with their fitness routine despite busy work schedule",
+      "User follows a strict skincare routine in the evening"
+    ],
+    "queries": [
+      "What are the user's established morning habits?",
+      "Do you know how the user manages their workouts during hectic schedules?",
+      "How important is consistency in skincare for this person?"
+    ]
+  },
+  {
+    "scenario": "entertainment_preferences",
+    "memories": [
+      "User frequently watches action movies like Marvel and DC films",
+      "User enjoys listening to jazz music while cooking",
+      "User spends the evening binge-watching sci-fi TV series sometimes",
+      "User actively participates in board game nights with friends",
+      "User occasionally reads fictional novels on fantasy genres"
+    ],
+    "queries": [
+      "What types of movies does this user prefer?",
+      "How do they unwind after a long day through entertainment options?",
+      "Are there any book clubs or game groups you know of that the user might be interested in joining?"
+    ]
+  },
+  {
+    "scenario": "food_preferences_and_allergies",
+    "memories": [
+      "User is allergic to shellfish",
+      "User prefers Italian cuisine over Japanese",
+      "User has a diet that excludes gluten for health reasons",
+      "User drinks green tea every morning",
+      "User limits sodium intake and avoids processed foods"
+    ],
+    "queries": [
+      "What are the things I should be cautious about when preparing meals?",
+      "Does the user have any dietary restrictions or allergies?",
+      "Would you consider preparing meals that align with the user's preferences?"
+    ]
+  },
+  {
+    "scenario": "work_and_skills",
+    "memories": [
+      "User works as a data scientist at an insurance company",
+      "User is skilled in R and SQL programming languages",
+      "User has experience analyzing claims data for fraud detection",
+      "User mentors interns on data analysis techniques",
+      "User is learning to code in Julia"
+    ],
+    "queries": [
+      "What technical skills does the user possess?",
+      "Where does the user work?",
+      "Can you describe the user's current area of focus or expertise?"
+    ]
+  },
+  {
+    "scenario": "health_and_fitness",
+    "memories": [
+      "User exercises yoga daily for stress relief and flexibility",
+      "User follows a vegan diet to maintain energy levels and muscle mass",
+      "User used to have high blood pressure but is now managing it with exercise and dietary changes",
+      "User practices meditation as part of their daily routine",
+      "User aims to incorporate more plant-based meals into their diet"
+    ],
+    "queries": [
+      "What physical activities do you suggest for the user?",
+      "Does the user follow a specific diet regimen?",
+      "How can one support and encourage the user's health goals?"
+    ]
+  },
+  {
+    "scenario": "tech_and_gadgets",
+    "memories": [
+      "User is knowledgeable about both hardware and software aspects of electronics",
+      "User owns an Apple MacBook Pro for work and gaming",
+      "User has a growing collection of vintage video game consoles",
+      "User prefers using voice commands over physical buttons when controlling smart home devices",
+      "User is currently researching new gadgets in the field of augmented reality"
+    ],
+    "queries": [
+      "What type of electronics does User prefer for work and entertainment?",
+      "What skills do you think are necessary to understand user's tech-related preferences?",
+      "How would you suggest incorporating the latest tech advancements into the user's life?"
+    ]
+  },
+  {
+    "scenario": "hobbies_and_interests",
+    "memories": [
+      "User enjoys hiking in national parks during weekends",
+      "User is currently learning to play the guitar and sing folk songs",
+      "User has a collection of classic literature books, often discussing them with friends",
+      "User frequently watches classic films from the 1940s-1960s on streaming platforms",
+      "User attends tech meetups but also enjoys attending music concerts"
+    ],
+    "queries": [
+      "What are some activities that you think would encourage and engage User's interests?",
+      "Does the user have any hobbies or pursuits they frequently engage in?",
+      "Could these activities be integrated into a more comprehensive lifestyle routine?"
+    ]
+  },
+  {
+    "scenario": "travel_and_location",
+    "memories": [
+      "User has visited over 20 countries and loves to travel internationally as a hobby",
+      "User prefers eco-friendly accommodations when staying at hotels or resorts",
+      "User enjoys learning about local cuisine and traditions while traveling",
+      "User is exploring plans for a solo backpacking trip in the Andes Mountains next year",
+      "User has an affinity for ancient architecture and historical landmarks"
+    ],
+    "queries": [
+      "What travel preferences does the user have?",
+      "Does User prefer staying at certain types of accommodations or locations for travel?",
+      "If they were to plan a future trip, what destinations would you recommend?"
+    ]
+  },
+  {
+    "scenario": "education_and_learning",
+    "memories": [
+      "User holds a Master's degree in psychology and is currently pursuing certification as a meditation instructor",
+      "User enjoys teaching photography classes at a local community college on weekends",
+      "User frequently reads scholarly journals to deepen knowledge in their field",
+      "User has studied ancient Greek language and literature for leisure purposes",
+      "User is interested in researching new applications of AI in mental health therapy"
+    ],
+    "queries": [
+      "What educational pursuits does the user currently engage in?",
+      "Does the user have any specific areas of interest within their field they would like to delve deeper into?",
+      "Could you recommend courses, classes or resources that align with User's interests and goals?"
+    ]
+  },
+  {
+    "scenario": "daily_habits_and_routines",
+    "memories": [
+      "User wakes up at the same time every day for work without exception",
+      "User practices mindfulness meditation before bed each night to wind down",
+      "User sets daily goals for exercise and tracking progress in a fitness app",
+      "User enjoys cooking traditional recipes from their culture's heritage on Sundays",
+      "User is currently trying to develop the habit of drinking at least 2 liters of water per day"
+    ],
+    "queries": [
+      "What are some habits or routines that you would suggest for User?",
+      "Does User have any routines they follow daily, and could these be beneficial for their overall well-being?",
+      "How do you think we can incorporate new or improved habits into the user's lifestyle?"
+    ]
+  },
+  {
+    "scenario": "entertainment",
+    "memories": [
+      "User often listens to podcasts about technology history when commuting",
+      "User enjoys watching science fiction movies and playing video games as a leisure activity",
+      "User has recently started reading graphic novels instead of traditional books",
+      "User is planning to host their next book club meeting with a focus on dystopian literature",
+      "User wants to learn more about the music industry by attending talks and concerts"
+    ],
+    "queries": [
+      "What kind of entertainment does User engage in?",
+      "Does User have any favorite genres or media types they frequently consume?",
+      "Could you suggest ways for User to expand their entertainment horizons?"
+    ]
+  },
+  {
+    "scenario": "health_and_parenthood",
+    "memories": [
+      "User has two children, both under the age of 10, and is very involved in their upbringing",
+      "User attends parenting workshops and participates in community-based activities with local families",
+      "User practices yoga to maintain flexibility while managing a busy schedule",
+      "User is currently studying prenatal nutrition for a healthier pregnancy experience",
+      "User has experienced allergies themselves and wants to ensure their children are safe"
+    ],
+    "queries": [
+      "What kind of parenting workshops or activities would benefit User?",
+      "Does User have any specific concerns related to health or parenting that they'd like addressed?",
+      "How could you suggest ways for User to incorporate physical activity into a busy family schedule?"
+    ]
+  },
+  {
+    "scenario": "food_allergies_and_diet",
+    "memories": [
+      "User is severely allergic to peanuts",
+      "User loves spicy Thai cuisine",
+      "User became vegetarian in 2023",
+      "User drinks 3 cups of coffee daily",
+      "User is trying to reduce sugar intake"
+    ],
+    "queries": [
+      "What foods should I absolutely avoid serving the user?",
+      "What type of cuisine does the user prefer?",
+      "What dietary restrictions does the user have?"
+    ]
+  },
+  {
+    "scenario": "work_and_technical_skills",
+    "memories": [
+      "User works as a senior software engineer at Google",
+      "User specializes in machine learning and Python",
+      "User has 8 years of experience in tech",
+      "User is learning Rust programming",
+      "User mentors junior developers"
+    ],
+    "queries": [
+      "What programming languages does the user know?",
+      "Where does the user work?",
+      "What is the user's area of expertise?"
+    ]
+  },
+  {
+    "scenario": "health_and_fitness",
+    "memories": [
+      "User runs a marathon every year",
+      "User enjoys yoga and Pilates",
+      "User has type 2 diabetes but manages it with diet and exercise",
+      "User exercises for at least 30 minutes daily",
+      "User is learning about alternative medicine practices"
+    ],
+    "queries": [
+      "What fitness routine does the user follow?",
+      "How does the user manage their health condition?",
+      "What are some healthy lifestyle choices the user makes?"
+    ]
+  },
+  {
+    "scenario": "technology_and_gadgets",
+    "memories": [
+      "User has a smartwatch that tracks heart rate and activity levels",
+      "User uses voice commands to control home devices",
+      "User installs software updates daily for all tech gadgets",
+      "User is experimenting with AI chatbots for customer support",
+      "User prefers vintage gaming consoles over new ones"
+    ],
+    "queries": [
+      "What types of technology does the user use?",
+      "How often does the user update their devices and software?",
+      "Are there any specific gadgets the user uses frequently?"
+    ]
+  },
+  {
+    "scenario": "hobbies_and_interests",
+    "memories": [
+      "User collects vintage video games and consoles",
+      "User plays chess regularly as a hobby",
+      "User enjoys bird watching in their local park",
+      "User reads 2 books per month",
+      "User participates in community theater productions once a year"
+    ],
+    "queries": [
+      "What are the user's hobbies or interests?",
+      "How often does the user engage in these activities?",
+      "Do they have any particular favorite types of media?"
+    ]
+  },
+  {
+    "scenario": "travel_and_location",
+    "memories": [
+      "User has visited 10 countries over their lifetime",
+      "User prefers small towns to big cities for vacations",
+      "User learns a new language each year while traveling",
+      "User enjoys hiking and camping on weekend trips",
+      "User often travels by train rather than plane"
+    ],
+    "queries": [
+      "Where does the user like to travel?",
+      "What are their preferred types of travel accommodations?",
+      "How do they typically plan their trips?"
+    ]
+  },
+  {
+    "scenario": "family_and_relationships",
+    "memories": [
+      "User has five children, ranging in age from 8 to 16 years old",
+      "User is an only child and was raised by extended family",
+      "User's parents separated when the user was young",
+      "User participates in weekly game night with their siblings",
+      "User recently adopted a puppy"
+    ],
+    "queries": [
+      "What are some important family events or milestones?",
+      "Who are the primary caregivers for the children, if applicable?",
+      "How do they bond and spend time together outside of work?"
+    ]
+  },
+  {
+    "scenario": "education_and_learning",
+    "memories": [
+      "User has a degree in psychology",
+      "User is currently enrolled in an online course on data science",
+      "User enjoys sharing knowledge at hackathons",
+      "User used to work in education as a teacher before transitioning into tech",
+      "User often consults with younger colleagues"
+    ],
+    "queries": [
+      "What educational background does the user have?",
+      "How do they stay updated on new learning technologies or courses?",
+      "Are there any teaching or mentorship positions they're interested in?"
+    ]
+  },
+  {
+    "scenario": "daily_habits_and_routines",
+    "memories": [
+      "User wakes up at 6:00 AM every day and takes a yoga class",
+      "User reads the newspaper online before work",
+      "User always wears dark sunglasses to protect their eyes",
+      "User has a habit of taking photos of plants daily in their garden",
+      "User enjoys sipping on hot chocolate during cooler months"
+    ],
+    "queries": [
+      "What are some consistent habits the user has?",
+      "Do they have any morning or evening routines?",
+      "Are there specific items or activities that they consistently engage with?"
+    ]
+  },
+  {
+    "scenario": "entertainment_and_media",
+    "memories": [
+      "User enjoys watching sci-fi movies and plays video games",
+      "User is an avid listener of audiobooks during commute times",
+      "User reads several books per week on various topics",
+      "User participates in board games with friends weekly",
+      "User has a collection of vinyl records"
+    ],
+    "queries": [
+      "What types of entertainment does the user enjoy?",
+      "How do they typically consume media (e.g., reading, listening)?",
+      "Do they have any favorite authors or genres?"
+    ]
+  },
+  {
+    "scenario": "food_preferences_and_allergies",
+    "memories": [
+      "User has a severe shellfish allergy",
+      "User enjoys eating exotic fruits like dragon fruit and durian",
+      "User is vegan except for special occasions",
+      "User drinks herbal tea daily as part of their routine"
+    ],
+    "queries": [
+      "What foods should I avoid serving the user?",
+      "Does the user prefer sweet or savory dishes?",
+      "Do you know any safe substitutes for dairy products?"
+    ]
+  },
+  {
+    "scenario": "travel_and_hobbies",
+    "memories": [
+      "User is a travel enthusiast and loves visiting off-the-beaten-path destinations",
+      "User has a passion for cycling and regularly participates in local races",
+      "User volunteers at an animal shelter on weekends",
+      "User enjoys painting landscapes and creates artwork weekly",
+      "User has traveled to 15 different countries over the past decade"
+    ],
+    "queries": [
+      "Where does the user like to travel?",
+      "What type of hobbies or activities do you recommend for someone who loves cycling?",
+      "Can you suggest some animal protection organizations they might be interested in volunteering with?"
+    ]
+  },
+  {
+    "scenario": "work_and_skills",
+    "memories": [
+      "User is a machine learning engineer at a tech startup company",
+      "User specializes in blockchain technology and attends monthly meetups",
+      "User has been working for 10 years in the software development field",
+      "User is learning new programming languages like Go and Rust",
+      "User mentors interns and helps them with their projects"
+    ],
+    "queries": [
+      "What kind of technologies does the user specialize in?",
+      "Where do you think this user works?",
+      "What skills can they help with for someone just starting in machine learning?"
+    ]
+  },
+  {
+    "scenario": "health_and_fitness",
+    "memories": [
+      "User is a certified personal trainer and frequently consults fitness magazines",
+      "User follows a balanced diet to manage their diabetes",
+      "User practices meditation regularly to reduce stress",
+      "User enjoys hiking on weekends as part of their wellness routine",
+      "User has participated in multiple health fairs and workshops"
+    ],
+    "queries": [
+      "What kind of exercise routines does the user follow?",
+      "How can we support someone with diabetes who is looking for a diet to manage it effectively?",
+      "Does the user have any resources or tips they would recommend others use?"
+    ]
+  },
+  {
+    "scenario": "tech_and_gadgets",
+    "memories": [
+      "User owns multiple smart home devices and keeps them all updated with the latest firmware",
+      "User is interested in learning about quantum computing",
+      "User has a collection of rare video game consoles from the 80s and 90s",
+      "User enjoys programming Arduino projects over weekends",
+      "User frequently shares tech tips and tricks on forums"
+    ],
+    "queries": [
+      "What types of gadgets does the user own or use?",
+      "Can you recommend some beginner-friendly resources for learning about quantum computing?",
+      "Do you have any favorite books or documentaries related to smart home technology?"
+    ]
+  },
+  {
+    "scenario": "education_and_learning",
+    "memories": [
+      "User has a degree in computer science and is currently pursuing certifications in cyber security",
+      "User enjoys reading non-fiction books on history and philosophy",
+      "User regularly takes online courses on platforms like Coursera or edX",
+      "User volunteers as a tutor for local high school students during the summer",
+      "User reads multiple languages to expand their knowledge"
+    ],
+    "queries": [
+      "What type of learning resources does the user prefer?",
+      "How do you suggest supporting someone who is pursuing certifications in cyber security?",
+      "Do you have any other favorite reading options for them besides history and philosophy?"
+    ]
+  },
+  {
+    "scenario": "family_and_relationships",
+    "memories": [
+      "User has a strong bond with their children and regularly takes them on trips",
+      "User is an avid gardener who often shares seeds and gardening tips online",
+      "User volunteers at local food banks during the holiday season",
+      "User spends time volunteering as a mentor for underprivileged youth in their community",
+      "User enjoys cooking meals together with their family each Sunday evening"
+    ],
+    "queries": [
+      "Do you know any ways to strengthen communication among family members?",
+      "How can we encourage someone who loves gardening but has limited space at home?",
+      "Can you show me tips on how to volunteer effectively in community service?"
+    ]
+  },
+  {
+    "scenario": "hobbies_and_interests",
+    "memories": [
+      "User enjoys playing board games and often hosts tournaments with friends",
+      "User is passionate about photography and regularly judges photo contests",
+      "User has an interest in classical music and takes weekly piano lessons",
+      "User collects vintage electronics and frequently upgrades their tech gadgets",
+      "User reads biographies of historical figures as a hobby"
+    ],
+    "queries": [
+      "What hobbies does the user enjoy outside of work?",
+      "How do you recommend someone who is passionate about photography organize their portfolio online?",
+      "Do you have any tips on finding local social groups for people interested in playing board games?"
+    ]
+  },
+  {
+    "scenario": "health_awareness_and_rehabilitation",
+    "memories": [
+      "User has been through rehabilitation after a sports injury and follows a strict recovery plan",
+      "User is an avid supporter of mental health awareness events and campaigns",
+      "User takes care to maintain a balanced diet for their recovery process",
+      "User leads support groups for patients with chronic diseases",
+      "User regularly attends physical therapy sessions twice a week"
+    ],
+    "queries": [
+      "What kind of rehabilitation plans does the user follow?",
+      "How can we help someone who is interested in mental health advocacy join relevant organizations or events?",
+      "Can you suggest some reading materials related to nutrition and recovery?"
+    ]
+  },
+  {
+    "scenario": "education_and_language_study",
+    "memories": [
+      "User has a PhD in linguistics and speaks multiple languages fluently",
+      "User uses language learning apps like Duolingo on weekends",
+      "User teaches ESL classes for children after school hours",
+      "User travels to different countries every year to improve their foreign language skills",
+      "User regularly studies ancient texts written in classical languages"
+    ],
+    "queries": [
+      "What kind of language learning resources does the user use?",
+      "How do you suggest someone can effectively learn a new language if they have limited time and energy?",
+      "Do you have any tips on finding cultural experiences to enhance language study?"
+    ]
+  },
+  {
+    "scenario": "food_preferences_and_allergies",
+    "memories": [
+      "User is allergic to dairy products but loves all other types of food",
+      "User enjoys trying new cuisines from different cultures",
+      "User has a nut allergy and avoids tree nuts in their diet",
+      "User drinks green tea every morning as part of their routine",
+      "User plans meals around seasonal produce"
+    ],
+    "queries": [
+      "What foods should I serve to the user?",
+      "Does the user have any food allergies or dietary restrictions?",
+      "How does the user prefer their meals to be prepared?"
+    ]
+  },
+  {
+    "scenario": "work_and_career",
+    "memories": [
+      "User works as a marketing executive at a digital agency",
+      "User is proficient in Adobe Creative Suite and social media analytics",
+      "User has received multiple industry awards for creative work",
+      "User is currently learning new programming languages to expand skills",
+      "User has mentored interns in the past"
+    ],
+    "queries": [
+      "What tools does the user use frequently?",
+      "Does the user have any specific areas of expertise within marketing?",
+      "How does the user stay updated with industry trends?"
+    ]
+  },
+  {
+    "scenario": "health_and_fitness",
+    "memories": [
+      "User practices yoga daily for stress reduction",
+      "User has been using a fitness tracker to monitor health metrics",
+      "User enjoys hiking in national parks during free weekends",
+      "User is on track to achieve their goal of running a half marathon next year",
+      "User follows specific diet plans that include whole foods"
+    ],
+    "queries": [
+      "What types of exercises does the user enjoy?",
+      "Does the user follow any specific health or fitness routines?",
+      "How does the user manage stress?"
+    ]
+  },
+  {
+    "scenario": "hobbies_and_interests",
+    "memories": [
+      "User loves playing board games and enjoys competitive play",
+      "User is an avid traveler, exploring new places every year",
+      "User has a passion for photography with a focus on nature landscapes",
+      "User spends weekends volunteering at animal shelters",
+      "User reads daily to stay informed about current events"
+    ],
+    "queries": [
+      "What types of board games does the user like?",
+      "Does the user have any other hobbies or interests besides traveling and reading?",
+      "How often does the user travel for leisure?"
+    ]
+  },
+  {
+    "scenario": "travel_and_location",
+    "memories": [
+      "User has visited over 40 countries, primarily in Europe and Asia",
+      "User prefers staying at boutique hotels that offer local experiences",
+      "User enjoys camping as a way to disconnect from daily life",
+      "User is saving money for their dream trip to South America next year",
+      "User often travels solo for adventure"
+    ],
+    "queries": [
+      "What types of accommodations does the user prefer?",
+      "Does the user have any preferred locations they avoid when traveling alone?",
+      "How frequently does the user travel?"
+    ]
+  },
+  {
+    "scenario": "family_and_relationships",
+    "memories": [
+      "User is a single parent and often cooks for their child",
+      "User has a close relationship with their grandmother who lives nearby",
+      "User loves to spend time with their siblings and cousins during holidays",
+      "User maintains an active Instagram account where they share family updates",
+      "User participates in weekly phone calls with their parents"
+    ],
+    "queries": [
+      "What types of food does the user typically prepare for their child?",
+      "Does the user have any close relationships that are important to them?",
+      "How often do the user and their family members get together?"
+    ]
+  },
+  {
+    "scenario": "education_and_learning",
+    "memories": [
+      "User is currently enrolled in a part-time MBA program during the evenings",
+      "User has a background in graphic design but also enjoys learning new skills like coding",
+      "User takes online courses to further their knowledge of specific topics",
+      "User mentors students who are trying to decide on what field to pursue",
+      "User reads books regularly and frequently reviews academic journals"
+    ],
+    "queries": [
+      "What types of classes or courses does the user enjoy taking?",
+      "Does the user have any areas of study that they find particularly interesting?",
+      "How does the user stay updated with the latest trends in their field?"
+    ]
+  },
+  {
+    "scenario": "daily_habits_and_routines",
+    "memories": [
+      "User wakes up at 6 AM to start their day on time",
+      "User meditates for a few minutes before starting work or school",
+      "User often takes the stairs instead of elevators for exercise",
+      "User drinks herbal tea daily as part of their morning ritual",
+      "User eats breakfast within an hour after waking up"
+    ],
+    "queries": [
+      "What time does the user typically wake up?",
+      "What types of rituals or routines do you notice in the user's daily life?",
+      "Does the user have any habits that they find particularly helpful for their productivity?"
+    ]
+  },
+  {
+    "scenario": "entertainment_and_media",
+    "memories": [
+      "User is a avid reader and enjoys fantasy novels",
+      "User follows multiple streaming platforms to watch new episodes of series",
+      "User listens to classical music daily as background noise while working",
+      "User has seen over 100 movies, with favorites like action and romantic comedies",
+      "User follows podcasts related to their hobbies or interests"
+    ],
+    "queries": [
+      "What types of media do you prefer?",
+      "Does the user have any favorite genres for reading or watching films?",
+      "How often does the user watch TV shows or movies?"
+    ]
+  },
+  {
+    "scenario": "technology_and_gadgets",
+    "memories": [
+      "User has a smart home system that controls various devices like lights and security cameras",
+      "User uses a fitness tracker to monitor their health metrics daily",
+      "User's phone runs on Android but frequently updates apps",
+      "User maintains multiple email accounts for different purposes",
+      "User keeps an organized digital notebook filled with important information"
+    ],
+    "queries": [
+      "What types of technology do you regularly use?",
+      "How does the user stay updated with software and applications?",
+      "Does the user have any favorite gadgets or technologies that they rely on?"
+    ]
+  },
+  {
+    "scenario": "pasta_and_vegetable_preferences",
+    "memories": [
+      "User loves pasta with tomato sauce",
+      "User dislikes sweet vegetables like carrots and corn",
+      "User prefers vegetable stir-fries over stewed dishes",
+      "User enjoys eating at local Italian restaurants",
+      "User has a mild allergy to nuts, including those in the sauce"
+    ],
+    "queries": [
+      "What types of pasta should I make for the user?",
+      "Does the user have any specific vegetables they like?",
+      "Where are some good places to find authentic pasta dishes?"
+    ]
+  },
+  {
+    "scenario": "astronomy_enthusiast_and_star_gazing",
+    "memories": [
+      "User is an avid astronomy enthusiast",
+      "User has a telescope and spends evenings stargazing",
+      "User attends local astronomy clubs monthly",
+      "User reads space-related books and watches documentaries",
+      "User hopes to visit Mars someday"
+    ],
+    "queries": [
+      "What telescopes would suit the user for their hobby?",
+      "Does the user have any specific stars or planets they are interested in observing?",
+      "Where can the user find educational resources on astronomy?"
+    ]
+  },
+  {
+    "scenario": "coffee_drinking_habits_and_health_concerns",
+    "memories": [
+      "User drinks 2 cups of coffee daily to stay alert",
+      "User has reduced sugar intake, preferring half-sweetened creamer",
+      "User is trying to cut down on caffeine for better sleep quality",
+      "User monitors their blood pressure and cholesterol levels carefully",
+      "User enjoys a variety of tea flavors in addition to coffee"
+    ],
+    "queries": [
+      "What types of coffee should I choose that align with the user's health goals?",
+      "Do they have any specific dietary restrictions related to caffeine consumption?",
+      "What are some natural ways to support the user\u2019s sleep and overall health?"
+    ]
+  },
+  {
+    "scenario": "artistic_and_visual_interests",
+    "memories": [
+      "User has a background in painting from art school",
+      "User often collects art books and attends gallery openings",
+      "User is interested in 2D digital art software like Procreate",
+      "User admires impressionist paintings especially",
+      "User plans to exhibit some of their own artwork next year"
+    ],
+    "queries": [
+      "What types of art supplies should I get for the user?",
+      "Do they have any specific artists or styles that inspire them?",
+      "How can we assist in setting up a gallery space for the user\u2019s exhibitions?"
+    ]
+  },
+  {
+    "scenario": "vegetarian_wellness_and_knowledge",
+    "memories": [
+      "User adopted vegetarianism because of health reasons",
+      "User knows many delicious meat-free recipes",
+      "User studies nutrition and sustainability aspects of plant-based diets",
+      "User prefers vegan options to avoid any animal products",
+      "User reads books on sustainable farming practices"
+    ],
+    "queries": [
+      "What are some interesting vegetarian/vegan restaurants nearby?",
+      "Which health benefits does the user associate with a vegetarian diet?",
+      "How can we support the user in learning more about sustainable food production?"
+    ]
+  },
+  {
+    "scenario": "martial_arts_training_and_buddy_system",
+    "memories": [
+      "User practices karate for self-defense and fitness",
+      "User often trains with a partner called 'the other half'",
+      "User has learned several kata sequences over the years",
+      "User prefers training outdoors in nature settings",
+      "User is looking for new schools or instructors to enhance their practice"
+    ],
+    "queries": [
+      "What style of martial arts does the user prefer?",
+      "Does the user need assistance finding a good partner?",
+      "How can we recommend resources like online videos and forums?"
+    ]
+  },
+  {
+    "scenario": "wine_tasting_events_and_preference",
+    "memories": [
+      "User enjoys trying various types of wine from different regions",
+      "User has found their preferred varietal to be Pinot Noir",
+      "User is interested in learning about winemaking processes",
+      "User prefers tastings at local restaurants to home settings",
+      "User plans to attend a big wine tasting event next month"
+    ],
+    "queries": [
+      "Where are some good places for the user to try new wines?",
+      "What types of wines would you recommend based on the user\u2019s preferences?",
+      "How can we assist in finding educational resources about winemaking?"
+    ]
+  },
+  {
+    "scenario": "space_travel_and_solar_system_interests",
+    "memories": [
+      "User is fascinated with space exploration and astronomy",
+      "User has a model solar system on their desk",
+      "User often debates the best planets to visit next in interstellar travel",
+      "User prefers science fiction novels set in outer space",
+      "User dreams of someday living or working aboard a space station"
+    ],
+    "queries": [
+      "What educational materials would you recommend for someone with such an interest?",
+      "Do they have any specific questions about the effects on the human body during space travel?",
+      "How can we provide them information and resources related to future space missions?"
+    ]
+  },
+  {
+    "scenario": "photography_ideas_and_tips",
+    "memories": [
+      "User wants to improve their photography skills overall",
+      "User likes taking pictures of nature scenes and landscapes",
+      "User has learned how to use a DSLR camera but prefers an iPhone for quick candid shots",
+      "User dreams of capturing professional-quality photos someday",
+      "User is looking for tips on post-processing images"
+    ],
+    "queries": [
+      "What types of photography equipment would you recommend the user?",
+      "How can we assist them in finding a local photography meetup group or mentor?",
+      "Are there any online resources you could suggest for learning more about composition and lighting?"
+    ]
+  },
+  {
+    "scenario": "cooking_gardening_and_horticulture",
+    "memories": [
+      "User loves growing herbs and vegetables at home",
+      "User is a member of a local community gardening group",
+      "User enjoys experimenting with different cooking techniques for their produce",
+      "User prefers to use fresh ingredients in their meals",
+      "User dreams of starting their own restaurant one day"
+    ],
+    "queries": [
+      "What are some interesting plants or herbs the user might want to grow?",
+      "Would you suggest any books or websites for beginner gardeners like them?",
+      "Do they have specific types of cuisine they enjoy cooking? "
+    ]
+  }
+]

@@ -1,0 +1,176 @@
+{
+  "timestamp": "2026-03-18T03:56:09.448313",
+  "retrieval": {
+    "precision@3": 0.6140350877192982,
+    "recall@5": 0.8991228070175438,
+    "ndcg@3": 0.8900623153679826,
+    "mrr": 0.9473684210526315,
+    "map": 0.8157894736842105,
+    "worst_cases": [
+      {
+        "scenario": "hobbies_and_interests",
+        "query_id": "hobbies_and_interests_4_hobbies_and_interests_q2",
+        "query": "How can you help the user with their current hobby, such as setting up a home studio?",
+        "ndcg@5": 0.5962977923413559,
+        "reciprocal_rank": 1.0,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "c9b52fe6-6761-4178-90bb-85ece347ef27",
+            "content": "User enjoys playing guitar, composing music, and performing at local venues weekly",
+            "relevance": 2
+          },
+          {
+            "memory_id": "85495146-c8c8-4c66-a9b1-3c0f9fb8d890",
+            "content": "User takes photos of flowers and landscapes for their online portfolio",
+            "relevance": 2
+          },
+          {
+            "memory_id": "e75bdbf8-ade9-4be3-a08c-52ee950f5364",
+            "content": "User loves hiking in nature and has multiple outdoor gear items like tent, backpacking boots, and water filter",
+            "relevance": 1
+          },
+          {
+            "memory_id": "5652bf3d-6813-4b41-a78a-f25fa7385f13",
+            "content": "User is an avid knitter and enjoys crafting sweaters and scarves",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "c9b52fe6-6761-4178-90bb-85ece347ef27",
+            "content": "User enjoys playing guitar, composing music, and performing at local venues weekly",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.62082005,
+            "final_score": 0.738039769166897,
+            "expected_relevance": 2
+          },
+          {
+            "rank": 2,
+            "memory_id": "8ff05a3a-534c-452d-b11c-f8e4d4f0f854",
+            "content": "User is interested in upgrading to a quantum computing system in the near future",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.56931293,
+            "final_score": 0.7040121076761591,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 3,
+            "memory_id": "5652bf3d-6813-4b41-a78a-f25fa7385f13",
+            "content": "User is an avid knitter and enjoys crafting sweaters and scarves",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.52497613,
+            "final_score": 0.667483288996499,
+            "expected_relevance": 1
+          },
+          {
+            "rank": 4,
+            "memory_id": "3bb7e1b6-4cb7-4a1b-a518-0bf522e0ac49",
+            "content": "User recently started teaching coding workshops to local high school students",
+            "importance_score": 0.95,
+            "similarity_score": 0.5132354,
+            "final_score": 0.6673119536798814,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 5,
+            "memory_id": "3fd22ee2-d316-43a3-8b8e-86aaff0a6daf",
+            "content": "User is a fan of board games like Settlers of Catan and has built several gaming tables",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.5042594,
+            "final_score": 0.6529815788877952,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "technology_and_gadgets",
+        "query_id": "technology_and_gadgets_3_technology_and_gadgets_q0",
+        "query": "What type of smartphone or tablet do you need to purchase for the user?",
+        "ndcg@5": 0.6131471927654584,
+        "reciprocal_rank": 1.0,
+        "best_expected_relevance": 1,
+        "expected_memories": [
+          {
+            "memory_id": "7354590c-95b8-4c50-ba42-03dd4a723343",
+            "content": "User has an iPhone and uses it daily for work and personal use",
+            "relevance": 1
+          },
+          {
+            "memory_id": "8ff05a3a-534c-452d-b11c-f8e4d4f0f854",
+            "content": "User is interested in upgrading to a quantum computing system in the near future",
+            "relevance": 1
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "7354590c-95b8-4c50-ba42-03dd4a723343",
+            "content": "User has an iPhone and uses it daily for work and personal use",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.6336987,
+            "final_score": 0.7435890881393865,
+            "expected_relevance": 1
+          },
+          {
+            "rank": 2,
+            "memory_id": "097008f2-1a67-4594-aef1-4fb5ebafb83a",
+            "content": "User frequently takes notes using their Evernote account and appreciates the sync feature across different devices",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.5124272,
+            "final_score": 0.6586990392806193,
+            "expected_relevance": 0
+          }
+        ]
+      },
+      {
+        "scenario": "technology_and_gadgets",
+        "query_id": "technology_and_gadgets_3_technology_and_gadgets_q2",
+        "query": "What are some key features should a high-end laptop have that will benefit the user?",
+        "ndcg@5": 0.6309297535714575,
+        "reciprocal_rank": 0.5,
+        "best_expected_relevance": 2,
+        "expected_memories": [
+          {
+            "memory_id": "8ff05a3a-534c-452d-b11c-f8e4d4f0f854",
+            "content": "User is interested in upgrading to a quantum computing system in the near future",
+            "relevance": 2
+          }
+        ],
+        "top_results": [
+          {
+            "rank": 1,
+            "memory_id": "5a257c70-9216-43c5-8adb-de14f3253394",
+            "content": "User owns a high-end gaming laptop with the latest NVIDIA graphics card",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.6920065,
+            "final_score": 0.7878702835781586,
+            "expected_relevance": 0
+          },
+          {
+            "rank": 2,
+            "memory_id": "8ff05a3a-534c-452d-b11c-f8e4d4f0f854",
+            "content": "User is interested in upgrading to a quantum computing system in the near future",
+            "importance_score": 0.8999999999999999,
+            "similarity_score": 0.56950724,
+            "final_score": 0.7021208020191886,
+            "expected_relevance": 2
+          }
+        ]
+      }
+    ]
+  },
+  "deduplication": {
+    "accuracy": 1.0,
+    "total_cases": 2,
+    "correct": 2
+  },
+  "performance": {
+    "store_latency_p50": 72.10604997817427,
+    "store_latency_p95": 131.49155002320182,
+    "search_latency_p50": 80.77225007582456,
+    "search_latency_p95": 132.19986495096234,
+    "n_operations": 50
+  }
+}
