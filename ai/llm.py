@@ -4,11 +4,11 @@ Uses Google Gemini API.
 """
 
 import os
-from typing import List, Optional
+from typing import List, Optional, Dict
 
 from loguru import logger
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 from config.settings import settings
 
@@ -42,18 +42,29 @@ class LLMClient:
         self,
         prompt: str,
         context: Optional[str] = None,
+        conversation_history: Optional[List[Dict[str, str]]] = None,
         system_instruction: Optional[str] = None,
         temperature: float = 0.7,
         max_tokens: int = 1000
     ) -> str:
         """Generate a response from Ollama using LangChain."""
         try: 
-            full_prompt = self._build_prompt(prompt, context, system_instruction)
+            full_prompt = self._build_prompt(prompt, context)
             logger.debug(f"Sending prompt to LLM (length: {len(full_prompt)} chars)")
             
             messages = []
             if system_instruction:
                 messages.append(SystemMessage(content=system_instruction))
+            if conversation_history:
+                for msg in conversation_history:
+                    role = msg.get("role")
+                    content = msg.get("content", "")
+                    if not content:
+                        continue
+                    if role == "assistant":
+                        messages.append(AIMessage(content=content))
+                    elif role == "user":
+                        messages.append(HumanMessage(content=content))
             messages.append(HumanMessage(content=full_prompt))
             
             # Use LangChain's invoke method (automatically traced by LangSmith)
@@ -74,8 +85,7 @@ class LLMClient:
     def _build_prompt(
             self, 
             user_input: str,
-            context: Optional[str] = None,
-            system_instruction: Optional[str] = None
+            context: Optional[str] = None
     )->str:
         """
         Build the full prompt for the LLM, combining system instructions, context, and user input.
@@ -87,8 +97,6 @@ class LLMClient:
             The combined prompt string
         """
         prompt_parts = []
-        if system_instruction:
-            prompt_parts.append(f"System Instruction:\n{system_instruction}\n\n")
         if context:
             prompt_parts.append(f"Context:\n{context}\n\n")
         prompt_parts.append(f"User Input:\n{user_input}")

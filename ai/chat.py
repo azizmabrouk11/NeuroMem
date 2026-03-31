@@ -70,6 +70,7 @@ class ChatManager:
             response = self.llm_client.generate_response(
                 prompt=user_message,
                 context=context,
+                conversation_history=self.conversation_history,
                 system_instruction=self.system_instruction
             )
             logger.info(f"Assistant response: {response[:100]}...")
