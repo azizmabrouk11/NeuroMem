@@ -245,5 +245,23 @@ def chat(user_id: str, system: str):
         sys.exit(1)
 
 
+@cli.command()
+@click.option('--debug', is_flag=True, default=False, help='Enable debug logging')
+def mcp(debug: bool):
+    """
+    Run the NeuroMem MCP server over stdio.
+
+    Example:
+        python -m app.cli mcp
+    """
+    try:
+        from mcp_server.server import main as run_mcp_server
+
+        run_mcp_server(debug=debug)
+    except Exception as e:
+        click.echo(click.style(f"✗ Error: {e}", fg='red', bold=True))
+        sys.exit(1)
+
+
 if __name__ == '__main__':
     cli()

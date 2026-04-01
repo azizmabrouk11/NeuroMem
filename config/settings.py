@@ -6,6 +6,13 @@ class Settings(BaseSettings):
     gemini_api_key: str = ""
     embedding_model: str = "models/gemini-embedding-001"
     llm_model: str = "gemini-2.5-flash"  
+
+    # MCP
+    mcp_enabled: bool = True
+    mcp_server_name: str = "neuro-mem"
+    mcp_server_version: str = "0.1.0"
+    mcp_log_level: str = "INFO"
+    mcp_startup_checks: bool = True
     
     # Qdrant
     qdrant_host: str = "localhost"
