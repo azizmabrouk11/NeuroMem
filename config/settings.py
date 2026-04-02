@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     
     # Embedding provider
     embedding_provider: str = "ollama"  # "ollama" or "gemini"
-    ollama_embedding_model: str = "embeddinggemma"
+    ollama_embedding_model: str = "mxbai-embed-large"
     
     # Memory settings
     max_working_memory: int = 10

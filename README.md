@@ -64,14 +64,16 @@ NeuroMem/
 |- models/               # Memory/user models
 |- evaluation/           # Eval runners, evaluators, converters, data
 |- config/               # Runtime settings
+|- mcp_server/           # MCP server and tool wrappers
+|- utils/                # Debug and validation scripts
 |- docker-compose.yml    # Ollama + Qdrant + Label Studio
 ```
 
 ---
 
-## Quick Start
+## How to Use
 
-### 1) Start services
+### 1) Start the local services
 
 ```bash
 docker compose up -d
@@ -83,7 +85,7 @@ This starts:
 - `qdrant` on `6333`
 - `label-studio` on `8080`
 
-### 2) Create environment and install
+### 2) Create the Python environment and install dependencies
 
 ```bash
 python -m venv .venv
@@ -94,7 +96,7 @@ pip install -r requirements.txt
 
 ### 3) Configure `.env`
 
-Minimal local setup:
+Start with this local setup:
 
 ```env
 llm_provider=ollama
@@ -102,45 +104,56 @@ ollama_base_url=http://localhost:11434/v1
 ollama_model=qwen2.5:3b-instruct
 
 embedding_provider=ollama
-ollama_embedding_model=embeddinggemma
+ollama_embedding_model=mxbai-embed-large
 
 qdrant_host=localhost
 qdrant_port=6333
 qdrant_collection_name=ai_brain_memories
 ```
 
-### 4) Try memory commands
+If you want Gemini instead, switch `llm_provider` and `embedding_provider` to `gemini` and add `gemini_api_key`.
+
+### 4) Use the CLI
+
+The CLI is the fastest way to store, search, delete, and inspect memories.
+
+Store a memory:
 
 ```bash
-python -m app.cli remember "User likes Ethiopian food" -u demo -t semantic -g food
+python -m app.cli remember "User likes Ethiopian food" -u demo -t semantic -g food -g preference
+```
+
+Search memories:
+
+```bash
 python -m app.cli recall "what food does the user like?" -u demo -k 5
+```
+
+Delete a memory:
+
+```bash
+python -m app.cli forget mem_abc123 -u demo
+```
+
+Build LLM-ready context:
+
+```bash
+python -m app.cli context "What are my preferences?" -u demo
+```
+
+Open an interactive memory chat:
+
+```bash
 python -m app.cli chat -u demo
 ```
 
----
-
-## CLI Commands
-
-| Command | Purpose |
-|---|---|
-| `python -m app.cli remember ...` | Store memory |
-| `python -m app.cli recall ...` | Search memories |
-| `python -m app.cli forget ...` | Delete memory by id |
-| `python -m app.cli context ...` | Build LLM-ready memory context |
-| `python -m app.cli chat ...` | Interactive memory-enabled chat |
-| `python -m app.cli stats ...` | Basic user memory stats |
-
-Examples:
+Show quick stats:
 
 ```bash
-python -m app.cli remember "User works remotely" -u alice -t semantic
-python -m app.cli recall "where does alice work" -u alice --top-k 3
-python -m app.cli forget <memory_id> -u alice
+python -m app.cli stats -u demo
 ```
 
----
-
-## Python API
+### 5) Use the Python API
 
 ```python
 from core.brain import Brain
@@ -160,11 +173,28 @@ for r in results:
     print(r.final_score, r.memory.content)
 ```
 
----
+Use the Python API when you want to embed NeuroMem inside another service or workflow.
 
-## Evaluation Workflow
+### 6) Run the MCP server
 
-### Run full evaluation
+The MCP server exposes the same memory capabilities as tools for agent runtimes.
+
+```bash
+python -m app.cli mcp
+```
+
+Available MCP tools:
+
+- `store_memory`
+- `retrieve_memories`
+- `get_context`
+- `delete_memory`
+- `chat`
+- `extract_memories`
+
+### 7) Run evaluation workflows
+
+Run the full suite:
 
 ```bash
 python -m evaluation.run_eval
@@ -172,13 +202,13 @@ python -m evaluation.run_eval
 
 Outputs include retrieval metrics (Precision@3, Recall@5, nDCG, MRR, MAP), deduplication metrics, and performance benchmarks.
 
-### Use custom test cases
+Use custom test cases:
 
 ```bash
 python -c "from evaluation.run_eval import run_all; run_all('evaluation/data/test_cases_from_label_studio.json')"
 ```
 
-### Convert Label Studio export -> test_cases format
+Convert a Label Studio export into the test-case format:
 
 ```bash
 python -m evaluation.converters.from_label_studio \
@@ -186,21 +216,33 @@ python -m evaluation.converters.from_label_studio \
   --output-path evaluation/data/test_cases_from_label_studio.json
 ```
 
-### Create Label Studio tasks from unlabeled scenarios
+Create Label Studio tasks from unlabeled scenarios:
 
 ```bash
 python -m evaluation.converters.to_label_studio
 ```
 
-### Explore memory datasets (including script-based fallback)
+Evaluation inputs and outputs live under `evaluation/data/` and `evaluation/data/results/`.
 
-```bash
-python -m evaluation.exploration.explore_memoryBench \
-  --dataset-id bavard/personachat_truecased \
-  --split test
-```
+Useful local checks:
 
-For `bavard/personachat_truecased`, the script includes a fallback loader for raw Hub JSON files when `datasets` blocks script-based loaders.
+The `utils/` folder contains helper scripts for debugging embeddings, retrieval scores, and deduplication experiments.
+
+---
+
+## Common Workflows
+
+### Add a new memory
+
+Store a fact or event with `remember`, then validate retrieval with `recall` or `context`.
+
+### Build a memory-aware chat app
+
+Use `core.brain.Brain` directly in Python or wrap it with `ai.chat.ChatManager` for conversational flows.
+
+### Integrate with an agent platform
+
+Run the MCP server and call the tools from your client using the same user IDs and memory workflow as the CLI.
 
 ---
 
@@ -213,7 +255,7 @@ Main settings are defined in `config/settings.py` and loaded from `.env`.
 | `llm_provider` | `ollama` | `ollama` or `gemini` |
 | `embedding_provider` | `ollama` | `ollama` or `gemini` |
 | `ollama_model` | `qwen2.5:3b-instruct` | Chat model |
-| `ollama_embedding_model` | `embeddinggemma` | Embedding model |
+| `ollama_embedding_model` | `mxbai-embed-large` | Embedding model |
 | `qdrant_host` | `localhost` | Qdrant host |
 | `qdrant_port` | `6333` | Qdrant port |
 | `langsmith_tracing` | `false` | Optional tracing |
