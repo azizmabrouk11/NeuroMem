@@ -5,7 +5,7 @@
       "args": [
         "compose",
         "-f",
-        "C:\\Users\\ADMIN\\Desktop\\NeuroMem\\docker-compose.yml",
+        "C:\\path\\to\\NeuroMem\\docker-compose.yml",
         "run",
         "--rm",
         "neuromem",
