@@ -2,7 +2,8 @@ services:
   neuromem:
     build: .
     container_name: neuromem
-    command: ["python", "-m", "app.cli", "mcp"]
+    ports:
+      - "8000:8000"
     environment:
       LLM_PROVIDER: ollama
       EMBEDDING_PROVIDER: ollama

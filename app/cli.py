@@ -247,9 +247,12 @@ def chat(user_id: str, system: str):
 
 @cli.command()
 @click.option('--debug', is_flag=True, default=False, help='Enable debug logging')
-def mcp(debug: bool):
+@click.option('--transport', type=click.Choice(['stdio', 'streamable-http'], case_sensitive=False), default='stdio', help='MCP transport')
+@click.option('--host', default='0.0.0.0', help='HTTP host when using streamable-http')
+@click.option('--port', default=8000, type=int, help='HTTP port when using streamable-http')
+def mcp(debug: bool, transport: str, host: str, port: int):
     """
-    Run the NeuroMem MCP server over stdio.
+    Run the NeuroMem MCP server.
 
     Example:
         python -m app.cli mcp
@@ -257,7 +260,7 @@ def mcp(debug: bool):
     try:
         from mcp_server.server import main as run_mcp_server
 
-        run_mcp_server(debug=debug)
+        run_mcp_server(debug=debug, transport=transport, host=host, port=port)
     except Exception as e:
         click.echo(click.style(f"✗ Error: {e}", fg='red', bold=True))
         sys.exit(1)
