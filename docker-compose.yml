@@ -1,4 +1,20 @@
 services: 
+  neuromem:
+    build: .
+    container_name: neuromem
+    command: ["python", "-m", "app.cli", "mcp"]
+    environment:
+      LLM_PROVIDER: ollama
+      EMBEDDING_PROVIDER: ollama
+      OLLAMA_BASE_URL: http://ollama:11434/v1
+      QDRANT_HOST: qdrant
+      QDRANT_PORT: 6333
+      MCP_ENABLED: "true"
+    depends_on:
+      - ollama
+      - qdrant
+    restart: unless-stopped
+
   ollama:
     image: ollama/ollama:latest
     container_name: ollama

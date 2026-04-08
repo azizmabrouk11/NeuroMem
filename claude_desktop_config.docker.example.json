@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "neuro-mem": {
+      "command": "docker",
+      "args": [
+        "compose",
+        "-f",
+        "C:\\Users\\ADMIN\\Desktop\\NeuroMem\\docker-compose.yml",
+        "run",
+        "--rm",
+        "neuromem",
+        "python",
+        "-m",
+        "app.cli",
+        "mcp"
+      ]
+    }
+  }
+}

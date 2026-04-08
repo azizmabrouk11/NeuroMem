@@ -66,7 +66,7 @@ NeuroMem/
 |- config/               # Runtime settings
 |- mcp_server/           # MCP server and tool wrappers
 |- utils/                # Debug and validation scripts
-|- docker-compose.yml    # Ollama + Qdrant + Label Studio
+|- docker-compose.yml    # NeuroMem + Ollama + Qdrant + Label Studio
 ```
 
 ---
@@ -81,6 +81,7 @@ docker compose up -d
 
 This starts:
 
+- `neuromem` MCP service
 - `ollama` on `11434`
 - `qdrant` on `6333`
 - `label-studio` on `8080`
