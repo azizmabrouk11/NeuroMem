@@ -1,18 +1,9 @@
 {
   "mcpServers": {
     "neuro-mem": {
-      "command": "docker",
+      "command": "mcp-remote",
       "args": [
-        "compose",
-        "-f",
-        "C:\\Users\\ADMIN\\Desktop\\NeuroMem\\docker-compose.yml",
-        "run",
-        "--rm",
-        "neuromem",
-        "python",
-        "-m",
-        "app.cli",
-        "mcp"
+        "http://localhost:8000/mcp"
       ]
     }
   }

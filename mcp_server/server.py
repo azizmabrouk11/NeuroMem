@@ -7,6 +7,7 @@ from pathlib import Path
 
 from loguru import logger
 from mcp.server.fastmcp import FastMCP
+import uvicorn
 
 try:
     from config.settings import settings
@@ -136,11 +137,21 @@ def extract_memories_tool(
     return run_extract_memories(user_message=user_message, assistant_message=assistant_message)
 
 
-def main(debug: bool = False) -> None:
+def main(
+    debug: bool = False,
+    transport: str = "stdio",
+    host: str = "127.0.0.1",
+    port: int = 8000,
+) -> None:
     if settings.mcp_startup_checks:
         logger.info("MCP startup checks enabled")
     logger.info(f"Starting MCP server: {settings.mcp_server_name} v{settings.mcp_server_version}")
     if debug:
         logger.info("MCP debug mode enabled")
-    server = build_server(debug=debug)
+    server = mcp
+
+    if transport in {"streamable-http", "http"}:
+        uvicorn.run(server.streamable_http_app(), host=host, port=port)
+        return
+
     server.run(transport="stdio")

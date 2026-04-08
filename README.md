@@ -51,6 +51,14 @@ flowchart TB
     E --> S
 ```
 
+### Docker + Claude Architecture (Recommended)
+
+- Docker Compose runs `neuromem`, `ollama`, and `qdrant` as persistent services.
+- `neuromem` exposes MCP over HTTP at `http://localhost:8000/mcp`.
+- Claude Desktop launches `mcp-remote` (stdio) which proxies to that HTTP endpoint.
+
+This avoids stdio lifecycle problems inside detached Docker containers while keeping Claude's expected stdio model.
+
 ## Repository Layout
 
 ```text
@@ -81,10 +89,15 @@ docker compose up -d
 
 This starts:
 
-- `neuromem` MCP service
 - `ollama` on `11434`
 - `qdrant` on `6333`
 - `label-studio` on `8080`
+
+The `neuromem` MCP service runs as a persistent HTTP endpoint on port `8000` and exposes MCP at:
+
+```text
+http://localhost:8000/mcp
+```
 
 ### 2) Create the Python environment and install dependencies
 
@@ -176,12 +189,52 @@ for r in results:
 
 Use the Python API when you want to embed NeuroMem inside another service or workflow.
 
-### 6) Run the MCP server
+6) Run the MCP server
 
 The MCP server exposes the same memory capabilities as tools for agent runtimes.
 
 ```bash
 python -m app.cli mcp
+```
+
+To run the HTTP server locally:
+
+```bash
+python -m app.cli mcp --transport streamable-http --host 0.0.0.0 --port 8000
+```
+
+Claude Desktop expects a stdio MCP process, so point it at the HTTP endpoint through a globally installed `mcp-remote` bridge:
+
+Install once:
+
+```bash
+npm install -g mcp-remote
+```
+
+Then use this Claude config:
+
+```json
+{
+    "mcpServers": {
+        "neuro-mem": {
+            "command": "mcp-remote",
+            "args": ["http://localhost:8000/mcp"]
+        }
+    }
+}
+```
+
+Windows note: if `mcp-remote` is not on `PATH`, use the absolute command path:
+
+```json
+{
+    "mcpServers": {
+        "neuro-mem": {
+            "command": "C:\\Users\\ADMIN\\AppData\\Roaming\\npm\\mcp-remote.cmd",
+            "args": ["http://localhost:8000/mcp"]
+        }
+    }
+}
 ```
 
 Available MCP tools:

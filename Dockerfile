@@ -25,8 +25,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Expose port for FastAPI (if needed)
-EXPOSE 8000
-
-# Default command - can be overridden in docker-compose.yml
-CMD ["python", "-m", "app.cli"]
+# Default command for MCP HTTP mode
+CMD ["python", "-m", "app.cli", "mcp", "--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8000"]
