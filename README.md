@@ -99,6 +99,14 @@ The `neuromem` MCP service runs as a persistent HTTP endpoint on port `8000` and
 http://localhost:8000/mcp
 ```
 
+By default, NeuroMem also runs startup dependency checks before serving MCP requests:
+
+- Qdrant must be reachable.
+- Ollama must be reachable when `llm_provider` or `embedding_provider` is `ollama`.
+- `GEMINI_API_KEY` must be set when either provider is `gemini`.
+
+You can disable these checks with `MCP_STARTUP_CHECKS=false`.
+
 ### 2) Create the Python environment and install dependencies
 
 ```bash
