@@ -3,10 +3,7 @@
 from __future__ import annotations
 
 import sys
-import socket
-import time
 from pathlib import Path
-from urllib.parse import urlparse
 
 from loguru import logger
 from mcp.server.fastmcp import FastMCP
@@ -54,65 +51,6 @@ def build_server(debug: bool = False) -> FastMCP:
 
 
 mcp = build_server()
-
-
-def _wait_for_tcp_service(name: str, host: str, port: int, timeout_seconds: int = 30) -> None:
-    deadline = time.time() + timeout_seconds
-    last_error = None
-
-    while time.time() < deadline:
-        try:
-            with socket.create_connection((host, port), timeout=2):
-                logger.info(f"Startup check passed: {name} reachable at {host}:{port}")
-                return
-        except OSError as exc:
-            last_error = exc
-            time.sleep(1)
-
-    raise RuntimeError(
-        f"Startup check failed: {name} not reachable at {host}:{port} within {timeout_seconds}s"
-        f" (last error: {last_error})"
-    )
-
-
-def _parse_host_port_from_url(url: str, default_port: int) -> tuple[str, int]:
-    parsed = urlparse(url)
-    if parsed.scheme and parsed.hostname:
-        if parsed.port:
-            return parsed.hostname, parsed.port
-        if parsed.scheme == "https":
-            return parsed.hostname, 443
-        return parsed.hostname, default_port
-
-    cleaned = url.replace("http://", "").replace("https://", "")
-    host_port = cleaned.split("/", 1)[0]
-    if ":" in host_port:
-        host, port_str = host_port.rsplit(":", 1)
-        return host, int(port_str)
-    return host_port, default_port
-
-
-def run_startup_checks() -> None:
-    llm_provider = settings.llm_provider.lower()
-    embedding_provider = settings.embedding_provider.lower()
-
-    valid_providers = {"ollama", "gemini"}
-    if llm_provider not in valid_providers:
-        raise RuntimeError(f"Invalid llm_provider: {settings.llm_provider}")
-    if embedding_provider not in valid_providers:
-        raise RuntimeError(f"Invalid embedding_provider: {settings.embedding_provider}")
-
-    _wait_for_tcp_service("Qdrant", settings.qdrant_host, settings.qdrant_port)
-
-    if llm_provider == "ollama" or embedding_provider == "ollama":
-        ollama_host, ollama_port = _parse_host_port_from_url(settings.ollama_base_url, default_port=11434)
-        _wait_for_tcp_service("Ollama", ollama_host, ollama_port)
-
-    if llm_provider == "gemini" or embedding_provider == "gemini":
-        if not settings.gemini_api_key.strip():
-            raise RuntimeError(
-                "Startup check failed: GEMINI_API_KEY is required when llm_provider or embedding_provider is 'gemini'"
-            )
 
 
 @mcp.tool(name="store_memory")
@@ -207,7 +145,6 @@ def main(
 ) -> None:
     if settings.mcp_startup_checks:
         logger.info("MCP startup checks enabled")
-        run_startup_checks()
     logger.info(f"Starting MCP server: {settings.mcp_server_name} v{settings.mcp_server_version}")
     if debug:
         logger.info("MCP debug mode enabled")

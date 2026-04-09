@@ -11,7 +11,6 @@ services:
       QDRANT_HOST: qdrant
       QDRANT_PORT: 6333
       MCP_ENABLED: "true"
-      MCP_STARTUP_CHECKS: "true"
     depends_on:
       - ollama
       - qdrant
