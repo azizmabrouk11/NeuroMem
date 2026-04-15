@@ -1,5 +1,5 @@
-# Use Python 3.11 slim image as base
-FROM python:3.11-slim
+# Use Docker Hub mirror to avoid intermittent auth.docker.io failures
+FROM mirror.gcr.io/library/python:3.11-slim
 
 # Set working directory
 WORKDIR /app
