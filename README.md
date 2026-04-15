@@ -79,7 +79,23 @@ NeuroMem/
 
 ---
 
+## Prerequisites
+
+Install these before starting:
+
+- Docker Desktop 4.x+ (recommended for runtime)
+- Python 3.9+ (for local CLI/dev workflows)
+- Node.js 18+ (for `mcp-remote` bridge)
+- Claude Desktop (if you want MCP integration)
+
 ## How to Use
+
+Choose one path based on your goal:
+
+- Path A: Docker + Claude (recommended for using NeuroMem as an MCP service)
+- Path B: Local Python development (recommended for coding and evaluation)
+
+### Path A) Docker + Claude Runtime
 
 ### 1) Start the local services
 
@@ -89,6 +105,7 @@ docker compose up -d
 
 This starts:
 
+- `neuromem` on `8000`
 - `ollama` on `11434`
 - `qdrant` on `6333`
 - `label-studio` on `8080`
@@ -99,7 +116,51 @@ The `neuromem` MCP service runs as a persistent HTTP endpoint on port `8000` and
 http://localhost:8000/mcp
 ```
 
-### 2) Create the Python environment and install dependencies
+### 2) Configure Claude Desktop MCP bridge
+
+Install once:
+
+```bash
+npm install -g mcp-remote
+```
+
+Then use this Claude config:
+
+```json
+{
+    "mcpServers": {
+        "neuro-mem": {
+            "command": "mcp-remote",
+            "args": ["http://localhost:8000/mcp"]
+        }
+    }
+}
+```
+
+Windows note: if `mcp-remote` is not on `PATH`, use the absolute command path:
+
+```json
+{
+    "mcpServers": {
+        "neuro-mem": {
+            "command": "C:\\Users\\ADMIN\\AppData\\Roaming\\npm\\mcp-remote.cmd",
+            "args": ["http://localhost:8000/mcp"]
+        }
+    }
+}
+```
+
+### 3) Quick endpoint check
+
+```powershell
+try { (Invoke-WebRequest -Uri "http://localhost:8000/mcp" -Method GET -UseBasicParsing -TimeoutSec 10).StatusCode } catch { $_.Exception.Response.StatusCode.value__ }
+```
+
+Expected result: `406` is OK for GET on this endpoint (it confirms service reachability).
+
+### Path B) Local Python Development
+
+### 1) Create the Python environment and install dependencies
 
 ```bash
 python -m venv .venv
@@ -108,7 +169,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### 3) Configure `.env`
+### 2) Configure `.env`
 
 Start with this local setup:
 
@@ -127,7 +188,7 @@ qdrant_collection_name=ai_brain_memories
 
 If you want Gemini instead, switch `llm_provider` and `embedding_provider` to `gemini` and add `gemini_api_key`.
 
-### 4) Use the CLI
+### 3) Use the CLI
 
 The CLI is the fastest way to store, search, delete, and inspect memories.
 
@@ -167,7 +228,7 @@ Show quick stats:
 python -m app.cli stats -u demo
 ```
 
-### 5) Use the Python API
+### 4) Use the Python API
 
 ```python
 from core.brain import Brain
@@ -189,7 +250,7 @@ for r in results:
 
 Use the Python API when you want to embed NeuroMem inside another service or workflow.
 
-6) Run the MCP server
+### 5) Run the MCP server
 
 The MCP server exposes the same memory capabilities as tools for agent runtimes.
 
@@ -203,40 +264,6 @@ To run the HTTP server locally:
 python -m app.cli mcp --transport streamable-http --host 0.0.0.0 --port 8000
 ```
 
-Claude Desktop expects a stdio MCP process, so point it at the HTTP endpoint through a globally installed `mcp-remote` bridge:
-
-Install once:
-
-```bash
-npm install -g mcp-remote
-```
-
-Then use this Claude config:
-
-```json
-{
-    "mcpServers": {
-        "neuro-mem": {
-            "command": "mcp-remote",
-            "args": ["http://localhost:8000/mcp"]
-        }
-    }
-}
-```
-
-Windows note: if `mcp-remote` is not on `PATH`, use the absolute command path:
-
-```json
-{
-    "mcpServers": {
-        "neuro-mem": {
-            "command": "C:\\Users\\ADMIN\\AppData\\Roaming\\npm\\mcp-remote.cmd",
-            "args": ["http://localhost:8000/mcp"]
-        }
-    }
-}
-```
-
 Available MCP tools:
 
 - `store_memory`
@@ -246,7 +273,7 @@ Available MCP tools:
 - `chat`
 - `extract_memories`
 
-### 7) Run evaluation workflows
+### 6) Run evaluation workflows
 
 Run the full suite:
 
@@ -281,6 +308,41 @@ Evaluation inputs and outputs live under `evaluation/data/` and `evaluation/data
 Useful local checks:
 
 The `utils/` folder contains helper scripts for debugging embeddings, retrieval scores, and deduplication experiments.
+
+### 7) Five-minute smoke test
+
+```bash
+python -m app.cli remember "User likes Ethiopian food" -u smoke -t semantic -g food
+python -m app.cli recall "what food does the user like?" -u smoke -k 3
+python -m app.cli context "What are the user's food preferences?" -u smoke
+```
+
+Expected result: the recall output includes the stored memory, and context is non-empty.
+
+---
+
+## Troubleshooting
+
+### `Invalid Host header` when connecting Claude
+
+- Use `http://localhost:8000/mcp` in your `mcp-remote` args.
+- Avoid `host.docker.internal` or machine hostnames unless you explicitly configure MCP transport security.
+
+### Docker build fails on `python:3.11-slim` metadata/auth
+
+- Symptom: errors fetching anonymous token from `auth.docker.io`.
+- Current workaround in this repo: base image uses `mirror.gcr.io/library/python:3.11-slim`.
+- Retry with a fresh build:
+
+```bash
+docker compose up -d --build
+```
+
+### `mcp-remote` command not found on Windows
+
+- Install globally: `npm install -g mcp-remote`
+- Or use absolute command path in Claude config:
+    `C:\\Users\\ADMIN\\AppData\\Roaming\\npm\\mcp-remote.cmd`
 
 ---
 
