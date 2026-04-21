@@ -97,6 +97,25 @@ Choose one path based on your goal:
 
 ### Path A) Docker + Claude Runtime
 
+If you prefer a prebuilt image, pull from Docker Hub:
+
+```bash
+docker pull azizmbk/neuromem:latest
+```
+
+Run NeuroMem directly (expects Ollama and Qdrant reachable by network/DNS):
+
+```bash
+docker run --rm -p 8000:8000 \
+    -e LLM_PROVIDER=ollama \
+    -e EMBEDDING_PROVIDER=ollama \
+    -e OLLAMA_BASE_URL=http://host.docker.internal:11434/v1 \
+    -e QDRANT_HOST=host.docker.internal \
+    -e QDRANT_PORT=6333 \
+    -e MCP_ENABLED=true \
+    azizmbk/neuromem:latest
+```
+
 ### 1) Start the local services
 
 ```bash
@@ -393,6 +412,29 @@ pytest
 ```
 
 Useful utility scripts live under `utils/` for data checks, embedding checks, and evaluation debugging.
+
+---
+
+## Docker Hub Publishing (Maintainers)
+
+This repository publishes images to Docker Hub as `azizmbk/neuromem` using GitHub Actions.
+
+Required repository secrets:
+
+- `DOCKER_HUB_USERNAME`
+- `DOCKER_HUB_TOKEN`
+
+Publish behavior:
+
+- Push to `main` publishes `azizmbk/neuromem:latest` and `azizmbk/neuromem:sha-<commit>`.
+- Push a git tag like `v0.1.0` publishes `azizmbk/neuromem:v0.1.0`.
+
+Release flow:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
 
 ---
 
