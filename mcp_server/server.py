@@ -7,6 +7,7 @@ from pathlib import Path
 
 from loguru import logger
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 import uvicorn
 
 try:
@@ -43,10 +44,33 @@ def build_server(debug: bool = False) -> FastMCP:
     if not settings.mcp_enabled:
         raise RuntimeError("MCP server is disabled in settings")
 
+    # Allow common local and Docker hostnames so MCP clients in sibling
+    # containers (e.g., n8n) can discover tools over streamable HTTP.
+    transport_security = TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=[
+            "127.0.0.1:*",
+            "localhost:*",
+            "[::1]:*",
+            "host.docker.internal:*",
+            "neuromem:*",
+            "n8n:*",
+        ],
+        allowed_origins=[
+            "http://127.0.0.1:*",
+            "http://localhost:*",
+            "http://[::1]:*",
+            "http://host.docker.internal:*",
+            "http://neuromem:*",
+            "http://n8n:*",
+        ],
+    )
+
     return FastMCP(
         settings.mcp_server_name,
         debug=debug,
         log_level=settings.mcp_log_level,
+        transport_security=transport_security,
     )
 
 
