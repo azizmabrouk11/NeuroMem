@@ -8,12 +8,18 @@ services:
       LLM_PROVIDER: ollama
       EMBEDDING_PROVIDER: ollama
       OLLAMA_BASE_URL: http://ollama:11434/v1
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:3b-instruct}
+      OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL:-mxbai-embed-large}
       QDRANT_HOST: qdrant
       QDRANT_PORT: 6333
       MCP_ENABLED: "true"
     depends_on:
-      - ollama
-      - qdrant
+      ollama:
+        condition: service_started
+      qdrant:
+        condition: service_started
+      ollama-pull:
+        condition: service_completed_successfully
     restart: unless-stopped
 
   ollama:
@@ -31,6 +37,28 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+
+  ollama-pull:
+    image: ollama/ollama:latest
+    container_name: ollama-pull
+    depends_on:
+      - ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:3b-instruct}
+      OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL:-mxbai-embed-large}
+    command: >
+      sh -lc '
+        until ollama list >/dev/null 2>&1; do
+          echo "Waiting for Ollama..."
+          sleep 2
+        done
+        ollama pull "$OLLAMA_MODEL"
+        ollama pull "$OLLAMA_EMBEDDING_MODEL"
+      '
+    restart: "no"
 
   qdrant:
     image: qdrant/qdrant:latest

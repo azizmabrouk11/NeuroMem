@@ -15,6 +15,62 @@ Persistent memory, semantic retrieval, and evaluation tooling for building assis
 
 ---
 
+## One-Shot Setup (Fresh User)
+
+If you want the fastest path from zero to Claude Desktop integration, use this.
+
+1) Install prerequisites: Docker Desktop, Node.js 18+, and Claude Desktop.
+
+2) From this project root, start everything:
+
+```bash
+docker compose up -d
+```
+
+This launches NeuroMem, Qdrant, and Ollama. On first run, it also auto-pulls the configured Ollama chat and embedding models.
+
+3) Install the MCP bridge once:
+
+```bash
+npm install -g mcp-remote
+```
+
+4) Add this to Claude Desktop config:
+
+```json
+{
+    "mcpServers": {
+        "neuro-mem": {
+            "command": "mcp-remote",
+            "args": ["http://localhost:8000/mcp"]
+        }
+    }
+}
+```
+
+Windows fallback if `mcp-remote` is not on PATH:
+
+```json
+{
+    "mcpServers": {
+        "neuro-mem": {
+            "command": "C:\\Users\\ADMIN\\AppData\\Roaming\\npm\\mcp-remote.cmd",
+            "args": ["http://localhost:8000/mcp"]
+        }
+    }
+}
+```
+
+5) Restart Claude Desktop.
+
+6) Optional quick check:
+
+```powershell
+try { (Invoke-WebRequest -Uri "http://localhost:8000/mcp" -Method GET -UseBasicParsing -TimeoutSec 10).StatusCode } catch { $_.Exception.Response.StatusCode.value__ }
+```
+
+Expected result: `406` means the MCP endpoint is reachable.
+
 ## Why NeuroMem
 
 NeuroMem gives your assistant a practical long-term memory stack:
@@ -121,6 +177,8 @@ docker run --rm -p 8000:8000 \
 ```bash
 docker compose up -d
 ```
+
+On the first run, Compose also waits for Ollama and pulls the configured chat and embedding models automatically, so Claude can connect without a manual `ollama pull` step.
 
 This starts:
 
