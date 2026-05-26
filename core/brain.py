@@ -54,10 +54,11 @@ class Brain:
 
     def remember(
             self,
-            content: str, 
-            memory_type: MemoryType = MemoryType.EPISODIC, 
+            content: str,
+            memory_type: MemoryType = MemoryType.EPISODIC,
             importance_score: Optional[float] = None,
-            tags: Optional[List[str]] = None
+            tags: Optional[List[str]] = None,
+            deduplication_threshold: float = 0.70,
             ) -> Memory:
         """
         Store a new memory.
@@ -89,7 +90,8 @@ class Brain:
                 user_id = self.user_id,
                 memory_type = memory_type,
                 importance_score = importance_score,
-                tags = tags or []
+                tags = tags or [],
+                deduplication_threshold = deduplication_threshold,
             )
             logger.info(f"Stored memory {memory.id[:8]} for user {self.user_id}")
             return memory

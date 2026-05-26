@@ -84,6 +84,7 @@ def store_memory_tool(
     memory_type: str = "episodic",
     importance_score: float | None = None,
     tags: list[str] | None = None,
+    deduplication_threshold: float = 0.70,
 ):
     """Store a memory for a user."""
     return run_store_memory(
@@ -92,6 +93,7 @@ def store_memory_tool(
         memory_type=memory_type,
         importance_score=importance_score,
         tags=tags,
+        deduplication_threshold=deduplication_threshold,
     )
 
 

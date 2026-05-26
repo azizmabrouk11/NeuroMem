@@ -23,6 +23,7 @@ def store_memory(
     memory_type: str = "episodic",
     importance_score: Optional[float] = None,
     tags: Optional[List[str]] = None,
+    deduplication_threshold: float = 0.70,
 ) -> Dict[str, Any]:
     brain = _build_brain(user_id)
     resolved_type = MemoryType.SEMANTIC if memory_type == "semantic" else MemoryType.EPISODIC
@@ -31,6 +32,7 @@ def store_memory(
         memory_type=resolved_type,
         importance_score=importance_score,
         tags=tags,
+        deduplication_threshold=deduplication_threshold,
     )
     return serialize_memory(memory)
 
