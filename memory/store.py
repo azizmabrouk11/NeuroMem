@@ -137,6 +137,11 @@ class MemoryStore:
         threshold: float
     ) -> List[Memory]:
         """Find similar memories for deduplication."""
+        # threshold >= 1.0 disables dedup: cosine similarity cannot exceed 1.0,
+        # so requiring strictly more is the natural "off" switch.
+        if threshold >= 1.0:
+            logger.info(f"Dedup disabled (threshold={threshold} >= 1.0), skipping duplicate search")
+            return []
         try:
             query = MemoryQuery(
                 query_text=content,
